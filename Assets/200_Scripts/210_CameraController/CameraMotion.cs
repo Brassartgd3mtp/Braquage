@@ -2,6 +2,8 @@ using UnityEngine;
 
 namespace RTS_Camera
 {
+    // Ce script permet le déplacement de la caméra en réponse aux entrées de déplacement horizontal et vertical.
+
     public class CameraMotion : MonoBehaviour
     {
         [SerializeField] private float _speed = 1f;
@@ -13,29 +15,39 @@ namespace RTS_Camera
 
         private void Awake()
         {
+            // Initialise la position cible au démarrage du script.
             _targetPosition = transform.position;
         }
 
         private void HandleInput()
         {
+            // Récupère les entrées utilisateur pour le déplacement horizontal et vertical.
             float x = Input.GetAxisRaw("Horizontal");
             float z = Input.GetAxisRaw("Vertical");
 
+            // Calcule les vecteurs de déplacement à droite et vers l'avant.
             Vector3 right = transform.right * x;
             Vector3 forward = transform.forward * z;
 
+            // Combine les vecteurs de déplacement et normalise le résultat.
             _input = (forward + right).normalized;
         }
 
         private void Move()
         {
+            // Calcule la prochaine position cible en fonction de l'entrée utilisateur.
             Vector3 nextTargetPosition = _targetPosition + _input * _speed;
+
+            // Vérifie si la prochaine position est dans les limites autorisées.
             if (IsInBounds(nextTargetPosition)) _targetPosition = nextTargetPosition;
+
+            // Lisse le mouvement de la caméra vers la position cible.
             transform.position = Vector3.Lerp(transform.position, _targetPosition, Time.deltaTime * _smoothing);
         }
 
         private bool IsInBounds(Vector3 position)
         {
+            // Vérifie si la position est dans la plage autorisée de déplacement.
             return position.x > -_range.x &&
                    position.x < _range.x &&
                    position.z > -_range.y &&
@@ -50,6 +62,7 @@ namespace RTS_Camera
 
         private void OnDrawGizmos()
         {
+            // Affiche des gizmos dans l'éditeur pour représenter la position de la caméra et la plage autorisée de déplacement.
             Gizmos.color = Color.red;
             Gizmos.DrawSphere(transform.position, 5f);
             Gizmos.DrawWireCube(Vector3.zero, new Vector3(_range.x * 2f, 5f, _range.y * 2f));
