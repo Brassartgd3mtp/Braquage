@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Door : InteractibleObject
+public class ObjectDoor : InteractibleObject
 {
     private bool isOpening = false; // Booléen pour déterminer si la porte est en train de s'ouvrir
     public float _resolutionTime = 1.0f; // Durée de la transition en secondes
@@ -14,6 +14,24 @@ public class Door : InteractibleObject
         doorCollider = GetComponent<Collider>();
     }
 
+    public override void OnInteraction()
+    {
+        base.OnInteraction(); // Appelle d'abord la méthode du script parent si nécessaire
+        if (!isTransitioning)
+        {
+            if (isOpening)
+            {
+                CloseDoor();
+            }
+            else
+            {
+                OpenDoor();
+            }
+        }
+        // Inverse la valeur du booléen pour la prochaine fois
+        Debug.Log("Contact Enfant");
+        // Ajoute le code spécifique à cet objet interactif
+    }
 
     void OpenDoor()
     {
@@ -54,22 +72,4 @@ public class Door : InteractibleObject
         isOpening = !isOpening;
     }
 
-    public override void OnInteraction()
-    {
-        base.OnInteraction(); // Appelle d'abord la méthode du script parent si nécessaire
-        if (!isTransitioning)
-        {
-            if (isOpening)
-            {
-                CloseDoor();
-            }
-            else
-            {
-                OpenDoor();
-            }
-        }
-        // Inverse la valeur du booléen pour la prochaine fois
-        Debug.Log("Contact Enfant");
-        // Ajoute le code spécifique à cet objet interactif
-    }
 }
