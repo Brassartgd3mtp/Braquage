@@ -5,6 +5,9 @@ public class UnitClick : MonoBehaviour
     private Camera myCam;
     public GameObject groundMarker;
 
+    private bool isActive = false;
+
+
     public LayerMask clickable;
     public LayerMask ground;
     void Start()
@@ -46,7 +49,7 @@ public class UnitClick : MonoBehaviour
                 }
             }
         }
-
+        //Si je clique droit fait apparaitre un symbole au sol
         if (Input.GetMouseButtonDown(1))
         {
             RaycastHit hit;
@@ -56,8 +59,19 @@ public class UnitClick : MonoBehaviour
             {
                 groundMarker.transform.position = hit.point;
                 groundMarker.SetActive(true);
-                groundMarker.SetActive(false);
+
+                // Active le timer en passant isActive à true
+                isActive = true;
+                Invoke("DisableGroundMarker", 2.0f); // Appelle la méthode DisableGroundMarker après 2 secondes
             }
         }
+    }
+    void DisableGroundMarker()
+    {
+        // Désactive le marqueur au bout de 2 secondes
+        groundMarker.SetActive(false);
+
+        // Désactive le timer en passant isActive à false
+        isActive = false;
     }
 }

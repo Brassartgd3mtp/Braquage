@@ -24,7 +24,7 @@ namespace RTS_Camera
         {
 
             // Détection de l'appui sur la touche A pour la rotation vers la gauche
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.A))
             {
                 _targetAngle -= _rotationAmount;
             }
