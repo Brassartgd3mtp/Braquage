@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectVault : InteractibleObject
@@ -12,7 +10,7 @@ public class ObjectVault : InteractibleObject
     void Start()
     {
         coffreFortCollider = GetComponent<Collider>();
-        LockCoffreFort();
+        LockVault();
     }
 
 
@@ -21,11 +19,11 @@ public class ObjectVault : InteractibleObject
     {
         if (!isBeingPicked && isLocked)
         {
-            StartCoroutine(PickCoffreFortCoroutine());
+            StartCoroutine(PickVaultCoroutine());
         }
     }
 
-    System.Collections.IEnumerator PickCoffreFortCoroutine()
+    System.Collections.IEnumerator PickVaultCoroutine()
     {
         isBeingPicked = true;
 
@@ -35,18 +33,18 @@ public class ObjectVault : InteractibleObject
         // Code pour ouvrir le coffre-fort (peut être similaire à la transition de la porte)
         Debug.Log("Le coffre-fort a été crocheté et s'ouvre !");
 
-        UnlockCoffreFort();
+        UnlockVault();
         isBeingPicked = false;
     }
 
-    void UnlockCoffreFort()
+    void UnlockVault()
     {
         isLocked = false;
         // Code pour déverrouiller le coffre-fort si nécessaire
         Debug.Log("Le coffre-fort est déverrouillé.");
     }
 
-    void LockCoffreFort()
+    void LockVault()
     {
         isLocked = true;
         // Code pour verrouiller le coffre-fort au départ si nécessaire

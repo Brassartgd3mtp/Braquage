@@ -1,14 +1,24 @@
 using UnityEngine;
 
-public class ObjectDoor : InteractibleObject
+public class CrochetDoor : InteractibleObject
 {
-    private bool isOpening = false; // Booléen pour déterminer si la porte est en train de s'ouvrir
-    public float _resolutionTime = 1.0f; // Durée de la transition en secondes
+    private bool isLocked = true;
+    private bool isBeingPicked = false;
 
-    private bool isTransitioning = false; // Booléen pour vérifier si la transition est en cours
+    public float _pickingDuration = 5.0f; // Durée nécessaire pour crocheter la porte
+
+    public GameObject barProgressionUI;
 
     private Collider doorCollider; // Référence au collider de la porte
 
+
+    private bool isOpening = false; // Booléen pour déterminer si la porte est en train de s'ouvrir
+    private bool isTransitioning = false; // Booléen pour vérifier si la transition est en cours
+
+
+    public float _resolutionTime = 1.0f; // Durée de la transition en secondes
+
+    //Axe d'ouverture de la porte
     [SerializeField] private float axeXOpening = 4.0f;
     [SerializeField] private float axeYOpening = 0.0f;
     [SerializeField] private float axeZOpening = 0.0f;
@@ -16,27 +26,69 @@ public class ObjectDoor : InteractibleObject
     void Start()
     {
         doorCollider = GetComponent<Collider>();
+        LockDoor();
     }
+
 
     public override void OnInteraction()
     {
-        base.OnInteraction(); // Appelle d'abord la méthode du script parent si nécessaire
-        if (!isTransitioning)
+        if (!isBeingPicked && isLocked)
         {
-            if (isOpening)
+            StartCoroutine(PickDoorCoroutine());
+            BarProgression barProgression = barProgressionUI.GetComponent<BarProgression>();
+            barProgression.AugmenterFillAmount();
+        }
+
+
+        else if (!isTransitioning)
+        {
+            if (!isLocked)
             {
-                CloseDoor();
-            }
-            else
-            {
-                OpenDoor();
+                if (isOpening)
+                {
+                    CloseDoor();
+                }
+                else
+                {
+                    OpenDoor();
+                }
             }
         }
-        // Inverse la valeur du booléen pour la prochaine fois
-        Debug.Log("Contact Enfant");
-        // Ajoute le code spécifique à cet objet interactif
     }
 
+
+    #region Lock System
+    void UnlockDoor()
+    {
+        isLocked = false;
+
+        Debug.Log("La porte est déverrouillé.");
+    }
+
+    void LockDoor()
+    {
+        isLocked = true;
+
+        Debug.Log("La porte est verrouillé.");
+    }
+
+    System.Collections.IEnumerator PickDoorCoroutine()
+    {
+        isBeingPicked = true;
+
+        // Attends la durée nécessaire pour crocheter la porte
+        yield return new WaitForSeconds(_pickingDuration);
+
+        Debug.Log("La porte a été crocheté !");
+
+        UnlockDoor();
+        isBeingPicked = false;
+
+    }
+    #endregion
+
+
+    #region OpendDoor System
     void OpenDoor()
     {
         // Code pour ouvrir la porte de droite à gauche
@@ -52,7 +104,6 @@ public class ObjectDoor : InteractibleObject
 
         Debug.Log("La porte se ferme de gauche à droite");
     }
-
 
     System.Collections.IEnumerator AnimateDoor(Vector3 start, Vector3 end)
     {
@@ -75,5 +126,5 @@ public class ObjectDoor : InteractibleObject
         isTransitioning = false; // Marque la fin de la transition
         isOpening = !isOpening;
     }
-
+    #endregion
 }

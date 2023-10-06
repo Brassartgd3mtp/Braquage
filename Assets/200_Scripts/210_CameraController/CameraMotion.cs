@@ -64,7 +64,7 @@ namespace RTS_Camera
         {
             // Affiche des gizmos dans l'éditeur pour représenter la position de la caméra et la plage autorisée de déplacement.
             Gizmos.color = Color.red;
-            Gizmos.DrawSphere(transform.position, 5f);
+            //Gizmos.DrawSphere(transform.position, 5f);
             Gizmos.DrawWireCube(Vector3.zero, new Vector3(_range.x * 2f, 5f, _range.y * 2f));
         }
 
