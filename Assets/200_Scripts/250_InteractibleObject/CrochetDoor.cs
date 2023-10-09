@@ -1,18 +1,25 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CrochetDoor : InteractibleObject
 {
+    //Savoir si la porte est crocheté ou non et si le crochetage est en cours
     private bool isLocked = true;
     private bool isBeingPicked = false;
 
     public float _pickingDuration = 5.0f; // Durée nécessaire pour crocheter la porte
+    
+    //Récupère le script de rôle des personnage pour en récupérer le _pickingMultiplier
+    public List<PlayerRole> _playerRole = new List<PlayerRole>();
+    public float _totalPickingTime;
 
+    //Récupère la barre d'UI qui permet de voir où en est le crochetage
     public GameObject barProgressionUI;
 
     private Collider doorCollider; // Référence au collider de la porte
 
 
-    private bool isOpening = false; // Booléen pour déterminer si la porte est en train de s'ouvrir
+    private bool isOpening = false; // Booléen pour déterminer si la porte ouverte ou fermée
     private bool isTransitioning = false; // Booléen pour vérifier si la transition est en cours
 
 
@@ -22,6 +29,8 @@ public class CrochetDoor : InteractibleObject
     [SerializeField] private float axeXOpening = 4.0f;
     [SerializeField] private float axeYOpening = 0.0f;
     [SerializeField] private float axeZOpening = 0.0f;
+
+
 
     void Start()
     {
@@ -72,15 +81,48 @@ public class CrochetDoor : InteractibleObject
         Debug.Log("La porte est verrouillé.");
     }
 
+    #region Partie de script qui récupère le rôle et le multiplicateur de crochetage _pickingMultiplier
+    private void OnTriggerEnter(Collider other)
+    {
+        // Vérifie si le collider est celui du joueur (ajustez selon vos besoins)
+        if (other.CompareTag("Player"))
+        {
+            // Ajoute le script du joueur à la liste s'il n'est pas déjà présent
+            PlayerRole _role = other.GetComponent<PlayerRole>();
+            if (_role != null && !_playerRole.Contains(_role))
+            {
+                _playerRole.Add(_role);
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        // Vérifie si le collider est celui du joueur et le retire de la liste s'il est présent
+        if (other.CompareTag("Player"))
+        {
+            PlayerRole _role = other.GetComponent<PlayerRole>();
+            if (_role != null && _playerRole.Contains(_role))
+            {
+                _playerRole.Remove(_role);
+            }
+        }
+    }
+    #endregion
     System.Collections.IEnumerator PickDoorCoroutine()
     {
         isBeingPicked = true;
 
         // Attends la durée nécessaire pour crocheter la porte
-        yield return new WaitForSeconds(_pickingDuration);
+        foreach (PlayerRole playerScript in _playerRole)
+        {
+            Debug.Log("_pickingMultiplier: " + playerScript._pickingMultiplier);
+            _totalPickingTime += playerScript._pickingMultiplier * _pickingDuration;
 
+        }
         Debug.Log("La porte a été crocheté !");
 
+            yield return new WaitForSeconds(_totalPickingTime);
         UnlockDoor();
         isBeingPicked = false;
 
