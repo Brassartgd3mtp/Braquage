@@ -19,7 +19,7 @@ public class PlayerRole : MonoBehaviour
     //A la perçeuse(Bool)
 
     public bool _technician; //Transporte la perceuse pour ouvrir les coffres lourds
-    public bool _hooker; // Permet de crocheter les portes classique plus vite
+    public bool _lockPicker; // Permet de crocheter les portes classique plus vite
     public bool _transporter; //N'a pas de malus de déplacement pendant le transport d'objets lourds
 
     public float _pickingMultiplier = 1.0f;

@@ -7,19 +7,19 @@ public class CrochetDoor : InteractibleObject
     private bool isLocked = true;
     private bool isBeingPicked = false;
 
-    public float _pickingDuration = 5.0f; // Durée nécessaire pour crocheter la porte
-    
+    public float _pickingDuration = 5.0f; // Durée nécessaire pour crocheter la porte, définit la difficulté du crochetage
+
     //Récupère le script de rôle des personnage pour en récupérer le _pickingMultiplier
     public List<PlayerRole> _playerRole = new List<PlayerRole>();
     public float _totalPickingTime;
 
     //Récupère la barre d'UI qui permet de voir où en est le crochetage
-    public GameObject barProgressionUI;
+    public BarProgression barProgressionUI;
 
     private Collider doorCollider; // Référence au collider de la porte
 
 
-    private bool isOpening = false; // Booléen pour déterminer si la porte ouverte ou fermée
+    private bool isOpening = false; // Booléen pour déterminer si la porte est ouverte ou fermée
     private bool isTransitioning = false; // Booléen pour vérifier si la transition est en cours
 
 
@@ -31,23 +31,20 @@ public class CrochetDoor : InteractibleObject
     [SerializeField] private float axeZOpening = 0.0f;
 
 
-
     void Start()
     {
         doorCollider = GetComponent<Collider>();
         LockDoor();
     }
 
-
     public override void OnInteraction()
     {
         if (!isBeingPicked && isLocked)
         {
             StartCoroutine(PickDoorCoroutine());
-            BarProgression barProgression = barProgressionUI.GetComponent<BarProgression>();
-            barProgression.AugmenterFillAmount();
-        }
+            barProgressionUI.AugmenterFillAmount();
 
+        }
 
         else if (!isTransitioning)
         {
@@ -67,24 +64,22 @@ public class CrochetDoor : InteractibleObject
 
 
     #region Lock System
+
     void UnlockDoor()
     {
         isLocked = false;
-
-        Debug.Log("La porte est déverrouillé.");
     }
 
     void LockDoor()
     {
         isLocked = true;
-
-        Debug.Log("La porte est verrouillé.");
     }
 
     #region Partie de script qui récupère le rôle et le multiplicateur de crochetage _pickingMultiplier
+
     private void OnTriggerEnter(Collider other)
     {
-        // Vérifie si le collider est celui du joueur (ajustez selon vos besoins)
+        // Vérifie si le collider est celui du joueur
         if (other.CompareTag("Player"))
         {
             // Ajoute le script du joueur à la liste s'il n'est pas déjà présent
@@ -109,23 +104,22 @@ public class CrochetDoor : InteractibleObject
         }
     }
     #endregion
+
+
     System.Collections.IEnumerator PickDoorCoroutine()
     {
         isBeingPicked = true;
 
-        // Attends la durée nécessaire pour crocheter la porte
-        foreach (PlayerRole playerScript in _playerRole)
+        // Attends la durée nécessaire pour crocheter la porte en fonction de la dureté du crochetage et du rôle du joueur qui effectue l'action
+        foreach (PlayerRole roleScript in _playerRole)
         {
-            Debug.Log("_pickingMultiplier: " + playerScript._pickingMultiplier);
-            _totalPickingTime += playerScript._pickingMultiplier * _pickingDuration;
-
+            _totalPickingTime += roleScript._pickingMultiplier * _pickingDuration;
         }
-        Debug.Log("La porte a été crocheté !");
 
-            yield return new WaitForSeconds(_totalPickingTime);
+        yield return new WaitForSeconds(_totalPickingTime);
+
         UnlockDoor();
         isBeingPicked = false;
-
     }
     #endregion
 
@@ -135,16 +129,12 @@ public class CrochetDoor : InteractibleObject
     {
         // Code pour ouvrir la porte de droite à gauche
         StartCoroutine(AnimateDoor(transform.position, transform.position + new Vector3(-axeXOpening, -axeYOpening, -axeZOpening)));
-
-        Debug.Log("La porte s'ouvre de droite à gauche");
     }
 
     void CloseDoor()
     {
         // Code pour fermer la porte de gauche à droite
         StartCoroutine(AnimateDoor(transform.position, transform.position + new Vector3(axeXOpening, axeYOpening, axeZOpening)));
-
-        Debug.Log("La porte se ferme de gauche à droite");
     }
 
     System.Collections.IEnumerator AnimateDoor(Vector3 start, Vector3 end)
@@ -168,5 +158,6 @@ public class CrochetDoor : InteractibleObject
         isTransitioning = false; // Marque la fin de la transition
         isOpening = !isOpening;
     }
+
     #endregion
 }

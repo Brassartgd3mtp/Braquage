@@ -96,7 +96,7 @@ public class UnitDrag : MonoBehaviour
         foreach (var unit in UnitSelections.Instance.unitList)
         {
             //if unit is within the bounds of the selection rect
-            if (selectionBox.Contains(myCam.WorldToScreenPoint(unit.transform.position)))
+            if (selectionBox.Contains(myCam.WorldToScreenPoint(unit.transform.position)) && unit.GetComponent<Collider>().enabled)
             {
                 //if any unit is within the selection add them to selection
                 UnitSelections.Instance.DragSelect(unit);

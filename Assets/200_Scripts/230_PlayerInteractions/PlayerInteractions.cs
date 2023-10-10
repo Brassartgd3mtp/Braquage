@@ -16,8 +16,8 @@ public class PlayerInteractions : MonoBehaviour
         {
             if (interactibleObject != null)
             {
-                interactibleObject.OnInteraction();
                 // Appelle la méthode lorsque la touche est enfoncée
+                interactibleObject.OnInteraction();
             }
             else
             {
@@ -51,4 +51,3 @@ public class PlayerInteractions : MonoBehaviour
         interactibleObject = null;
     }
 }
-

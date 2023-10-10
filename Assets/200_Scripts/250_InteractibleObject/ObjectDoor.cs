@@ -32,25 +32,18 @@ public class ObjectDoor : InteractibleObject
                 OpenDoor();
             }
         }
-        // Inverse la valeur du booléen pour la prochaine fois
-        Debug.Log("Contact Enfant");
-        // Ajoute le code spécifique à cet objet interactif
     }
 
     void OpenDoor()
     {
         // Code pour ouvrir la porte de droite à gauche
         StartCoroutine(AnimateDoor(transform.position, transform.position + new Vector3(-axeXOpening, -axeYOpening, -axeZOpening)));
-
-        Debug.Log("La porte s'ouvre de droite à gauche");
     }
 
     void CloseDoor()
     {
         // Code pour fermer la porte de gauche à droite
         StartCoroutine(AnimateDoor(transform.position, transform.position + new Vector3(axeXOpening, axeYOpening, axeZOpening)));
-
-        Debug.Log("La porte se ferme de gauche à droite");
     }
 
 
