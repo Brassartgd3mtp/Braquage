@@ -12,7 +12,7 @@ public class PlayerInteractions : MonoBehaviour
     void Update()
     {
         // Vérifie si une touche spécifique est enfoncée
-        if (isKeyPressed && Input.GetKeyUp(KeyCode.T))
+        if (isKeyPressed && Input.GetKeyUp(KeyCode.Space))
         {
             if (interactibleObject != null)
             {
