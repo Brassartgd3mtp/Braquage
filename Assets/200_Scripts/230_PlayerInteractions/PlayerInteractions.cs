@@ -4,11 +4,24 @@ using UnityEngine;
 
 public class PlayerInteractions : MonoBehaviour
 {
-    public string objectTag = "NomDuTag"; // Remplace "NomDuTag" par le tag de ton objet
+    public static List<string> objectTag = new List<string>();
     [SerializeField] private InteractibleObject interactibleObject; //Script de l'objet interactif
     [SerializeField] private bool isKeyPressed = false;
 
 
+
+    private void Start()
+    {
+        Invoke("SetupTags", 2f);
+
+    }
+
+    private void SetupTags()
+    {
+        objectTag.Add("Interactible");
+        objectTag.Add("Goal");
+
+    }
     void Update()
     {
         // Vérifie si une touche spécifique est enfoncée
@@ -28,7 +41,7 @@ public class PlayerInteractions : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(objectTag))
+        if (objectTag.Contains(other.tag))
         {
             // Définis la variable pour permettre l'activation de la méthode
             isKeyPressed = true;

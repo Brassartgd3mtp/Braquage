@@ -11,6 +11,11 @@ public class UnitSelections : MonoBehaviour
     private static UnitSelections _instance;
     public static UnitSelections Instance { get { return _instance; } }
 
+    public int TotalCharacters()
+    {
+        return unitList.Count;
+    }
+
     private void Awake()
     {
         //Si une instance existe et que ce n'est pas celle-ci
