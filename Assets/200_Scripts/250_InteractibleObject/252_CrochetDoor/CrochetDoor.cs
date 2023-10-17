@@ -7,7 +7,7 @@ public class CrochetDoor : InteractibleObject
     private bool isLocked = true;
     private bool isBeingPicked = false;
 
-    public float _pickingDuration = 5.0f; // Durée nécessaire pour crocheter la porte, définit la difficulté du crochetage
+    public float _pickingDuration = 5.0f; // Durée nécessaire pour crocheter la porte, ça définit la difficulté du crochetage
 
     //Récupère le script de rôle des personnage pour en récupérer le _pickingMultiplier
     public List<PlayerRole> _playerRole = new List<PlayerRole>();

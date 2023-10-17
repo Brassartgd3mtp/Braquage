@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
+using TMPro;
 
 public class Victory : MonoBehaviour
 {
     public GameObject victoryWindow;
     public ActivePause activePause;
+    public TextMeshProUGUI goalCountText;
+    public TextMeshProUGUI charactersInZoneText;
+
 
     public int totalCharactersNeed;
     [SerializeField] private int charactersInZone = 0;
@@ -24,13 +27,18 @@ public class Victory : MonoBehaviour
     private void Update()
     {
         CheckTotalGoal();
+
+        if (charactersInZoneText != null && objectiveCompleted)
+        {
+            charactersInZoneText.gameObject.SetActive(true);
+            charactersInZoneText.text = "Characters In Zone: " + charactersInZone + "/" + totalCharactersNeed;
+        }
     }
 
     #region CheckTotalCharacters - Vérifie que tout les personnages sont dans la zone de fin pour l'extraction
     private void CheckTotalCharacters()
     {
         int unitListCount = UnitSelections.Instance.TotalCharacters();
-        Debug.Log("Nombre d'unités dans la liste : " + unitListCount);
 
         totalCharactersNeed = unitListCount;
     }
@@ -63,7 +71,6 @@ public class Victory : MonoBehaviour
         if (victoryWindow != null)
         {
             victoryWindow.SetActive(true);
-            Debug.Log("Tous les personnages sont dans la zone. Fin du jeu!");
             // Ajouter ici d'autres actions liées à l'affichage de la fenêtre de victoire
         }
         else
@@ -94,6 +101,11 @@ public class Victory : MonoBehaviour
         if (goalListCount == collectedGoal)
         {
             objectiveCompleted = true;
+
+        }
+        if (goalCountText != null)
+        {
+            goalCountText.text = "Goal Count: " + collectedGoal + "/" + goalListCount;
         }
     }
 
@@ -105,8 +117,6 @@ public class Victory : MonoBehaviour
         {
             goalObjects.Add(goalObject);
         }
-
-        Debug.Log("Number of goal objects in the list: " + goalObjects.Count);
     }
 
     void OnDestroy()
@@ -117,7 +127,6 @@ public class Victory : MonoBehaviour
     void ClearGoalList()
     {
         goalObjects.Clear();
-        Debug.Log("Goal list cleared.");
     }
     #endregion
 }
