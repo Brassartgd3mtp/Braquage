@@ -5,41 +5,93 @@ using UnityEngine.AI;
 
 public class GuardPatrol : MonoBehaviour
 {
-    public List<Transform> waypoints = new List<Transform>(); // Liste des points de patrouille
-    private int currentWaypointIndex = 0; // Index du point de patrouille actuel
-    private NavMeshAgent navMeshAgent;
+    // Waypoints pour la patrouille du garde
+    public Transform[] waypoints;
+    private int currentWaypoint = 0;
+    private int patrolDirection = 1;
+
+    // Vitesse normale du garde et vitesse lorsqu'il détecte un joueur
+    public float normalSpeed = 3.5f;
+    public float detectionTrueSpeed = 6f;
+
+    // Distance minimale à maintenir entre le garde et le joueur
+    public float minDistanceToPlayer = 2f;
+
+    public NavMeshAgent Agent;
 
     void Start()
     {
-        navMeshAgent = GetComponent<NavMeshAgent>();
+        Agent = GetComponent<NavMeshAgent>();
 
-        // Assurez-vous d'avoir au moins un waypoint dans la liste
-        if (waypoints.Count == 0)
+        // Initialiser la patrouille en définissant la première destination
+        SetDestination();
+    }
+
+
+    // Arrêter la patrouille du garde
+    public void StopPatrol()
+    {
+        Agent.isStopped = true;
+    }
+
+
+    // Déplacer le garde vers la position du joueur
+    public void MoveTowardsPlayer(Vector3 playerPosition)
+    {
+        Agent.isStopped = false;
+
+        // Calculer la distance entre le garde et le joueur
+        float distanceToPlayer = Vector3.Distance(transform.position, playerPosition);
+
+        if (distanceToPlayer > minDistanceToPlayer)
         {
-            Debug.LogError("Ajoutez des waypoints au script GuardPatrol.");
+            // Si le garde était arrêté, lui donner la vitesse de détection
+            if (Agent.speed == 0f)
+            {
+                Agent.speed = detectionTrueSpeed; // Définir la vitesse de détection
+            }
+
+            // Sinon, définir la destination du garde à la position du joueur
+            else
+            {
+                Agent.SetDestination(playerPosition);
+
+            }
         }
         else
         {
-            SetDestination(); // Définissez la destination initiale
+            // Si le garde est assez proche du joueur, arrêter le garde
+            Agent.speed = 0f;
+
+            //D'autres actions possible à ajouter ici, le combat par exemple
         }
     }
 
-    void Update()
+    // Définir la destination du garde
+    public void SetDestination()
     {
-        // Vérifiez si le garde a atteint sa destination
-        if (navMeshAgent.remainingDistance < navMeshAgent.stoppingDistance)
+        Agent.isStopped = false;
+
+        Agent.speed = normalSpeed; // Assure que la vitesse est réinitialisée à la vitesse normale
+
+        // Définir la destination du garde au waypoint actuel
+        Agent.SetDestination(waypoints[currentWaypoint].position);
+    }
+
+    // Changer le waypoint suivant pour la patrouille
+    public void SetNextWaypoint()
+    {
+        // Avancer vers le prochain waypoint dans la direction de la patrouille
+        currentWaypoint += patrolDirection;
+
+        // Inverser la direction si le garde atteint le dernier ou le premier waypoint
+        if (currentWaypoint >= waypoints.Length || currentWaypoint < 0)
         {
-            // Passez au waypoint suivant
-            currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Count;
-
-            // Définissez la nouvelle destination
-            SetDestination();
+            patrolDirection *= -1;
+            currentWaypoint += patrolDirection * 2;
         }
-    }
 
-    void SetDestination()
-    {
-        // Définissez la destination du garde sur le waypoint actuel
-        navMeshAgent.SetDestination(waypoints[currentWaypointIndex].position);
+        SetDestination();
     }
 }
+
