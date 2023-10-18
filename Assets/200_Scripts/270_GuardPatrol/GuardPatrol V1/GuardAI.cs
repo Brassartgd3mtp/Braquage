@@ -29,41 +29,6 @@ public class GuardAI : MonoBehaviour
         playerDetection = GetComponent<GuardPlayerDetection>();
         //guardPatrol.SetDestination();
     }
-    /*
-    private enum BehaviourName
-    {
-        Patrol, 
-        Chase,
-        Attack
-    }
-    private Behaviour currentBehavuiour = guardPatrol;
-    private void ChangeBehaviour(BehaviourName _behaviour)
-    {
-        switch (_behaviour)
-        {
-            case BehaviourName.Patrol:
-                currentBehavuiour = guardPatrol;// hérite de Behaviour
-                break;
-            case BehaviourName.Chase:
-                currentBehavuiour = guardChase;// hérite de Behaviour
-                break;
-            case BehaviourName.Attack:
-                currentBehavuiour = guardAttack; // hérite de Behaviour
-                break;
-            default:
-                break;
-        }
-    }
-    
-    private bool CheckTransition(out BehaviourName _outBehaviour)
-    {
-        if(detect)
-        {
-            _outBehaviour = BehaviourName.Chase;
-            return true; 
-        }
-    }
-    */
 
     void Update()
     {
@@ -105,3 +70,39 @@ public class GuardAI : MonoBehaviour
         }
     }
 }
+
+    /*
+    private enum BehaviourName
+    {
+        Patrol, 
+        Chase,
+        Attack
+    }
+    private Behaviour currentBehavuiour = guardPatrol;
+    private void ChangeBehaviour(BehaviourName _behaviour)
+    {
+        switch (_behaviour)
+        {
+            case BehaviourName.Patrol:
+                currentBehavuiour = guardPatrol;// hérite de Behaviour
+                break;
+            case BehaviourName.Chase:
+                currentBehavuiour = guardChase;// hérite de Behaviour
+                break;
+            case BehaviourName.Attack:
+                currentBehavuiour = guardAttack; // hérite de Behaviour
+                break;
+            default:
+                break;
+        }
+    }
+    
+    private bool CheckTransition(out BehaviourName _outBehaviour)
+    {
+        if(detect)
+        {
+            _outBehaviour = BehaviourName.Chase;
+            return true; 
+        }
+    }
+    */

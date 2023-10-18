@@ -1,62 +1,72 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 public class GuardController : MonoBehaviour
 {
-    private enum BehaviourName
+    public enum BehaviourName
     {
         Patrol,
         Chase,
         Attack,
-        Detection
+        None
     }
 
     private GuardBehaviour currentBehaviour;
-    private GuardDetection detectionScript;
 
-    private void ChangeBehaviour(BehaviourName behaviour)
+    private GuardPatrolV2 guardPatrol;
+    private GuardChase guardChase;
+    private GuardAttack guardAttack;
+
+
+    private void Start()
     {
+        guardPatrol = GetComponent<GuardPatrolV2>();
+        guardChase = GetComponent<GuardChase>();
+        guardAttack = GetComponent<GuardAttack>();
+
+        currentBehaviour = guardPatrol;
+
+    }
+    private void Update()
+    {
+        currentBehaviour.ApplyBehaviour();
+
+        // Vérifier la transition
+        BehaviourName nextBehaviour = currentBehaviour.CheckTransition();
+
+        // Changer de comportement si nécessaire
+        if (nextBehaviour != BehaviourName.None)
+        {
+            ChangeBehaviour(nextBehaviour);
+        }
+        else
+        {
+            //Debug.LogError("currentBehaviour is null. Ensure it is properly initialized.");
+        }
+    }
+
+    public void ChangeBehaviour(BehaviourName behaviour)
+    {
+        currentBehaviour.enabled = false;
+
         switch (behaviour)
         {
             case BehaviourName.Patrol:
-                currentBehaviour = new GuardPatrolV2();
+                currentBehaviour = guardPatrol;
+                guardPatrol.SetDestination();
                 break;
             case BehaviourName.Chase:
-                currentBehaviour = new GuardChase();
+                currentBehaviour = guardChase;
                 break;
             case BehaviourName.Attack:
-                currentBehaviour = new GuardAttack();
-                break;
-            case BehaviourName.Detection:
-                currentBehaviour = new GuardDetection();
+                currentBehaviour = guardAttack;
                 break;
             default:
                 break;
         }
+        // Activer le nouveau script
+        currentBehaviour.enabled = true;
+
+        Debug.Log($"Switching to {behaviour} state.");
+
     }
 
-    private void Update()
-    {
-        BehaviourName nextBehaviour;
-        if (CheckTransition(out nextBehaviour))
-        {
-            ChangeBehaviour(nextBehaviour);
-        }
-
-        currentBehaviour.Execute();
-    }
-
-    private bool CheckTransition(out BehaviourName outBehaviour)
-    {
-        // Ajoutez votre logique de transition ici
-        //if (detect)
-        //{
-        //    outBehaviour = BehaviourName.Chase;
-        //    return true;
-        //}
-
-        outBehaviour = BehaviourName.Patrol;
-        return false;
-    }
 }

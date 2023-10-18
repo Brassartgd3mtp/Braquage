@@ -13240,7 +13240,7 @@ Transform:
   m_GameObject: {fileID: 624347289}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.91, y: 1.56, z: -2.87}
+  m_LocalPosition: {x: 4.69, y: 1.56, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13978,7 +13978,6 @@ GameObject:
   - component: {fileID: 809919288}
   - component: {fileID: 809919287}
   - component: {fileID: 809919286}
-  - component: {fileID: 809919285}
   - component: {fileID: 809919284}
   - component: {fileID: 809919283}
   m_Layer: 0
@@ -14000,6 +13999,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01d9e58e684e9764aba982824743e037, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detectionRadius: 7.5
+  detectionAngle: 160
+  numberOfRays: 20
+  playerTag: Player
 --- !u!114 &809919284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14012,18 +14015,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a88e4e5bf101ab44bbb1c19e80d01941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &809919285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809919282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f947c8b10c94c294f8bfb15b4e948e30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  detectionRadius: 9
+  detectionAngle: 0
+  numberOfRays: 0
+  playerTag: Player
+  chaseSpeed: 5
 --- !u!114 &809919286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14036,6 +14032,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b05b4b0080cb214db28925100bfbf28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detectionRadius: 7.5
+  detectionAngle: 160
+  numberOfRays: 20
+  playerTag: Player
+  waypoints:
+  - {fileID: 1517147068}
+  - {fileID: 1990582979}
+  - {fileID: 1413019942}
+  normalSpeed: 3.5
 --- !u!114 &809919287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14152,7 +14157,7 @@ Transform:
   m_GameObject: {fileID: 809919282}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.6, y: 1.56, z: 0.69}
+  m_LocalPosition: {x: 4.53, y: 1.56, z: -9.26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42423,7 +42428,7 @@ MonoBehaviour:
   - {fileID: 1413019942}
   normalSpeed: 3.5
   detectionTrueSpeed: 6
-  minDistanceToPlayer: 2
+  minDistanceToPlayer: 1
   Agent: {fileID: 2090527964}
 --- !u!195 &2090527964
 NavMeshAgent:
@@ -42567,7 +42572,7 @@ MonoBehaviour:
   playerDetection: {fileID: 2090527969}
   originDetectionAngle: 160
   originDetectionRadius: 7.5
-  originNumbersOfRays: 15
+  originNumbersOfRays: 30
   newDetectionAngle: 360
   newDetectionRadius: 9
   newNumbersOfRays: 30
