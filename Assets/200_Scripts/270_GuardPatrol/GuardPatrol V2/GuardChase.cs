@@ -94,8 +94,6 @@ public class GuardChase : GuardBehaviour
         // Vérifier s'il y a des joueurs dans la scène
         if (players.Length > 0)
         {
-            // Logique de détection du joueur (peut être la même que dans GuardPatrolV2)
-            // Exemple simplifié : retourne vrai si au moins un joueur est à portée de vue
             return players.Any(player => Vector3.Distance(transform.position, player.transform.position) < detectionRadius);
         }
 
