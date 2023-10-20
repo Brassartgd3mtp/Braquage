@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 
 public class UnitSelections : MonoBehaviour
@@ -10,6 +9,11 @@ public class UnitSelections : MonoBehaviour
 
     private static UnitSelections _instance;
     public static UnitSelections Instance { get { return _instance; } }
+
+    public Material newMaterial;
+    public string materialToRemoveName; // Le nom du matériau spécifique que tu veux enlever
+
+
 
     public int TotalCharacters()
     {
@@ -35,9 +39,16 @@ public class UnitSelections : MonoBehaviour
     {
         DeselectAll();
         unitsSelected.Add(unitToAdd);
-        unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
+        //unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
         unitToAdd.GetComponent<UnitMovement>().enabled = true;
         unitToAdd.GetComponent<PlayerInteractions>().enabled = true;
+
+        Unit unitOutline = unitToAdd.GetComponentInParent<Unit>();
+
+        if (unitOutline != null)
+        {
+            unitOutline.AddMaterial(newMaterial);
+        }
     }
 
     public void ShifClickSelect(GameObject unitToAdd)
@@ -45,17 +56,31 @@ public class UnitSelections : MonoBehaviour
         if (!unitsSelected.Contains(unitToAdd))
         {
             unitsSelected.Add(unitToAdd);
-            unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
+            //unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
             unitToAdd.GetComponent<UnitMovement>().enabled = true;
             unitToAdd.GetComponent<PlayerInteractions>().enabled = true;
+            
+            Unit unitOutline = unitToAdd.GetComponentInParent<Unit>();
+
+            if (unitOutline != null)
+            {
+                unitOutline.AddMaterial(newMaterial);
+            }
 
         }
         else
         {
             unitToAdd.GetComponent<UnitMovement>().enabled = false;
             unitToAdd.GetComponent<PlayerInteractions>().enabled = false;
-            unitToAdd.transform.GetChild(0).gameObject.SetActive(false);
+            //unitToAdd.transform.GetChild(0).gameObject.SetActive(false);
             unitsSelected.Remove(unitToAdd);
+
+            Unit unitOutline = unitToAdd.GetComponentInParent<Unit>();
+
+            if (unitOutline != null)
+            {
+                unitOutline.RemoveMaterial(materialToRemoveName);
+            }
         }
     }
 
@@ -64,9 +89,16 @@ public class UnitSelections : MonoBehaviour
         if(!unitsSelected.Contains(unitToAdd))
         {
             unitsSelected.Add(unitToAdd);
-            unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
+            //unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
             unitToAdd.GetComponent<UnitMovement>().enabled = true;
             unitToAdd.GetComponent<PlayerInteractions>().enabled = true;
+
+            Unit unitOutline = unitToAdd.GetComponentInParent<Unit>();
+
+            if (unitOutline != null)
+            {
+                unitOutline.AddMaterial(newMaterial);
+            }
 
         }
     }
@@ -77,7 +109,15 @@ public class UnitSelections : MonoBehaviour
         {
             unit.GetComponent<PlayerInteractions>().enabled = false;
             unit.GetComponent<UnitMovement>().enabled = false;
-            unit.transform.GetChild(0).gameObject.SetActive(false);
+            //unit.transform.GetChild(0).gameObject.SetActive(false);
+
+            Unit unitOutline = unit.GetComponentInParent<Unit>();
+
+            if (unitOutline != null)
+            {
+                unitOutline.RemoveMaterial(materialToRemoveName);
+            }
+
         }
         unitsSelected.Clear();
     }

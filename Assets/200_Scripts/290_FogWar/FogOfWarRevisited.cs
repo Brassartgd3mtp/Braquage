@@ -7,11 +7,17 @@ public class FogOfWarRevisited : MonoBehaviour
 
     private Coroutine disappearCoroutine;
 
+    [SerializeField]
+    private int playersInside = 0; // Compteur de joueurs à l'intérieur
+
+
     private void OnTriggerEnter(Collider other)
     {
         // Vérifie si le collider est celui du joueur (ajustez selon vos besoins)
         if (other.CompareTag("Player"))
         {
+            playersInside++;
+
             // Démarre la coroutine pour faire disparaître l'objet
             disappearCoroutine = StartCoroutine(DisappearObject());
         }
@@ -22,14 +28,19 @@ public class FogOfWarRevisited : MonoBehaviour
         // Vérifie si le collider n'est plus celui du joueur
         if (other.CompareTag("Player"))
         {
-            // Arrête la coroutine pour faire disparaître l'objet
-            if (disappearCoroutine != null)
-            {
-                StopCoroutine(disappearCoroutine);
-            }
+            playersInside--;
 
-            // Démarre la coroutine pour faire réapparaître l'objet
-            StartCoroutine(ReappearObject());
+            if (playersInside == 0)
+            {
+                // Arrête la coroutine pour faire disparaître l'objet
+                if (disappearCoroutine != null)
+                {
+                    StopCoroutine(disappearCoroutine);
+                }
+
+                // Démarre la coroutine pour faire réapparaître l'objet
+                StartCoroutine(ReappearObject());
+            }
         }
     }
 
