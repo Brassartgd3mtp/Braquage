@@ -59,7 +59,7 @@ public class UnitSelections : MonoBehaviour
             //unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
             unitToAdd.GetComponent<UnitMovement>().enabled = true;
             unitToAdd.GetComponent<PlayerInteractions>().enabled = true;
-            
+
             Unit unitOutline = unitToAdd.GetComponentInParent<Unit>();
 
             if (unitOutline != null)
@@ -86,7 +86,7 @@ public class UnitSelections : MonoBehaviour
 
     public void DragSelect(GameObject unitToAdd)
     {
-        if(!unitsSelected.Contains(unitToAdd))
+        if (!unitsSelected.Contains(unitToAdd))
         {
             unitsSelected.Add(unitToAdd);
             //unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
@@ -105,7 +105,7 @@ public class UnitSelections : MonoBehaviour
 
     public void DeselectAll()
     {
-        foreach(var unit in unitsSelected)
+        foreach (var unit in unitsSelected)
         {
             unit.GetComponent<PlayerInteractions>().enabled = false;
             unit.GetComponent<UnitMovement>().enabled = false;

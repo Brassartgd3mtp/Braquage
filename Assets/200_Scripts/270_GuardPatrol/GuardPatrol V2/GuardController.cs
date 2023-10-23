@@ -11,14 +11,14 @@ public class GuardController : MonoBehaviour
 
     private GuardBehaviour currentBehaviour;
 
-    private GuardPatrolV2 guardPatrol;
+    private GuardPatrol guardPatrol;
     private GuardChase guardChase;
     private GuardAttack guardAttack;
 
 
     private void Start()
     {
-        guardPatrol = GetComponent<GuardPatrolV2>();
+        guardPatrol = GetComponent<GuardPatrol>();
         guardChase = GetComponent<GuardChase>();
         guardAttack = GetComponent<GuardAttack>();
 
@@ -68,5 +68,4 @@ public class GuardController : MonoBehaviour
         Debug.Log($"Switching to {behaviour} state.");
 
     }
-
 }

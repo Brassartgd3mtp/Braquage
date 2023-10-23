@@ -10,6 +10,8 @@ public class GuardChase : GuardBehaviour
     public override float DetectionAngle => detectionAngle;
     public override float NumberOfRays => numberOfRays;
     public override string PlayerTag => playerTag;
+    
+    public float attackRange = 2f; // Distance d'attaque
 
 
     // Vitesse de poursuite
@@ -39,6 +41,11 @@ public class GuardChase : GuardBehaviour
             Debug.Log("Player out of sight. Transitioning back to Patrol.");
             return BehaviourName.Patrol;
         }
+        if (Vector3.Distance(transform.position, GetClosestPlayer().transform.position) <= attackRange)
+        {
+            Debug.Log("Player in attack range. Transitioning to Attack.");
+            return BehaviourName.Attack;
+        }
 
         return BehaviourName.None;
     }
@@ -64,6 +71,13 @@ public class GuardChase : GuardBehaviour
 
     private GameObject GetClosestPlayer()
     {
+        // Vérifier si le tableau players est null ou vide
+
+        if (players == null || players.Length == 0)
+        {
+            return null;
+        }
+
         // Initialiser les variables pour stocker le joueur le plus proche
         GameObject closestPlayer = null;
         float closestDistance = Mathf.Infinity;
@@ -94,7 +108,7 @@ public class GuardChase : GuardBehaviour
         // Vérifier s'il y a des joueurs dans la scène
         if (players.Length > 0)
         {
-            return players.Any(player => Vector3.Distance(transform.position, player.transform.position) < detectionRadius);
+            return players.Any(player => player != null && player.CompareTag("Player") && Vector3.Distance(transform.position, player.transform.position) < detectionRadius);
         }
 
         // Aucun joueur détecté

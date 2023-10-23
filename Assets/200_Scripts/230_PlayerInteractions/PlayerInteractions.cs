@@ -13,15 +13,14 @@ public class PlayerInteractions : MonoBehaviour
     private void Start()
     {
         Invoke("SetupTags", 2f);
-
     }
 
     private void SetupTags()
     {
         objectTag.Add("Interactible");
         objectTag.Add("Goal");
-
     }
+
     void Update()
     {
         // Vérifie si une touche spécifique est enfoncée

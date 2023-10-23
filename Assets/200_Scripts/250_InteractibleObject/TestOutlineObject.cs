@@ -1,16 +1,55 @@
+using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
-public class Unit : MonoBehaviour
+public class TestOutlineObject : MonoBehaviour
 {
-    //public Material newMaterial; // Le nouveau matériau que tu veux ajouter
-    //public string materialToRemoveName; // Le nom du matériau spécifique que tu veux enlever
+    public Material newMaterial; // Assure-toi de définir ce matériau dans l'Inspector
+    public string materialToRemoveName = "NomDuMaterialAEnlever"; // Remplace cela par le nom du matériau que tu veux enlever
 
-    void Start()
+    public Material proximityMaterial; // Assure-toi de définir ce matériau dans l'Inspector
+    public string proximityMaterialToRemoveName = "NomDuMaterialAEnlever"; // Remplace cela par le nom du matériau que tu veux enlever
+
+
+
+    private bool playerNearby = false;
+
+    void OnMouseEnter()
     {
-        UnitSelections.Instance.unitList.Add(this.gameObject);
+        if (!playerNearby)
+        {
+            AddMaterial(newMaterial);
+        }
     }
 
+    void OnMouseExit()
+    {
+        // Ajoute la condition pour vérifier si un joueur n'est pas à proximité
+        if (!playerNearby)
+        {
+            RemoveMaterial(materialToRemoveName);
+        }
+    }
+
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerNearby = true;
+            RemoveMaterial(materialToRemoveName);
+            AddMaterial(proximityMaterial);
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            RemoveMaterial(proximityMaterialToRemoveName);
+            playerNearby = false;
+        }
+    }
 
     public void AddMaterial(Material material)
     {
@@ -49,10 +88,5 @@ public class Unit : MonoBehaviour
                 meshRenderer.materials = materialList.ToArray();
             }
         }
-    }
-
-    private void OnDestroy()
-    {
-        UnitSelections.Instance.unitList.Remove(this.gameObject);
     }
 }

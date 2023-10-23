@@ -50,7 +50,7 @@ public class ObjectDoor : InteractibleObject
     System.Collections.IEnumerator AnimateDoor(Vector3 start, Vector3 end)
     {
         isTransitioning = true; // Marque le début de la transition
-        doorCollider.enabled = false; // Désactive le collider au début de la transition
+        //doorCollider.enabled = false; // Désactive le collider au début de la transition
 
         float elapsedTime = 0.0f;
 
@@ -63,7 +63,7 @@ public class ObjectDoor : InteractibleObject
 
         transform.position = end; // Assure que la position finale est correcte
 
-        doorCollider.enabled = true; // Réactive le collider à la fin de la transition
+        //doorCollider.enabled = true; // Réactive le collider à la fin de la transition
 
         isTransitioning = false; // Marque la fin de la transition
         isOpening = !isOpening;
