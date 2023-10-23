@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "DoorScriptableObject", menuName = "SoundsScriptableObjects/Door")]
-public class Interactible_Objects_Scriptable : ScriptableObject
+public class InteractibleScriptableObjects : ScriptableObject
 {
     [SerializeField] private AudioSource source;
-    [SerializeField] private AudioClip[] door = new AudioClip[2];
+    [SerializeField] private AudioClip[] door = new AudioClip[0];
 
     private void Start()
     {
@@ -18,12 +18,15 @@ public class Interactible_Objects_Scriptable : ScriptableObject
     public void PlayDoorOpen(Vector3 _position, float _intensity)
     {
         source.transform.position = _position;
+        source.clip = door[0];
         source.PlayOneShot(door[0], _intensity);
+        
     }
 
     public void PlayDoorClose(Vector3 _position, float _intensity)
     {
         source.transform.position = _position;
+        source.clip = door[1];
         source.PlayOneShot(door[1], _intensity);
     }
 
