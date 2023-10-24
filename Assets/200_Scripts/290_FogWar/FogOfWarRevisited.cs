@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class FogOfWarRevisited : MonoBehaviour
@@ -9,7 +10,6 @@ public class FogOfWarRevisited : MonoBehaviour
 
     [SerializeField]
     private int playersInside = 0; // Compteur de joueurs à l'intérieur
-
 
     private void OnTriggerEnter(Collider other)
     {
@@ -44,7 +44,7 @@ public class FogOfWarRevisited : MonoBehaviour
         }
     }
 
-    System.Collections.IEnumerator DisappearObject()
+    IEnumerator DisappearObject()
     {
         float elapsedTime = 0.0f;
         Color initialColor = GetComponent<Renderer>().material.color;
@@ -67,7 +67,7 @@ public class FogOfWarRevisited : MonoBehaviour
         // L'objet est maintenant complètement transparent
     }
 
-    System.Collections.IEnumerator ReappearObject()
+    IEnumerator ReappearObject()
     {
         float elapsedTime = 0.0f;
         Color initialColor = GetComponent<Renderer>().material.color;
