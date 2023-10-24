@@ -40,14 +40,12 @@ public class ObjectDoor : InteractibleObject
     {
         // Code pour ouvrir la porte de droite à gauche
         StartCoroutine(AnimateDoor(transform.position, transform.position + new Vector3(-axeXOpening, -axeYOpening, -axeZOpening)));
-        audioDatabase.PlayDoorOpen(transform.position, 1.0f); // Appelle de le son d'ouverture de la porte
-    }
+    }    
 
     void CloseDoor()
     {
         // Code pour fermer la porte de gauche à droite
         StartCoroutine(AnimateDoor(transform.position, transform.position + new Vector3(axeXOpening, axeYOpening, axeZOpening)));
-        audioDatabase.PlayDoorClose(transform.position, 1.0f); // Appelle de le son de fermeture de la porte
     }
 
 
