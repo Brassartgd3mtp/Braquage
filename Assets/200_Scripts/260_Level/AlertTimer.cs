@@ -13,8 +13,6 @@ public class AlertTimer : MonoBehaviour
 
     public TextMeshProUGUI timerText; // Text pour afficher le timer
 
-
-
     void Start()
     {
         currentTime = _initialTime;

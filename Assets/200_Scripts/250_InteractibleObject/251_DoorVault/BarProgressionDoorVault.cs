@@ -19,7 +19,7 @@ public class BarProgressionDoorVault : MonoBehaviour
     {
         if (progression != null && doorVault != null)
         {
-            StartCoroutine(IncreaseFillAmountOverTime(doorVault._pickingDuration));
+            StartCoroutine(IncreaseFillAmountOverTime(doorVault.pickingDuration));
         }
         else
         {

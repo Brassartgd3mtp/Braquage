@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class TestOutlineObject2 : MonoBehaviour
+public class ObjectOutline : MonoBehaviour
 {
     [Header("Name property Shader")] //Nom des références exact sur lesquels on veut agir dans le script
-    public string nameMaterialOutline = "M_OutlineTest";
+    public string nameMaterialOutline = "M_OutlineV2";
     public string propertyAlpha = "_Alpha";
     public string propertyColor = "_Outline_Color";
 
@@ -28,8 +28,8 @@ public class TestOutlineObject2 : MonoBehaviour
         renderer = GetComponent<Renderer>();
 
         // Assure que la valeur d'alpha initiale est correcte au début
-        AppliquerAlpha(originAlpha);
-        AppliquerCouleur(mouseColor, intensityHDR);
+        ApplyAlpha(originAlpha);
+        ApplyColor(mouseColor, intensityHDR);
     }
 
     void OnMouseEnter()
@@ -37,8 +37,8 @@ public class TestOutlineObject2 : MonoBehaviour
         if (!playerNearby)
         {
             // Modifie l'alpha et la couleur lorsque la souris est au-dessus
-            AppliquerAlpha(newAlpha);
-            AppliquerCouleur(mouseColor, intensityHDR);
+            ApplyAlpha(newAlpha);
+            ApplyColor(mouseColor, intensityHDR);
         }
     }
 
@@ -48,7 +48,7 @@ public class TestOutlineObject2 : MonoBehaviour
         if (!playerNearby)
         {
             // Rétablit l'alpha à sa valeur initiale
-            AppliquerAlpha(originAlpha);
+            ApplyAlpha(originAlpha);
         }
     }
 
@@ -57,8 +57,8 @@ public class TestOutlineObject2 : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerNearby = true;
-            AppliquerAlpha(newAlpha);
-            AppliquerCouleur(proximtyColor, intensityHDR);
+            ApplyAlpha(newAlpha);
+            ApplyColor(proximtyColor, intensityHDR);
         }
     }
 
@@ -67,12 +67,12 @@ public class TestOutlineObject2 : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerNearby = false;
-            AppliquerAlpha(originAlpha);
+            ApplyAlpha(originAlpha);
         }
     }
 
     // Méthode pour appliquer l'alpha à tous les matériaux de l'objet
-    void AppliquerAlpha(float alpha)
+    void ApplyAlpha(float alpha)
     {
         // Parcourt tous les matériaux de l'objet
         foreach (Material material in renderer.materials)
@@ -85,7 +85,7 @@ public class TestOutlineObject2 : MonoBehaviour
             }
         }
     }
-    void AppliquerCouleur(Color couleur, float intensite)
+    void ApplyColor(Color couleur, float intensite)
     {
         // Parcourt tous les matériaux de l'objet
         foreach (Material material in renderer.materials)

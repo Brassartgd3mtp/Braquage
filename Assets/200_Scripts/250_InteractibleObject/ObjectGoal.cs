@@ -13,7 +13,6 @@ public class ObjectGoal : InteractibleObject
     }
     public override void OnInteraction()
     {
-        Debug.Log("Le goal interagit");
         if (collectedGoalScript != null)
         {
             collectedGoalScript.collectedGoal++;

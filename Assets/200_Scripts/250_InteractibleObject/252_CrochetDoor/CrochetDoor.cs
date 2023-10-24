@@ -3,32 +3,29 @@ using UnityEngine;
 
 public class CrochetDoor : InteractibleObject
 {
-    //Savoir si la porte est crocheté ou non et si le crochetage est en cours
-    private bool isLocked = true;
-    private bool isBeingPicked = false;
-
-    public float _pickingDuration = 5.0f; // Durée nécessaire pour crocheter la porte, ça définit la difficulté du crochetage
+    private Collider doorCollider; // Référence au collider de la porte
+    private bool isLocked = true; //Bool si la porte est verrouillée
+    private bool isBeingPicked = false; //Bool si le crochetage est effectué
+    private bool isOpening = false; //Bool si la porte est ouverte ou fermée
+    private bool isTransitioning = false; //Bool si la porte est en train de s'ouvrir ou se fermer
 
     //Récupère le script de rôle des personnage pour en récupérer le _pickingMultiplier
     public List<PlayerRole> _playerRole = new List<PlayerRole>();
-    public float _totalPickingTime;
-
     //Récupère la barre d'UI qui permet de voir où en est le crochetage
     public BarProgression barProgressionUI;
 
-    private Collider doorCollider; // Référence au collider de la porte
-
-
-    private bool isOpening = false; // Booléen pour déterminer si la porte est ouverte ou fermée
-    private bool isTransitioning = false; // Booléen pour vérifier si la transition est en cours
-
-
+    [Header("Variable")]
+    public float _pickingDuration = 5.0f; // Durée nécessaire pour crocheter la porte, ça définit la difficulté du crochetage
     public float _resolutionTime = 1.0f; // Durée de la transition en secondes
 
+    [HideInInspector]
+    public float _totalPickingTime; //Durée total du crochetage en fonction du role du player
+
+    [Header("Axe d'ouverture")]
     //Axe d'ouverture de la porte
-    [SerializeField] private float axeXOpening = 4.0f;
-    [SerializeField] private float axeYOpening = 0.0f;
-    [SerializeField] private float axeZOpening = 0.0f;
+    public float axeXOpening = 4.0f;
+    public float axeYOpening = 0.0f;
+    public float axeZOpening = 0.0f;
 
 
     void Start()
@@ -140,7 +137,7 @@ public class CrochetDoor : InteractibleObject
     System.Collections.IEnumerator AnimateDoor(Vector3 start, Vector3 end)
     {
         isTransitioning = true; // Marque le début de la transition
-        doorCollider.enabled = false; // Désactive le collider au début de la transition
+        //doorCollider.enabled = false; // Désactive le collider au début de la transition
 
         float elapsedTime = 0.0f;
 
@@ -153,7 +150,7 @@ public class CrochetDoor : InteractibleObject
 
         transform.position = end; // Assure que la position finale est correcte
 
-        doorCollider.enabled = true; // Réactive le collider à la fin de la transition
+        //doorCollider.enabled = true; // Réactive le collider à la fin de la transition
 
         isTransitioning = false; // Marque la fin de la transition
         isOpening = !isOpening;

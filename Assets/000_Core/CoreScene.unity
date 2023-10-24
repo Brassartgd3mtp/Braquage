@@ -14,10 +14,10 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: c7c45bdc4a8758c469a085b15abf07eb,
+    type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -228,134 +229,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 13514204}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &17214979
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 17214984}
-  - component: {fileID: 17214983}
-  - component: {fileID: 17214982}
-  - component: {fileID: 17214981}
-  - component: {fileID: 17214980}
-  m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &17214980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 17214979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b7c07c035eed8042b1ec487b065d50a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nameMaterialOutline: M_OutlineTest
-  propertyAlpha: _Alpha
-  propertyColor: _Outline_Color
-  originAlpha: 0
-  newAlpha: 1
-  mouseColor: {r: 0, g: 1, b: 0.07073355, a: 1}
-  proximtyColor: {r: 1, g: 0, b: 0, a: 1}
-  intensityHDR: 10
-  playerNearby: 0
---- !u!65 &17214981
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 17214979}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &17214982
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 17214979}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  - {fileID: 2100000, guid: 7ef7a81696eb0ba44bdec2651d59b237, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &17214983
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 17214979}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &17214984
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 17214979}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.88308, y: 1.0418599, z: 18.005863}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &44711758
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,6 +243,7 @@ GameObject:
   - component: {fileID: 44711764}
   - component: {fileID: 44711763}
   - component: {fileID: 44711765}
+  - component: {fileID: 44711766}
   m_Layer: 8
   m_Name: DoorVault
   m_TagString: Interactible
@@ -398,6 +272,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 593379207f989b244a318e6bb4fbbb46, type: 2}
+  - {fileID: 2100000, guid: 7ef7a81696eb0ba44bdec2651d59b237, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -435,7 +310,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 44711758}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.720001, y: 2.0399995, z: -18.46}
   m_LocalScale: {x: 1, y: 2.28, z: 1}
   m_ConstrainProportionsScale: 0
@@ -457,14 +332,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c59430c102275747ba523d4fedae638, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pickingDuration: 2
-  barProgressionUI: {fileID: 1682289993}
-  _sparkParticle: {fileID: 47648009}
-  _playerRole: {fileID: 0}
+  pickingDuration: 20
+  resolutionTime: 1
   raycastDistance: 10
-  _resolutionTime: 1
-  axeYRotationToOpen: -60
-  axeYRotationToClose: 0
+  barProgressionUI: {fileID: 1682289993}
+  sparkParticle: {fileID: 47648009}
+  rotationToOpen: -60
+  rotationToClose: 0
 --- !u!65 &44711764
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -502,6 +376,27 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &44711766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44711758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7c07c035eed8042b1ec487b065d50a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameMaterialOutline: M_OutlineV2
+  propertyAlpha: _Alpha
+  propertyColor: _Outline_Color
+  originAlpha: 0
+  newAlpha: 1
+  mouseColor: {r: 0, g: 1, b: 0, a: 0}
+  proximtyColor: {r: 1, g: 0, b: 0, a: 0}
+  intensityHDR: 10
+  playerNearby: 0
 --- !u!1 &47648009
 GameObject:
   m_ObjectHideFlags: 0
@@ -5974,6 +5869,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 115dfd14dd8000e44b0b2f4abea6d2c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectUnit: 0
+  nameMaterialOutline: M_OutlineV2
+  propertyAlpha: _Alpha
+  propertyColor: _Outline_Color
+  originAlpha: 0
+  newAlpha: 1
+  selectionColor: {r: 1, g: 0, b: 0, a: 1}
+  intensityHDR: 10
 --- !u!195 &198902317
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6067,6 +5970,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 4f74df7c0ae4f8540997d1f0dbd9cd78, type: 2}
+  - {fileID: 2100000, guid: 7ef7a81696eb0ba44bdec2651d59b237, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11457,6 +11361,7 @@ GameObject:
   - component: {fileID: 340004020}
   - component: {fileID: 340004019}
   - component: {fileID: 340004018}
+  - component: {fileID: 340004024}
   m_Layer: 8
   m_Name: DoorVault (1)
   m_TagString: Interactible
@@ -11492,14 +11397,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c59430c102275747ba523d4fedae638, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pickingDuration: 2
-  barProgressionUI: {fileID: 1573285745}
-  _sparkParticle: {fileID: 929648126}
-  _playerRole: {fileID: 0}
+  pickingDuration: 20
+  resolutionTime: 1
   raycastDistance: 10
-  _resolutionTime: 1
-  axeYRotationToOpen: 30
-  axeYRotationToClose: 90
+  barProgressionUI: {fileID: 1573285745}
+  sparkParticle: {fileID: 929648126}
+  rotationToOpen: 30
+  rotationToClose: 90
 --- !u!65 &340004020
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11542,6 +11446,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 593379207f989b244a318e6bb4fbbb46, type: 2}
+  - {fileID: 2100000, guid: 7ef7a81696eb0ba44bdec2651d59b237, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11589,6 +11494,27 @@ Transform:
   - {fileID: 778765986}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &340004024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340004017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7c07c035eed8042b1ec487b065d50a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameMaterialOutline: M_OutlineV2
+  propertyAlpha: _Alpha
+  propertyColor: _Outline_Color
+  originAlpha: 0
+  newAlpha: 1
+  mouseColor: {r: 0, g: 1, b: 0, a: 0}
+  proximtyColor: {r: 1, g: 0, b: 0, a: 0}
+  intensityHDR: 10
+  playerNearby: 0
 --- !u!1 &373414949
 GameObject:
   m_ObjectHideFlags: 0
@@ -12614,6 +12540,7 @@ GameObject:
   - component: {fileID: 541146941}
   - component: {fileID: 541146945}
   - component: {fileID: 541146946}
+  - component: {fileID: 541146947}
   m_Layer: 0
   m_Name: Goal
   m_TagString: Goal
@@ -12663,6 +12590,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 7ef7a81696eb0ba44bdec2651d59b237, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12736,6 +12664,27 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &541146947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541146939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7c07c035eed8042b1ec487b065d50a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameMaterialOutline: M_OutlineV2
+  propertyAlpha: _Alpha
+  propertyColor: _Outline_Color
+  originAlpha: 0
+  newAlpha: 1
+  mouseColor: {r: 0, g: 1, b: 0, a: 0}
+  proximtyColor: {r: 1, g: 0, b: 0, a: 0}
+  intensityHDR: 10
+  playerNearby: 0
 --- !u!1 &553706047
 GameObject:
   m_ObjectHideFlags: 0
@@ -12989,6 +12938,7 @@ GameObject:
   - component: {fileID: 577085962}
   - component: {fileID: 577085961}
   - component: {fileID: 577085966}
+  - component: {fileID: 577085967}
   m_Layer: 8
   m_Name: CrochetDoor
   m_TagString: Interactible
@@ -13054,6 +13004,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6fcbe17754969434f8e9b0dab3ac7ded, type: 2}
+  - {fileID: 2100000, guid: 7ef7a81696eb0ba44bdec2651d59b237, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13092,7 +13043,7 @@ Transform:
   m_GameObject: {fileID: 577085959}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.1050005, y: 1.9599998, z: -17.03}
+  m_LocalPosition: {x: 12.1050005, y: 1.9599998, z: -17}
   m_LocalScale: {x: 0.20000006, y: 4.5900006, z: 3.4400012}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13111,14 +13062,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3a7c96a80ff2044ebdcb9b17a1d6dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pickingDuration: 5
   _playerRole: []
-  _totalPickingTime: 0
   barProgressionUI: {fileID: 373414952}
+  _pickingDuration: 5
   _resolutionTime: 1
+  _totalPickingTime: 0
   axeXOpening: 0
   axeYOpening: 0
   axeZOpening: 4
+--- !u!114 &577085967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577085959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7c07c035eed8042b1ec487b065d50a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameMaterialOutline: M_OutlineV2
+  propertyAlpha: _Alpha
+  propertyColor: _Outline_Color
+  originAlpha: 0
+  newAlpha: 1
+  mouseColor: {r: 0, g: 1, b: 0, a: 0}
+  proximtyColor: {r: 1, g: 0, b: 0, a: 0}
+  intensityHDR: 10
+  playerNearby: 0
 --- !u!1 &598242457
 GameObject:
   m_ObjectHideFlags: 0
@@ -13255,6 +13227,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 115dfd14dd8000e44b0b2f4abea6d2c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectUnit: 0
+  nameMaterialOutline: M_OutlineV2
+  propertyAlpha: _Alpha
+  propertyColor: _Outline_Color
+  originAlpha: 0
+  newAlpha: 1
+  selectionColor: {r: 0, g: 0, b: 1, a: 1}
+  intensityHDR: 10
 --- !u!195 &624347293
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -13348,6 +13328,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 4f74df7c0ae4f8540997d1f0dbd9cd78, type: 2}
+  - {fileID: 2100000, guid: 7ef7a81696eb0ba44bdec2651d59b237, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14016,6 +13997,74 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &793121112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 793121115}
+  - component: {fileID: 793121114}
+  - component: {fileID: 793121113}
+  m_Layer: 0
+  m_Name: FogController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &793121113
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793121112}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.73, y: 3.67, z: 20.72}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &793121114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793121112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9b611d2cf9ab2b42baf51533a472c38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetFogDensity: 0.05
+  transitionSpeed: 1
+--- !u!4 &793121115
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793121112}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &802816030
 GameObject:
   m_ObjectHideFlags: 0
@@ -14355,7 +14404,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &817539407
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20722,7 +20771,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1348389697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21073,6 +21122,7 @@ GameObject:
   - component: {fileID: 1427515358}
   - component: {fileID: 1427515357}
   - component: {fileID: 1427515356}
+  - component: {fileID: 1427515362}
   m_Layer: 8
   m_Name: CrochetDoor
   m_TagString: Interactible
@@ -21092,11 +21142,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3a7c96a80ff2044ebdcb9b17a1d6dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pickingDuration: 5
   _playerRole: []
-  _totalPickingTime: 0
   barProgressionUI: {fileID: 598242459}
+  _pickingDuration: 5
   _resolutionTime: 1
+  _totalPickingTime: 0
   axeXOpening: 0
   axeYOpening: 0
   axeZOpening: 4
@@ -21158,6 +21208,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6fcbe17754969434f8e9b0dab3ac7ded, type: 2}
+  - {fileID: 2100000, guid: 7ef7a81696eb0ba44bdec2651d59b237, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -21203,6 +21254,27 @@ Transform:
   - {fileID: 1479925675}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1427515362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427515355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7c07c035eed8042b1ec487b065d50a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameMaterialOutline: M_OutlineV2
+  propertyAlpha: _Alpha
+  propertyColor: _Outline_Color
+  originAlpha: 0
+  newAlpha: 1
+  mouseColor: {r: 0, g: 1, b: 0, a: 0}
+  proximtyColor: {r: 1, g: 0, b: 0, a: 0}
+  intensityHDR: 10
+  playerNearby: 0
 --- !u!1 &1479925672
 GameObject:
   m_ObjectHideFlags: 0
@@ -21394,6 +21466,7 @@ GameObject:
   - component: {fileID: 1522839003}
   - component: {fileID: 1522839002}
   - component: {fileID: 1522839001}
+  - component: {fileID: 1522839007}
   m_Layer: 8
   m_Name: CrochetDoor
   m_TagString: Interactible
@@ -21413,11 +21486,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3a7c96a80ff2044ebdcb9b17a1d6dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pickingDuration: 2
   _playerRole: []
-  _totalPickingTime: 0
   barProgressionUI: {fileID: 2043317066}
+  _pickingDuration: 2
   _resolutionTime: 1
+  _totalPickingTime: 0
   axeXOpening: 4
   axeYOpening: 0
   axeZOpening: 0
@@ -21479,6 +21552,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6fcbe17754969434f8e9b0dab3ac7ded, type: 2}
+  - {fileID: 2100000, guid: 7ef7a81696eb0ba44bdec2651d59b237, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -21524,6 +21598,27 @@ Transform:
   - {fileID: 1154280496}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1522839007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522839000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7c07c035eed8042b1ec487b065d50a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameMaterialOutline: M_OutlineV2
+  propertyAlpha: _Alpha
+  propertyColor: _Outline_Color
+  originAlpha: 0
+  newAlpha: 1
+  mouseColor: {r: 0, g: 1, b: 0, a: 0}
+  proximtyColor: {r: 1, g: 0, b: 0, a: 0}
+  intensityHDR: 10
+  playerNearby: 0
 --- !u!1 &1565992351
 GameObject:
   m_ObjectHideFlags: 0
@@ -21711,6 +21806,7 @@ GameObject:
   - component: {fileID: 1586763055}
   - component: {fileID: 1586763054}
   - component: {fileID: 1586763053}
+  - component: {fileID: 1586763058}
   m_Layer: 0
   m_Name: Goal (1)
   m_TagString: Goal
@@ -21804,6 +21900,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 7ef7a81696eb0ba44bdec2651d59b237, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -21833,6 +21930,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1586763051}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1586763058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586763051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7c07c035eed8042b1ec487b065d50a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameMaterialOutline: M_OutlineV2
+  propertyAlpha: _Alpha
+  propertyColor: _Outline_Color
+  originAlpha: 0
+  newAlpha: 1
+  mouseColor: {r: 0, g: 1, b: 0, a: 0}
+  proximtyColor: {r: 1, g: 0, b: 0, a: 0}
+  intensityHDR: 10
+  playerNearby: 0
 --- !u!1 &1682289992
 GameObject:
   m_ObjectHideFlags: 0
@@ -21997,6 +22115,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 4923cd9f6121a51478d6e5685d13733e, type: 2}
+  - {fileID: 2100000, guid: 7ef7a81696eb0ba44bdec2651d59b237, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -22050,13 +22169,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1704242276}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3990d169507e4641baf0f4c3d1418a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b7c07c035eed8042b1ec487b065d50a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newMaterial: {fileID: 2100000, guid: 884b3d6fd8dac0140956d6453e843b15, type: 2}
-  materialToRemoveName: M_Outline (Instance)
-  proximityMaterial: {fileID: 2100000, guid: ffa91bec77d86bc4bb83803972636a22, type: 2}
-  proximityMaterialToRemoveName: M_ProximityOutline (Instance)
+  nameMaterialOutline: M_OutlineV2
+  propertyAlpha: _Alpha
+  propertyColor: _Outline_Color
+  originAlpha: 0
+  newAlpha: 1
+  mouseColor: {r: 0, g: 1, b: 0, a: 0}
+  proximtyColor: {r: 1, g: 0, b: 0, a: 0}
+  intensityHDR: 10
+  playerNearby: 0
 --- !u!1 &1718658250
 GameObject:
   m_ObjectHideFlags: 0
@@ -47712,6 +47836,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 115dfd14dd8000e44b0b2f4abea6d2c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectUnit: 0
+  nameMaterialOutline: M_OutlineV2
+  propertyAlpha: _Alpha
+  propertyColor: _Outline_Color
+  originAlpha: 0
+  newAlpha: 1
+  selectionColor: {r: 1, g: 1, b: 0, a: 1}
+  intensityHDR: 10
 --- !u!33 &537031297128535695
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -52796,6 +52928,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 4f74df7c0ae4f8540997d1f0dbd9cd78, type: 2}
+  - {fileID: 2100000, guid: 7ef7a81696eb0ba44bdec2651d59b237, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -53245,8 +53378,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitList: []
   unitsSelected: []
-  newMaterial: {fileID: 2100000, guid: 884b3d6fd8dac0140956d6453e843b15, type: 2}
-  materialToRemoveName: M_Outline (Instance)
 --- !u!4 &8740905277428768276
 Transform:
   m_ObjectHideFlags: 0
@@ -53342,4 +53473,4 @@ SceneRoots:
   - {fileID: 1287117754}
   - {fileID: 849565396}
   - {fileID: 1421095376}
-  - {fileID: 17214984}
+  - {fileID: 793121115}

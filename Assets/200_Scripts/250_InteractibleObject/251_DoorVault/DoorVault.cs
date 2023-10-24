@@ -4,35 +4,28 @@ using UnityEngine;
 
 public class DoorVault : InteractibleObject
 {
-    //Savoir si la porte est crocheté ou non et si le crochetage est en cours
-    private bool isLocked = true;
-    private bool isBeingPicked = false;
+    private bool isLocked = true; //Bool si la porte est verrouillée
+    private bool isBeingPicked = false; //Bool si le crochetage est effectué
+    private bool isOpening = false; //Bool si la porte est ouverte ou fermée
+    private bool isTransitioning = false; //Bool si la porte est en train de s'ouvrir ou se fermer
 
-    public float _pickingDuration = 5.0f; // Durée nécessaire pour crocheter la porte, définit la difficulté du crochetage
-
-    //Récupère la barre d'UI qui permet de voir où en est le crochetage
-    public BarProgressionDoorVault barProgressionUI;
-
-    public GameObject _sparkParticle;
-
-    [SerializeField] PlayerRole _playerRole;
+    [Header("Variable")]
+    public float pickingDuration = 5.0f; // Durée nécessaire pour crocheter la porte, définit la difficulté du crochetage
+    public float resolutionTime = 1.0f; // Durée de la transition en secondes
     public float raycastDistance = 10f; // Distance du raycast pour détecter les joueurs
 
-    private bool isOpening = false; // Booléen pour déterminer si la porte est en train de s'ouvrir
-    public float _resolutionTime = 1.0f; // Durée de la transition en secondes
+    [Header("GameObject")]
+    //Récupère la barre d'UI et le GameObject du particule système
+    public BarProgressionDoorVault barProgressionUI;
+    public GameObject sparkParticle;
 
-    private bool isTransitioning = false; // Booléen pour vérifier si la transition est en cours
-
-    private Collider doorCollider; // Référence au collider de la porte
-
+    [Header("Angle de rotation")]
     //Valeur de l'axe de rotation pour l'ouverture de la porte et la fermeture
-    [SerializeField] private float axeYRotationToOpen = 0.0f;
-    [SerializeField] private float axeYRotationToClose = 0.0f;
-
+    public float rotationToOpen = 0.0f;
+    public float rotationToClose = 0.0f;
 
     void Start()
     {
-        doorCollider = GetComponent<Collider>();
         LockDoor();
     }
 
@@ -60,7 +53,7 @@ public class DoorVault : InteractibleObject
         }
     }
 
-    // Méthode pour détecter le joueur le plus proche lorsque la porte est verrouillée
+    // Méthode pour détecter le rôle du joueur le plus proche lorsque la porte est verrouillée et lui permet de percer le coffre
     private void GetClosestPlayer()
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
@@ -114,11 +107,11 @@ public class DoorVault : InteractibleObject
     System.Collections.IEnumerator PickDoorVaultCoroutine()
     {
         isBeingPicked = true;
-        _sparkParticle.SetActive(true);
-        yield return new WaitForSeconds(_pickingDuration);
+        sparkParticle.SetActive(true);
+        yield return new WaitForSeconds(pickingDuration);
 
         UnlockDoor();
-        _sparkParticle.SetActive(false);
+        sparkParticle.SetActive(false);
         isBeingPicked = false;
     }
     #endregion
@@ -127,33 +120,30 @@ public class DoorVault : InteractibleObject
     void OpenDoor()
     {
         //Permet d'ouvrir la porte sur un axe de rotation avec les Quaternion
-        StartCoroutine(AnimateDoor(transform.rotation, Quaternion.Euler(0, axeYRotationToOpen, 0)));
+        StartCoroutine(AnimateDoor(transform.rotation, Quaternion.Euler(0, rotationToOpen, 0)));
     }
 
     void CloseDoor()
     {
         //Permet de fermer la porte sur un axe de rotation avec les Quaternion
-        StartCoroutine(AnimateDoor(transform.rotation, Quaternion.Euler(0, axeYRotationToClose, 0)));
+        StartCoroutine(AnimateDoor(transform.rotation, Quaternion.Euler(0, rotationToClose, 0)));
     }
 
 
     System.Collections.IEnumerator AnimateDoor(Quaternion startRotation, Quaternion endRotation)
     {
         isTransitioning = true; // Marque le début de la transition
-        doorCollider.enabled = false; // Désactive le collider au début de la transition pour éviter le spam de touche
 
         float elapsedTime = 0.0f;
 
-        while (elapsedTime < _resolutionTime)
+        while (elapsedTime < resolutionTime)
         {
-            transform.rotation = Quaternion.Lerp(startRotation, endRotation, elapsedTime / _resolutionTime);
+            transform.rotation = Quaternion.Lerp(startRotation, endRotation, elapsedTime / resolutionTime);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
         transform.rotation = endRotation; // Assure que la rotation finale est correcte
-
-        doorCollider.enabled = true; // Réactive le collider à la fin de la transition
 
         isTransitioning = false; // Marque la fin de la transition
         isOpening = !isOpening; //Permet de savoir si la porte est en position ouverte ou fermée
