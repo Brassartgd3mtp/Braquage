@@ -74032,7 +74032,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 0.5
   _smoothing: 5
-  _range: {x: 40, y: 50}
+  _range: {x: 30, y: 35}
+  _boundsCenter: {x: 6, y: 0, z: -6}
 --- !u!114 &1802976362711815929
 MonoBehaviour:
   m_ObjectHideFlags: 0
