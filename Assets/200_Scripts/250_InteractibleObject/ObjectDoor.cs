@@ -13,6 +13,7 @@ public class ObjectDoor : InteractibleObject
     [SerializeField] private float axeYOpening = 0.0f;
     [SerializeField] private float axeZOpening = 0.0f;
 
+
     void Start()
     {
         doorCollider = GetComponent<Collider>();
@@ -38,7 +39,7 @@ public class ObjectDoor : InteractibleObject
     {
         // Code pour ouvrir la porte de droite à gauche
         StartCoroutine(AnimateDoor(transform.position, transform.position + new Vector3(-axeXOpening, -axeYOpening, -axeZOpening)));
-    }
+    }    
 
     void CloseDoor()
     {
