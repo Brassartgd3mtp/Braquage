@@ -5,14 +5,14 @@ using UnityEngine;
 public class PlayerInteractions : MonoBehaviour
 {
     public static List<string> objectTag = new List<string>();
-    [SerializeField] private InteractibleObject interactibleObject; //Script de l'objet interactif
+    [SerializeField] private InteractibleObjectV2 interactibleObject; //Script de l'objet interactif
     [SerializeField] private bool isKeyPressed = false;
 
 
 
     private void Start()
     {
-        Invoke("SetupTags", 2f);
+        Invoke("SetupTags", 1f);
     }
 
     private void SetupTags()
@@ -45,7 +45,7 @@ public class PlayerInteractions : MonoBehaviour
             // Définis la variable pour permettre l'activation de la méthode
             isKeyPressed = true;
 
-            interactibleObject = other.GetComponent<InteractibleObject>();
+            interactibleObject = other.GetComponent<InteractibleObjectV2>();
         }
     }
 

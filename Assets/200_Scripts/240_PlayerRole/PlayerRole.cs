@@ -20,4 +20,8 @@ public class PlayerRole : MonoBehaviour
 
     public float _pickingMultiplier = 1.0f;
 
+    public bool redCard = false;
+    public bool blueCard = false;
+    public bool greenCard = false;
+
 }

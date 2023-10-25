@@ -9,14 +9,14 @@ public class UnitMovement : MonoBehaviour
     Camera myCam;
     NavMeshAgent myAgent;
     public LayerMask _ground;
-    public float _speed = 3.5f; // Ajoutez une variable pour la vitesse
+    public float speed = 3.5f; // Ajoutez une variable pour la vitesse
 
 
     void Start()
     {
         myCam = Camera.main;
         myAgent = GetComponent<NavMeshAgent>();
-        myAgent.speed = _speed;
+        myAgent.speed = speed;
     }
 
     void Update()
