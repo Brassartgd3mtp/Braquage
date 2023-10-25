@@ -102,30 +102,6 @@ public class GuardPatrol : GuardBehaviour
         }
         // Si aucun joueur n'est détecté, retourner faux
         return false;
-
-
-        /*
-        // Variables pour la sphere cast
-        Vector3 castOrigin = transform.position;
-        float castRadius = detectionRadius;
-        Vector3 castDirection = transform.forward;
-
-        // Dessiner la sphère de détection avec une ligne rouge dans l'éditeur
-        Debug.DrawRay(castOrigin, castDirection * detectionRadius, Color.red);
-
-        RaycastHit hit;
-
-        // Lancer une sphere cast dans la direction actuelle
-        if (Physics.SphereCast(castOrigin, castRadius, castDirection, out hit, detectionRadius) && hit.collider.CompareTag(playerTag))
-        {
-            // Si la sphere cast touche un objet portant le tag du joueur, retourner vrai
-            return true;
-        }
-
-        // Si aucun joueur n'est détecté, retourner faux
-        return false;
-        */
-
     }
 
     private void OnDrawGizmosSelected()
@@ -135,22 +111,5 @@ public class GuardPatrol : GuardBehaviour
         
         Gizmos.matrix = Matrix4x4.TRS(transform.position, transform.rotation, Vector3.one);
         Gizmos.DrawFrustum(Vector3.zero, detectionAngle * 0.5f, detectionRadius, 0f, 1f);
-
-        /*
-        // Dessiner la sphère de détection avec Gizmos
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position + transform.forward * detectionRadius, detectionRadius);
-
-        // Dessiner la sphère de détection avec une ligne rouge dans l'éditeur
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, transform.position + transform.forward * detectionRadius);
-
-        // Autres dessins (par exemple, le cône de vision)
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, detectionRadius);
-
-        Gizmos.matrix = Matrix4x4.TRS(transform.position, transform.rotation, Vector3.one);
-        Gizmos.DrawFrustum(Vector3.zero, detectionAngle * 0.5f, detectionRadius, 0f, 1f);
-        */
     }
 }
