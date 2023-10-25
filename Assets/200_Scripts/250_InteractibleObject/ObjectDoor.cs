@@ -12,7 +12,6 @@ public class ObjectDoor : InteractibleObject
     [SerializeField] private float axeXOpening = 4.0f;
     [SerializeField] private float axeYOpening = 0.0f;
     [SerializeField] private float axeZOpening = 0.0f;
-    [SerializeField] AudioDatabase audioDatabase;
 
 
     void Start()

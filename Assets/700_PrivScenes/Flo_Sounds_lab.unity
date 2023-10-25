@@ -405,8 +405,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitList: []
   unitsSelected: []
-  newMaterial: {fileID: 2100000, guid: 884b3d6fd8dac0140956d6453e843b15, type: 2}
-  materialToRemoveName: M_Outline (Instance)
 --- !u!1 &82913465
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,12 +759,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c59430c102275747ba523d4fedae638, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pickingDuration: 2
+  pickingDuration: 5
+  resolutionTime: 1
+  raycastDistance: 10
   barProgressionUI: {fileID: 423124422}
-  _sparkParticle: {fileID: 1421246194}
-  _resolutionTime: 1
-  axeYRotationToOpen: -60
-  axeYRotationToClose: 0
+  sparkParticle: {fileID: 0}
+  rotationToOpen: 0
+  rotationToClose: 0
 --- !u!65 &222845633
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12068,6 +12067,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 115dfd14dd8000e44b0b2f4abea6d2c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectUnit: 0
+  nameMaterialOutline: M_OutlineV2
+  propertyAlpha: _Alpha
+  propertyColor: _Outline_Color
+  originAlpha: 0
+  newAlpha: 1
+  selectionColor: {r: 0, g: 0, b: 0, a: 0}
+  intensityHDR: 10
 --- !u!195 &533968525
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -22686,12 +22693,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c59430c102275747ba523d4fedae638, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pickingDuration: 2
+  pickingDuration: 5
+  resolutionTime: 1
+  raycastDistance: 10
   barProgressionUI: {fileID: 1523259595}
-  _sparkParticle: {fileID: 2026792531}
-  _resolutionTime: 1
-  axeYRotationToOpen: 30
-  axeYRotationToClose: 90
+  sparkParticle: {fileID: 0}
+  rotationToOpen: 0
+  rotationToClose: 0
 --- !u!65 &787454615
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23060,6 +23068,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &862342409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 862342410}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &862342410
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862342409}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.05975, y: 0.80223465, z: 20.125046}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &898668734
 GameObject:
   m_ObjectHideFlags: 0
@@ -29217,9 +29256,7 @@ MonoBehaviour:
   axeXOpening: 0
   axeYOpening: 0
   axeZOpening: 4
-  interactibleScriptableObjects: {fileID: 11400000, guid: 071f1b0b85a99e04294dd02db569b29e,
-    type: 2}
-  audioSource: {fileID: 1229338624}
+  audioDatabase: {fileID: 0}
 --- !u!208 &1229338626
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -29439,6 +29476,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 115dfd14dd8000e44b0b2f4abea6d2c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectUnit: 0
+  nameMaterialOutline: M_OutlineV2
+  propertyAlpha: _Alpha
+  propertyColor: _Outline_Color
+  originAlpha: 0
+  newAlpha: 1
+  selectionColor: {r: 0, g: 0, b: 0, a: 0}
+  intensityHDR: 10
 --- !u!195 &1266925193
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -40320,11 +40365,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3a7c96a80ff2044ebdcb9b17a1d6dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pickingDuration: 5
   _playerRole: []
-  _totalPickingTime: 0
   barProgressionUI: {fileID: 1312182998}
+  _pickingDuration: 5
   _resolutionTime: 1
+  _totalPickingTime: 0
   axeXOpening: 0
   axeYOpening: 0
   axeZOpening: 4
@@ -40997,11 +41042,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3a7c96a80ff2044ebdcb9b17a1d6dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pickingDuration: 2
   _playerRole: []
-  _totalPickingTime: 0
   barProgressionUI: {fileID: 1165987263}
+  _pickingDuration: 2
   _resolutionTime: 1
+  _totalPickingTime: 0
   axeXOpening: 4
   axeYOpening: 0
   axeZOpening: 0
@@ -41608,11 +41653,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3a7c96a80ff2044ebdcb9b17a1d6dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pickingDuration: 5
   _playerRole: []
-  _totalPickingTime: 0
   barProgressionUI: {fileID: 176439489}
+  _pickingDuration: 5
   _resolutionTime: 1
+  _totalPickingTime: 0
   axeXOpening: 0
   axeYOpening: 0
   axeZOpening: 4
@@ -41802,6 +41847,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 115dfd14dd8000e44b0b2f4abea6d2c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectUnit: 0
+  nameMaterialOutline: M_OutlineV2
+  propertyAlpha: _Alpha
+  propertyColor: _Outline_Color
+  originAlpha: 0
+  newAlpha: 1
+  selectionColor: {r: 0, g: 0, b: 0, a: 0}
+  intensityHDR: 10
 --- !u!195 &1743769823
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -53047,6 +53100,7 @@ MonoBehaviour:
   detectionAngle: 160
   numberOfRays: 20
   playerTag: Player
+  attackRange: 2
 --- !u!114 &2117438341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53063,6 +53117,7 @@ MonoBehaviour:
   detectionAngle: 0
   numberOfRays: 0
   playerTag: Player
+  attackRange: 2
   chaseSpeed: 5
 --- !u!114 &2117438342
 MonoBehaviour:
@@ -53243,3 +53298,4 @@ SceneRoots:
   - {fileID: 1302668949}
   - {fileID: 1266925198}
   - {fileID: 222845636}
+  - {fileID: 862342410}

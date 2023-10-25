@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46ba771f0e98f2c49ab6e80f65a811c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 910e334b5a6f2de4490c8e33e0e61d44, type: 3}
   m_Name: SoundsDatabase
   m_EditorClassIdentifier: 
-  source: {fileID: 0}
-  door: []
+  sounds: []
