@@ -5,7 +5,7 @@ public class UnitClick : MonoBehaviour
     private Camera myCam;
     public GameObject groundMarker;
 
-    private bool isActive = false;
+    private bool isActive;
 
 
     public LayerMask clickable;
@@ -13,6 +13,7 @@ public class UnitClick : MonoBehaviour
     void Start()
     {
         myCam = Camera.main;
+        isActive = false;
     }
 
     void Update()

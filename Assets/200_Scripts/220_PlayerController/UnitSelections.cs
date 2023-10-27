@@ -4,17 +4,17 @@ using UnityEngine;
 public class UnitSelections : MonoBehaviour
 {
     //Reference : https://www.youtube.com/watch?v=vAVi04mzeKk&ab_channel=SpawnCampGames
+    [Header("List Unit")]
+    // Liste de toutes les unités disponibles dans le jeu
     public List<GameObject> unitList = new List<GameObject>();
+    // Liste des unités actuellement sélectionnées
     public List<GameObject> unitsSelected = new List<GameObject>();
 
+    // Instance singleton pour s'assurer qu'une seule instance de ce script existe
     private static UnitSelections _instance;
     public static UnitSelections Instance { get { return _instance; } }
 
-    public Material newMaterial;
-    public string materialToRemoveName; // Le nom du matériau spécifique que tu veux enlever
-
-
-
+    // Retourne le nombre total d'unités disponibles
     public int TotalCharacters()
     {
         return unitList.Count;
@@ -35,61 +35,63 @@ public class UnitSelections : MonoBehaviour
         }
     }
 
+    // Sélectionne une unité et active ses composants de mouvement et d'interaction
     public void ClickSelect(GameObject unitToAdd)
     {
         DeselectAll();
         unitsSelected.Add(unitToAdd);
-        //unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
         unitToAdd.GetComponent<UnitMovement>().enabled = true;
         unitToAdd.GetComponent<PlayerInteractions>().enabled = true;
 
+        // Sélectionne l'unité pour des mises en évidence visuelles ou d'autres indicateurs
         Unit unitOutline = unitToAdd.GetComponentInParent<Unit>();
 
         if (unitOutline != null)
         {
-            unitOutline.AddMaterial(newMaterial);
+            unitOutline.selectUnit = true;
         }
     }
 
+    // Sélectionne ou désélectionne une unité en fonction de sa présence dans la sélection
     public void ShifClickSelect(GameObject unitToAdd)
     {
         if (!unitsSelected.Contains(unitToAdd))
         {
+            // Si l'unité n'est pas sélectionnée, l'ajouter à la sélection et activer ses composants
             unitsSelected.Add(unitToAdd);
-            //unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
             unitToAdd.GetComponent<UnitMovement>().enabled = true;
             unitToAdd.GetComponent<PlayerInteractions>().enabled = true;
-            
+
             Unit unitOutline = unitToAdd.GetComponentInParent<Unit>();
 
             if (unitOutline != null)
             {
-                unitOutline.AddMaterial(newMaterial);
+                unitOutline.selectUnit = true;
             }
 
         }
         else
         {
+            // Si l'unité est déjà sélectionnée, la désélectionner et désactiver ses composants
             unitToAdd.GetComponent<UnitMovement>().enabled = false;
             unitToAdd.GetComponent<PlayerInteractions>().enabled = false;
-            //unitToAdd.transform.GetChild(0).gameObject.SetActive(false);
             unitsSelected.Remove(unitToAdd);
 
             Unit unitOutline = unitToAdd.GetComponentInParent<Unit>();
 
             if (unitOutline != null)
             {
-                unitOutline.RemoveMaterial(materialToRemoveName);
+                unitOutline.selectUnit = false;
             }
         }
     }
 
+    // Ajoute une unité à la sélection pendant une opération de glisser
     public void DragSelect(GameObject unitToAdd)
     {
-        if(!unitsSelected.Contains(unitToAdd))
+        if (!unitsSelected.Contains(unitToAdd))
         {
             unitsSelected.Add(unitToAdd);
-            //unitToAdd.transform.GetChild(0).gameObject.SetActive(true);
             unitToAdd.GetComponent<UnitMovement>().enabled = true;
             unitToAdd.GetComponent<PlayerInteractions>().enabled = true;
 
@@ -97,27 +99,26 @@ public class UnitSelections : MonoBehaviour
 
             if (unitOutline != null)
             {
-                unitOutline.AddMaterial(newMaterial);
+                unitOutline.selectUnit = true;
+                
             }
-
         }
     }
 
+    // Désélectionne toutes les unités actuellement sélectionnées et désactive leurs composants
     public void DeselectAll()
     {
-        foreach(var unit in unitsSelected)
+        foreach (var unit in unitsSelected)
         {
             unit.GetComponent<PlayerInteractions>().enabled = false;
             unit.GetComponent<UnitMovement>().enabled = false;
-            //unit.transform.GetChild(0).gameObject.SetActive(false);
 
             Unit unitOutline = unit.GetComponentInParent<Unit>();
 
             if (unitOutline != null)
             {
-                unitOutline.RemoveMaterial(materialToRemoveName);
+                unitOutline.selectUnit = false;
             }
-
         }
         unitsSelected.Clear();
     }

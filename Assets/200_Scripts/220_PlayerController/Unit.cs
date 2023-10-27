@@ -3,55 +3,75 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-    //public Material newMaterial; // Le nouveau matériau que tu veux ajouter
-    //public string materialToRemoveName; // Le nom du matériau spécifique que tu veux enlever
+    [HideInInspector]
+    public bool selectUnit = false;
+    private new Renderer renderer;
+
+    //Nom des références exact sur lesquels on veut agir dans le script
+    [Header("Name property Shader")] 
+    public string nameMaterialOutline = "M_OutlineV2";
+    public string propertyAlpha = "_Alpha";
+    public string propertyColor = "_Outline_Color";
+
+    // Remplace avec la nouvelle ou l'ancienne valeur d'alpha
+    [Header("Alpha property")]
+    public float originAlpha = 0f;
+    public float newAlpha = 1f;
+
+    [Header("Color property")] //Permet de définir les couleurs et l'intensité lorsque la souris passe sur objet et qu'un "Player" est à proximité
+    public Color selectionColor;
+    [Range(-10.0f, 100.0f)]
+    public float intensityHDR = 10f;
 
     void Start()
     {
         UnitSelections.Instance.unitList.Add(this.gameObject);
+        renderer = GetComponent<Renderer>();
+        ApplyAlpha(originAlpha);
+        ApplyColor(selectionColor, intensityHDR);
     }
 
-
-    public void AddMaterial(Material material)
+    private void Update()
     {
-        MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
-
-        if (meshRenderer != null)
+        if (selectUnit)
         {
-            // Récupère les matériaux actuels
-            List<Material> materialList = new List<Material>(meshRenderer.materials);
-
-            // Ajoute le nouveau matériau à la liste des matériaux
-            materialList.Add(material);
-
-            // Applique la nouvelle liste de matériaux au MeshRenderer
-            meshRenderer.materials = materialList.ToArray();
+            ApplyAlpha(newAlpha);
+        }
+        else if (!selectUnit)
+        {
+            ApplyAlpha(originAlpha);
         }
     }
 
-    public void RemoveMaterial(string materialName)
+    // Méthode pour appliquer l'alpha au nameMaterialOutline
+    public void ApplyAlpha(float alpha)
     {
-        MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
-
-        if (meshRenderer != null)
+        // Parcourt tous les matériaux de l'objet
+        foreach (Material material in renderer.materials)
         {
-            // Récupère les matériaux actuels
-            List<Material> materialList = new List<Material>(meshRenderer.materials);
-
-            // Recherche et enlève le matériau spécifié de la liste par nom
-            Material materialToRemove = materialList.Find(m => m.name == materialName);
-
-            if (materialToRemove != null)
+            // Vérifie si la propriété Alpha existe dans ce matériau
+            if (material.HasProperty(propertyAlpha))
             {
-                materialList.Remove(materialToRemove);
-
-                // Applique la nouvelle liste de matériaux au MeshRenderer
-                meshRenderer.materials = materialList.ToArray();
+                // Modifie la propriété Alpha spécifique à ce matériau
+                material.SetFloat(propertyAlpha, alpha);
             }
         }
     }
 
-
+    // Méthode pour appliquer la couleur au nameMaterialOutline
+    public void ApplyColor(Color couleur, float intensite)
+    {
+        // Parcourt tous les matériaux de l'objet
+        foreach (Material material in renderer.materials)
+        {
+            // Vérifie si la propriété Couleur existe dans ce matériau
+            if (material.HasProperty(propertyColor))
+            {
+                // Modifie la propriété Couleur spécifique à ce matériau
+                material.SetColor(propertyColor, couleur * intensite);
+            }
+        }
+    }
 
     private void OnDestroy()
     {

@@ -1,3 +1,6 @@
+// Ce script gère la sélection d'unités par glisser-déposer (drag-and-drop) dans un projet Unity.
+// Il utilise une boîte de sélection visuelle pour délimiter la zone de sélection et sélectionne les unités qui se trouvent à l'intérieur de cette zone.
+
 using UnityEngine;
 
 public class UnitDrag : MonoBehaviour
@@ -6,10 +9,10 @@ public class UnitDrag : MonoBehaviour
 
     [SerializeField] RectTransform boxVisual;
 
-    Rect selectionBox;
+    Rect selectionBox;  // La boîte de sélection en termes de coordonnées d'écran
 
-    Vector2 startPosition;
-    Vector2 endPosition;
+    Vector2 startPosition;  // Position de début de la boîte de sélection
+    Vector2 endPosition;    // Position de fin de la boîte de sélection
 
     void Start()
     {
@@ -47,6 +50,7 @@ public class UnitDrag : MonoBehaviour
         }
     }
 
+    // Dessine la boîte de sélection visuelle en fonction des positions de début et de fin
     void DrawVisual()
     {
         Vector2 boxStart = startPosition;
@@ -60,6 +64,7 @@ public class UnitDrag : MonoBehaviour
         boxVisual.sizeDelta = boxSize;
     }
 
+    // Met à jour les coordonnées de la boîte de sélection en fonction de la position de la souris
     void DrawSelection()
     {
         if (Input.mousePosition.x < startPosition.x)
@@ -90,15 +95,16 @@ public class UnitDrag : MonoBehaviour
         }
     }
 
+    // Sélectionne les unités qui se trouvent dans la boîte de sélection
     private void SelectUnits()
     {
-        //loop thru all the units
+        // Parcourt toutes les unités dans la liste d'unités
         foreach (var unit in UnitSelections.Instance.unitList)
         {
-            //if unit is within the bounds of the selection rect
+            // Si l'unité est dans les limites de la boîte de sélection et son collider est activé
             if (selectionBox.Contains(myCam.WorldToScreenPoint(unit.transform.position)) && unit.GetComponent<Collider>().enabled)
             {
-                //if any unit is within the selection add them to selection
+                // Ajoute l'unité à la sélection
                 UnitSelections.Instance.DragSelect(unit);
             }
         }
