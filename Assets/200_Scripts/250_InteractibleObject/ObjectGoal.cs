@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectGoal : InteractibleObject
+public class ObjectGoal : InteractibleObjectV2
 {
     [SerializeField] private Victory collectedGoalScript;
 
