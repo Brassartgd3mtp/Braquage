@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.ExceptionServices;
 using UnityEngine;
 
-public class Tutoriel : MonoBehaviour
+public class TutorielTwoDisplaySkip : MonoBehaviour
 {
     public GameObject mainWindow;
     public GameObject firstWindow;
@@ -16,21 +16,17 @@ public class Tutoriel : MonoBehaviour
 
     private void Start()
     {
-        #region HowToSelectAndMove
-        mainWindow.gameObject.SetActive(true);
+        mainWindow.SetActive(true);
         firstWindow.gameObject.SetActive(true);
         secondWindow.gameObject.SetActive(false);
         ContinueText.SetActive(false);
-        #endregion
     }
 
     void Update()
     {
-        #region HowToSelectAndMove
         ///
         /// Permet de pouvoir passer d'un display à un autre avec une latence avant de pouvoir skipper la deuxième. 
         ///
-
 
         if (CanNext == false)
         {
@@ -40,7 +36,7 @@ public class Tutoriel : MonoBehaviour
             }
             if (Cooldown <= 0)
             {
-                ContinueText.SetActive(true);
+                ContinueText.gameObject.SetActive(true);
             }
             if (ContinueText.activeSelf)
             {
@@ -49,13 +45,13 @@ public class Tutoriel : MonoBehaviour
                     firstWindow.gameObject.SetActive(false);
                     secondWindow.gameObject.SetActive(true);
                     timerCanPlay = true;
-                    ContinueText.SetActive(false);
-                    Cooldown = 2;
+                    ContinueText.gameObject.SetActive(false);
+                    Cooldown = 3;
 
                 }
             }
-            
         }
+        //Le timer permet de mettre un temps entre les skip, sinon ils se font en même temps et donc la deuxième display n'apparait pas.
         if (timerCanPlay == true)
         {
             if (Cooldown > 0)
@@ -65,18 +61,20 @@ public class Tutoriel : MonoBehaviour
             if (Cooldown <= 0)
             {
                 CanNext = true;
-                ContinueText.SetActive(true);
+                ContinueText.gameObject.SetActive(true);
             }
         }
         if (CanNext == true)
         {
             if(Input.GetKeyDown(KeyCode.Space))
             {
-                secondWindow.gameObject.SetActive(false);
+                CanNext = false;
+                Cooldown = 2;
+                timerCanPlay = false;
                 mainWindow.gameObject.SetActive(false);
+                // On reset tout à la fin au cas où il faudrait le réutiliser.
             }
             
         }
-        #endregion
     }
 }
