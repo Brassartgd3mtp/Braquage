@@ -15,7 +15,6 @@ public class GuardController : MonoBehaviour
     private GuardChase guardChase;
     private GuardAttack guardAttack;
 
-
     private void Start()
     {
         guardPatrol = GetComponent<GuardPatrol>();

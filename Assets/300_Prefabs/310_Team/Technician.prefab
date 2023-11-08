@@ -803,6 +803,7 @@ GameObject:
   - component: {fileID: 8174072069402868652}
   - component: {fileID: 3213513851981556816}
   - component: {fileID: 8985208076570682690}
+  - component: {fileID: 582559601556986654}
   m_Layer: 7
   m_Name: Technician
   m_TagString: Player
@@ -818,7 +819,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7955696960225995908}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -21.34, y: 1.56, z: 2.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -924,9 +925,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 2.5
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -0.07999998, y: -0.039338455, z: 0.25138116}
 --- !u!54 &1391061836143840147
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -963,7 +964,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 7955696960225995908}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.9213441
+  m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -972,8 +973,8 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2.2620335
-  m_BaseOffset: 1.1310167
+  m_Height: 2.5
+  m_BaseOffset: 1.05
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!95 &7038259980323593180
@@ -1078,6 +1079,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3871fc3561d5e2944905d9d7a2855d0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &582559601556986654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7955696960225995908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba0fedd7d6f72bd46ac4128f39a71339, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isWalking: 0
+  isDoingAction: 0
 --- !u!1 &7976484468021162957
 GameObject:
   m_ObjectHideFlags: 0

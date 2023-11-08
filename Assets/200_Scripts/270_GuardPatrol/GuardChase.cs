@@ -23,10 +23,15 @@ public class GuardChase : GuardBehaviour
     // Composant NavMeshAgent pour la navigation
     private NavMeshAgent agent;
 
+    private Animator myAnimator;
+    private bool isWalking = false;
+    private bool isRun = false;
+
     private void Start()
     {
         // Initialisation du composant NavMeshAgent
         agent = GetComponent<NavMeshAgent>();
+        myAnimator = GetComponent<Animator>();
     }
 
     public override void ApplyBehaviour()
@@ -57,6 +62,12 @@ public class GuardChase : GuardBehaviour
         {
             agent.isStopped = false;
             agent.speed = chaseSpeed;
+
+            isWalking = false;
+            myAnimator.SetBool("Walk", isWalking);
+
+            isRun = true;
+            myAnimator.SetBool("Run", isRun);
 
             // Trouver le joueur le plus proche
             GameObject closestPlayer = GetClosestPlayer();

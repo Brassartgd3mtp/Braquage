@@ -19,11 +19,20 @@ public class GuardPatrol : GuardBehaviour
     public float normalSpeed = 3.5f;
     private NavMeshAgent agent;
 
+    private Animator myAnimator;
+    private bool isWalking = false;
+    private bool isRun = false;
 
+    private float waypointTimer = 5.0f; // Temps en secondes
+    private float currentTimer = 0.0f;
 
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        myAnimator = GetComponent<Animator>();
+
+        currentTimer = waypointTimer;
+
         SetDestination();
     }
 
@@ -61,21 +70,46 @@ public class GuardPatrol : GuardBehaviour
         agent.isStopped = false;
         agent.speed = normalSpeed;
         agent.SetDestination(waypoints[currentWaypoint].position);
+        
+        isWalking = true;
+        myAnimator.SetBool("Walk", isWalking);
+        
+        isRun = false;
+        myAnimator.SetBool("Run", isRun);
     }
 
     private void SetNextWaypoint()
     {
+            isWalking = false;
+            myAnimator.SetBool("Walk", isWalking);
+
+            isRun = false;
+            myAnimator.SetBool("Run", isRun);
+
         Debug.Log("SetNextWaypoint appelée");
 
-        currentWaypoint += patrolDirection;
-
-        if (currentWaypoint >= waypoints.Length || currentWaypoint < 0)
+        // Vérifie si le timer est écoulé
+        if (currentTimer <= 0)
         {
-            patrolDirection *= -1;
-            currentWaypoint += patrolDirection * 2;
-        }
+            currentWaypoint += patrolDirection;
 
-        SetDestination();
+
+            if (currentWaypoint >= waypoints.Length || currentWaypoint < 0)
+            {
+                patrolDirection *= -1;
+                currentWaypoint += patrolDirection * 2;
+            }
+
+            SetDestination();
+
+            // Réinitialise le timer après avoir appelé SetNextWaypoint
+            currentTimer = waypointTimer;
+        }
+        else
+        {
+            // Décrémente le timer si le timer n'est pas encore écoulé
+            currentTimer -= Time.deltaTime;
+        }
     }
 
     public bool DetectPlayer()
