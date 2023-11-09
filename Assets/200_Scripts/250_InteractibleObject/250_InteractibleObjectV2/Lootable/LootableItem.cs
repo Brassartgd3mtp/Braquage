@@ -17,8 +17,8 @@ public class LootableItem : InteractibleObjectV2
     }
 
     //public void OnTriggerEnter(Collider other)
-             public override void OnInteraction()
-
+             //public override void OnInteraction()
+        void OnTriggerEnter (Collider other)
     {
         if (gameManager != null)
         {
@@ -29,7 +29,7 @@ public class LootableItem : InteractibleObjectV2
                 Debug.Log("Le joueur a interagi avec : " + selectedLootTable);
                 // Fais ce que tu veux avec les données de l'objet ici
 
-                PlayerRole accesCard = GetComponent<PlayerRole>();
+                PlayerRole accesCard = other.GetComponent<PlayerRole>();
                 if (accesCard != null)
                 {
                     // Définir les booléens du joueur en fonction des paramètres de la carte

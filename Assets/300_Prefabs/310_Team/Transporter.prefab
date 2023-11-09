@@ -1054,7 +1054,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8842283823921539776}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9fbeb22d398d7148a3817f52914d6e3, type: 3}
   m_Name: 
@@ -1093,8 +1093,8 @@ MonoBehaviour:
   _lockPicker: 0
   _transporter: 1
   _pickingMultiplier: 1
-  redCard: 1
-  blueCard: 1
+  redCard: 0
+  blueCard: 0
   greenCard: 0
 --- !u!114 &5158094283122413317
 MonoBehaviour:
