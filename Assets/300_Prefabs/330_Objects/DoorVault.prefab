@@ -310,6 +310,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80e10a85cdbb665409befebe19d49330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiresAccessCard: 0
+  requiresRedCard: 0
+  requiresBlueCard: 0
+  requiresGreenCard: 0
   nameOpenAnimation: OpenAnimationVault
   nameCloseAnimation: CloseAnimationVault
   isLocked: 1
