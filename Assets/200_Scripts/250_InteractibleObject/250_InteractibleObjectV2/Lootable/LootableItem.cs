@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class LootableItem : InteractibleObjectV2
 {
@@ -37,28 +38,20 @@ public class LootableItem : InteractibleObjectV2
                 {
                     StartCoroutine(DelayedAction(accesCard, selectedLootTable));
 
+                    // Désactiver le NavMeshAgent du joueur pendant la fouille
+                    NavMeshAgent navMeshAgent = interactingPlayer.GetComponent<NavMeshAgent>();
+                    if (navMeshAgent != null)
+                    {
+                        navMeshAgent.enabled = false;
+                    }
+
                     lootableBar.AugmenterFillAmount();
-                    //// Définir les booléens du joueur en fonction des paramètres de la carte
-                    //switch (selectedLootTable.cardType)
-                    //{
-                    //    case LootTable.CardType.RedCard:
-                    //        accesCard.redCard = true;
-                    //        break;
-                    //    case LootTable.CardType.BlueCard:
-                    //        accesCard.blueCard = true;
-                    //        break;
-                    //    case LootTable.CardType.GreenCard:
-                    //        accesCard.greenCard = true;
-                    //        break;
-                    //    case LootTable.CardType.None:
-                    //        break;
-                    //    default:
-                    //        break;
-                    //}
-                    //
-                    //Debug.Log("SetActive False");
-                    //// Désactiver l'objet carte après utilisation
-                    //gameObject.SetActive(false);
+
+                    // Récupérer l'Animator du joueur
+                    Animator playerAnimator = interactingPlayer.GetComponent<Animator>();
+                    playerAnimator.SetBool("DoingAction", true);
+                    playerAnimator.SetBool("Walk", false);
+
                 }
             }
             else
@@ -75,6 +68,15 @@ public class LootableItem : InteractibleObjectV2
     {
         // Attendre 2 secondes
         yield return new WaitForSeconds(2f);
+        Animator playerAnimator = accesCard.GetComponent<Animator>();
+        playerAnimator.SetBool("DoingAction", false);
+
+        // Réactiver le NavMeshAgent du joueur après la fouille
+        NavMeshAgent navMeshAgent = accesCard.GetComponent<NavMeshAgent>();
+        if (navMeshAgent != null)
+        {
+            navMeshAgent.enabled = true;
+        }
 
         // Définir les booléens du joueur en fonction des paramètres de la carte
         switch (selectedLootTable.cardType)
