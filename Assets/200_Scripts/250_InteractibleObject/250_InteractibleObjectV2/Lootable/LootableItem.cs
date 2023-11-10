@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,10 +6,13 @@ public class LootableItem : InteractibleObjectV2
 {
     public int lootTableID; // L'ID de la LootTable à utiliser
     private LootableManager gameManager;
+    public float totalSearchTime = 2f;
+    public LootableBar lootableBar;
 
     void Start()
     {
         gameManager = GetComponentInParent<LootableManager>();
+        lootableBar = GetComponentInChildren<LootableBar>();
         if (gameManager != null)
         {
             // Attribuer un ID unique et aléatoire en fonction du nombre d'éléments dans la liste du GameManager
@@ -31,27 +35,30 @@ public class LootableItem : InteractibleObjectV2
 
                 if (accesCard != null)
                 {
-                    // Définir les booléens du joueur en fonction des paramètres de la carte
-                    switch (selectedLootTable.cardType)
-                    {
-                        case LootTable.CardType.RedCard:
-                            accesCard.redCard = true;
-                            break;
-                        case LootTable.CardType.BlueCard:
-                            accesCard.blueCard = true;
-                            break;
-                        case LootTable.CardType.GreenCard:
-                            accesCard.greenCard = true;
-                            break;
-                        case LootTable.CardType.None:
-                            break;
-                        default:
-                            break;
-                    }
+                    StartCoroutine(DelayedAction(accesCard, selectedLootTable));
 
-                    Debug.Log("SetActive False");
-                    // Désactiver l'objet carte après utilisation
-                    gameObject.SetActive(false);
+                    lootableBar.AugmenterFillAmount();
+                    //// Définir les booléens du joueur en fonction des paramètres de la carte
+                    //switch (selectedLootTable.cardType)
+                    //{
+                    //    case LootTable.CardType.RedCard:
+                    //        accesCard.redCard = true;
+                    //        break;
+                    //    case LootTable.CardType.BlueCard:
+                    //        accesCard.blueCard = true;
+                    //        break;
+                    //    case LootTable.CardType.GreenCard:
+                    //        accesCard.greenCard = true;
+                    //        break;
+                    //    case LootTable.CardType.None:
+                    //        break;
+                    //    default:
+                    //        break;
+                    //}
+                    //
+                    //Debug.Log("SetActive False");
+                    //// Désactiver l'objet carte après utilisation
+                    //gameObject.SetActive(false);
                 }
             }
             else
@@ -64,7 +71,33 @@ public class LootableItem : InteractibleObjectV2
             Debug.LogError("GameManager not found in the scene");
         }
     }
+    IEnumerator DelayedAction(PlayerRole accesCard, LootTable selectedLootTable)
+    {
+        // Attendre 2 secondes
+        yield return new WaitForSeconds(2f);
 
+        // Définir les booléens du joueur en fonction des paramètres de la carte
+        switch (selectedLootTable.cardType)
+        {
+            case LootTable.CardType.RedCard:
+                accesCard.redCard = true;
+                break;
+            case LootTable.CardType.BlueCard:
+                accesCard.blueCard = true;
+                break;
+            case LootTable.CardType.GreenCard:
+                accesCard.greenCard = true;
+                break;
+            case LootTable.CardType.None:
+                break;
+            default:
+                break;
+        }
+
+        Debug.Log("SetActive False");
+        // Désactiver l'objet carte après utilisation
+        gameObject.SetActive(false);
+    }
     PlayerRole FindPlayerRole(GameObject interactingPlayer)
     {
         PlayerRole accesCard = null;
