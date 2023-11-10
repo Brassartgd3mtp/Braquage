@@ -29,7 +29,8 @@ public class PlayerInteractions : MonoBehaviour
             if (interactibleObject != null)
             {
                 // Appelle la méthode lorsque la touche est enfoncée
-                interactibleObject.OnInteraction();
+                interactibleObject.OnInteraction(gameObject);
+
             }
             else
             {

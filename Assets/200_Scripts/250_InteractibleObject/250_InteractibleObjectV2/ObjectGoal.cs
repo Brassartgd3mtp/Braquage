@@ -11,7 +11,7 @@ public class ObjectGoal : InteractibleObjectV2
         // Obtenez la référence au script Victory associé à cet objet, l'objet doit être en parent comme component
         collectedGoalScript = GetComponentInParent<Victory>();
     }
-    public override void OnInteraction()
+    public override void OnInteraction(GameObject interactablePlayer)
     {
         if (collectedGoalScript != null)
         {

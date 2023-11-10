@@ -46,7 +46,7 @@ public class ObjectDoorV2 : InteractibleObjectV2
         }
     }
 
-    public override void OnInteraction()
+    public override void OnInteraction(GameObject interactablePlayer)
     {
         if (!requiresAccessCard)
         {
