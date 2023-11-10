@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InteractibleObjectV2 : MonoBehaviour
 {
-    public virtual void OnInteraction()
+    public virtual void OnInteraction(GameObject interactablePlayer)
     {
 
     }

@@ -15,7 +15,7 @@ public class DoorVaultV2 : CrochetDoorV2
 
         LockDoor();
     }
-    public override void OnInteraction()
+    public override void OnInteraction(GameObject interactablePlayer)
     {
         if (!isBeingPicked && isLocked)
         {
@@ -24,7 +24,7 @@ public class DoorVaultV2 : CrochetDoorV2
         }
         else if (!isLocked)
         {
-            base.OnInteraction();
+            base.OnInteraction(gameObject);
         }
     }
 

@@ -138,9 +138,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c8a079b74d651f4780711aa3d457ac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiresAccessCard: 1
-  requiresRedCard: 1
-  requiresBlueCard: 1
+  requiresAccessCard: 0
+  requiresRedCard: 0
+  requiresBlueCard: 0
   requiresGreenCard: 0
   nameOpenAnimation: OpenAnimation
   nameCloseAnimation: CloseAnimation

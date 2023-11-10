@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 2001149334620482547}
   - component: {fileID: 6999111613793330576}
   - component: {fileID: 4328397344102933937}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PiedDeBiche
   m_TagString: Untagged
   m_Icon: {fileID: 0}

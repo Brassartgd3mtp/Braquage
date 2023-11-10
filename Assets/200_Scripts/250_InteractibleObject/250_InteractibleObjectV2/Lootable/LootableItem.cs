@@ -16,9 +16,7 @@ public class LootableItem : InteractibleObjectV2
         }
     }
 
-    //public void OnTriggerEnter(Collider other)
-             //public override void OnInteraction()
-        void OnTriggerEnter (Collider other)
+    public override void OnInteraction(GameObject interactingPlayer)
     {
         if (gameManager != null)
         {
@@ -27,9 +25,10 @@ public class LootableItem : InteractibleObjectV2
             if (selectedLootTable != null)
             {
                 Debug.Log("Le joueur a interagi avec : " + selectedLootTable);
-                // Fais ce que tu veux avec les données de l'objet ici
 
-                PlayerRole accesCard = other.GetComponent<PlayerRole>();
+                // Modifier cette ligne pour trouver dynamiquement le PlayerRole en fonction du joueur qui interagit
+                PlayerRole accesCard = FindPlayerRole(interactingPlayer);
+
                 if (accesCard != null)
                 {
                     // Définir les booléens du joueur en fonction des paramètres de la carte
@@ -50,6 +49,7 @@ public class LootableItem : InteractibleObjectV2
                             break;
                     }
 
+                    Debug.Log("SetActive False");
                     // Désactiver l'objet carte après utilisation
                     gameObject.SetActive(false);
                 }
@@ -63,5 +63,18 @@ public class LootableItem : InteractibleObjectV2
         {
             Debug.LogError("GameManager not found in the scene");
         }
+    }
+
+    PlayerRole FindPlayerRole(GameObject interactingPlayer)
+    {
+        PlayerRole accesCard = null;
+
+        // Utiliser le GameObject du joueur qui interagit
+        if (interactingPlayer != null)
+        {
+            accesCard = interactingPlayer.GetComponent<PlayerRole>();
+        }
+
+        return accesCard;
     }
 }

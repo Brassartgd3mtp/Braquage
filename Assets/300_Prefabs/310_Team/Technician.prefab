@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 2158061513329449570}
   - component: {fileID: 1462287193894603220}
   - component: {fileID: 361421844644572936}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Perceuse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ Transform:
   m_GameObject: {fileID: 1618618749848915204}
   serializedVersion: 2
   m_LocalRotation: {x: 0.6532815, y: 0.27059805, z: -0.6532815, w: 0.27059805}
-  m_LocalPosition: {x: -0, y: 0.282, z: -0.27}
+  m_LocalPosition: {x: -0, y: 0.674, z: -0.27}
   m_LocalScale: {x: 5.6687913, y: 5.6687913, z: 5.6687913}
   m_ConstrainProportionsScale: 0
   m_Children: []
