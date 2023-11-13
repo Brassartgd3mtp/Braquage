@@ -185,8 +185,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.93, y: 1.96, z: 17.356873}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.72}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5994743771151264398}
   m_Father: {fileID: 0}
@@ -224,7 +224,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7070986, y: 0.0033879152, z: 0.0033879143, w: 0.7070987}
   m_LocalPosition: {x: 0, y: -2.33, z: -1.66}
-  m_LocalScale: {x: 42.25001, y: 147.673, z: 147.6792}
+  m_LocalScale: {x: 44.3, y: 154.83817, z: 154.84467}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3672732460799088810}
@@ -330,9 +330,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b5519dc4194eb846a41a2631bcdd44f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOpening: 0
-  isTransitioning: 0
-  interactingPlayer: {fileID: 0}
   requiresAccessCard: 0
   requiresRedCard: 0
   requiresBlueCard: 0
