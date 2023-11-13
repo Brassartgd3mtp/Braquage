@@ -12,7 +12,10 @@ public class BarProgressionV2 : MonoBehaviour
     public Color startColor = new Color(1.0f, 0.0f, 0.0f, 1.0f); // Rouge avec alpha à 1.0
     public Color endColor = new Color(0.0f, 1.0f, 0.0f, 1.0f); // Vert avec alpha à 1.0
 
-
+    private void Start()
+    {
+        crochetDoorV2 = GetComponentInParent<CrochetDoorV2>();
+    }
 
 
     public void AugmenterFillAmount()

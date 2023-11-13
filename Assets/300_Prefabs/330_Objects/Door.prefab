@@ -26,8 +26,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -17.66, y: 1.96, z: 17.356873}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8225471057854530392}
   m_Father: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 7092486085652183095}
   - component: {fileID: 5006361336898882759}
   - component: {fileID: 4953884149184591895}
-  - component: {fileID: 2847574732642102458}
+  - component: {fileID: 3900059218886053971}
   - component: {fileID: 4364510411277712670}
   - component: {fileID: 1017427009566909977}
   m_Layer: 8
@@ -158,7 +158,7 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: -0.010000001, z: 0.015000001}
   m_TimeToStationary: 0.5
---- !u!114 &2847574732642102458
+--- !u!114 &3900059218886053971
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -167,16 +167,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 8749771646830467554}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b5519dc4194eb846a41a2631bcdd44f, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c8a079b74d651f4780711aa3d457ac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOpening: 0
+  isTransitioning: 0
+  interactingPlayer: {fileID: 0}
   requiresAccessCard: 0
   requiresRedCard: 0
   requiresBlueCard: 0
   requiresGreenCard: 0
   nameOpenAnimation: OpenDoorL
   nameCloseAnimation: CloseDoorL
-  isLocked: 1
+  isLocked: 0
   isBeingPicked: 0
   _playerRole: []
   pickingDuration: 5

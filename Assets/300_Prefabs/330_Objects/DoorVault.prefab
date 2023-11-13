@@ -26,7 +26,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.25, y: 1.96, z: 17.356873}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.80555, y: 0.80555, z: 0.80555}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3513222746703572035}
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   progression: {fileID: 748278008810161886}
-  crochetDoorV2: {fileID: 8838300702411673939}
+  crochetDoorV2: {fileID: 0}
   destroyHimSelf: {fileID: 1432076615126595538}
   startColor: {r: 1, g: 0, b: 0, a: 1}
   endColor: {r: 0, g: 1, b: 0, a: 1}
@@ -10125,6 +10125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80e10a85cdbb665409befebe19d49330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOpening: 0
+  isTransitioning: 0
+  interactingPlayer: {fileID: 0}
   requiresAccessCard: 0
   requiresRedCard: 0
   requiresBlueCard: 0

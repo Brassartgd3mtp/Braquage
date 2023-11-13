@@ -6,7 +6,7 @@ public class ObjectDoorV2 : InteractibleObjectV2
     private bool isOpening = false;
     private bool isTransitioning = false;
     private PlayerRole interactingPlayer;
-    
+
     [Header("Spécifique au Door simple")]
     // Couleurs de carte d'accès nécessaires
     public bool requiresAccessCard = false;
@@ -62,7 +62,7 @@ public class ObjectDoorV2 : InteractibleObjectV2
                 }
             }
         }
-        else if(requiresAccessCard && CheckAccessCard()) 
+        else if (requiresAccessCard && CheckAccessCard())
         {
             OpenDoor();
         }
