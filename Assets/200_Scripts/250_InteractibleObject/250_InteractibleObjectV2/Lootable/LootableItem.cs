@@ -5,19 +5,33 @@ using UnityEngine.AI;
 
 public class LootableItem : InteractibleObjectV2
 {
-    public int lootTableID; // L'ID de la LootTable à utiliser
     private LootableManager gameManager;
-    public float totalSearchTime = 2f;
-    public LootableBar lootableBar;
+    private LootableBar lootableBar;
+    private Animation lootableAnimation;
+    private bool wasSearched = false;
+
+    public GameObject childObject;
+
+
+    public int lootTableID; // L'ID de la LootTable à utiliser
+    public float totalSearchTime = 2f; //Temps de fouille
+    public string nameAnimation;
 
     void Start()
     {
         gameManager = GetComponentInParent<LootableManager>();
         lootableBar = GetComponentInChildren<LootableBar>();
+        lootableAnimation = GetComponent<Animation>();
+
         if (gameManager != null)
         {
             // Attribuer un ID unique et aléatoire en fonction du nombre d'éléments dans la liste du GameManager
             lootTableID = gameManager.GenerateUniqueRandomID();
+        }
+        if (lootableAnimation == null)
+        {
+            Debug.LogError("Animation component is not assigned to ObjectDoorV2.");
+            return;
         }
     }
 
@@ -34,7 +48,7 @@ public class LootableItem : InteractibleObjectV2
                 // Modifier cette ligne pour trouver dynamiquement le PlayerRole en fonction du joueur qui interagit
                 PlayerRole accesCard = FindPlayerRole(interactingPlayer);
 
-                if (accesCard != null)
+                if (accesCard != null && wasSearched == false)
                 {
                     StartCoroutine(DelayedAction(accesCard, selectedLootTable));
 
@@ -96,9 +110,8 @@ public class LootableItem : InteractibleObjectV2
                 break;
         }
 
-        Debug.Log("SetActive False");
-        // Désactiver l'objet carte après utilisation
-        gameObject.SetActive(false);
+        wasSearched = true;
+        lootableAnimation.Play(nameAnimation);
     }
     PlayerRole FindPlayerRole(GameObject interactingPlayer)
     {
@@ -111,5 +124,36 @@ public class LootableItem : InteractibleObjectV2
         }
 
         return accesCard;
+    }
+
+    void SearchCompleteATM()
+    {
+        Collider collider = GetComponent<Collider>();
+        
+        if (collider != null)
+        {
+            collider.enabled = false;
+        }
+
+        if (childObject != null)
+        {
+            // Récupérez le composant Animation du GameObject enfant
+            Animation childAnimation = childObject.GetComponent<Animation>();
+
+            // Assurez-vous que le composant Animation existe
+            if (childAnimation != null)
+            {
+                // Jouez l'animation souhaitée
+                childAnimation.Play();
+            }
+            else
+            {
+                Debug.LogError("Le GameObject enfant ne possède pas de composant Animation.");
+            }
+        }
+        else
+        {
+            Debug.LogError("La référence au GameObject enfant n'est pas définie.");
+        }
     }
 }

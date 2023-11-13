@@ -10125,9 +10125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80e10a85cdbb665409befebe19d49330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOpening: 0
-  isTransitioning: 0
-  interactingPlayer: {fileID: 0}
   requiresAccessCard: 0
   requiresRedCard: 0
   requiresBlueCard: 0

@@ -32,7 +32,7 @@ public class ObjectDoorV2 : InteractibleObjectV2
 
     [HideInInspector] public float raycastDistance = 10f; // Distance du raycast pour détecter les joueurs
 
-    [HideInInspector] public Animation doorAnimation;
+    public Animation doorAnimation;
 
 
 
