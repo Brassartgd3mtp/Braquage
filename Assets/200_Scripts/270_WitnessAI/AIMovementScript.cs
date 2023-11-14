@@ -19,6 +19,7 @@ public class AIMovementScript : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+        animator.SetBool("Sitting?", false);
     }
 
 

@@ -300,8 +300,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.101596005, y: 0.028102342, z: 0.030952467}
-  m_Center: {x: 0.00293055, y: -0.013681802, z: 0.015438836}
+  m_Size: {x: 0.16052154, y: 0.028102342, z: 0.030952469}
+  m_Center: {x: -0.0007451252, y: -0.013681576, z: 0.015439116}
 --- !u!208 &2578083248368348115
 NavMeshObstacle:
   m_ObjectHideFlags: 0
