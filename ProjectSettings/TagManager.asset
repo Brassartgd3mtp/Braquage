@@ -7,6 +7,8 @@ TagManager:
   - Landscape
   - Interactible
   - Goal
+  - Camera
+  - Sphere
   layers:
   - Default
   - TransparentFX
@@ -20,8 +22,8 @@ TagManager:
   - NoBake
   - Cache
   - Wall
-  - 
-  - 
+  - Camera
+  - Sphere
   - 
   - 
   - 
