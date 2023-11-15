@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class DoorVaultV2 : CrochetDoorV2
 {
+    public GameObject Text;
+    private bool playerNearby = false;
     private void Start()
     {
+        Text.gameObject.SetActive(false);
         doorAnimation = GetComponent<Animation>();
         if (doorAnimation == null)
         {
@@ -81,5 +84,21 @@ public class DoorVaultV2 : CrochetDoorV2
         sparkParticle.SetActive(false);
         isBeingPicked = false;
     }
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerNearby = true;
+            Text.gameObject.SetActive(true);
+        }
+            
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerNearby = false;
+            Text.gameObject.SetActive(false);
+        }
+    }
 }

@@ -390,8 +390,9 @@ GameObject:
   - component: {fileID: 8752814958810502375}
   - component: {fileID: 5471905899503030266}
   - component: {fileID: 2308108791371735933}
+  - component: {fileID: 8111969389260237865}
   m_Layer: 5
-  m_Name: DoorVaultUI (1)
+  m_Name: ATM_UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -405,7 +406,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4461460558631827182}
   m_LocalRotation: {x: 0.0000013947973, y: 0.8433915, z: 0.53729963, w: 0.0000010075729}
-  m_LocalPosition: {x: 0, y: 0, z: 0.0671}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0857}
   m_LocalScale: {x: 0.024567535, y: 0.022302166, z: 0.019271662}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -457,6 +458,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8111969389260237865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4461460558631827182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e90d77e3a4234a941b208803e9ff62e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5727265879726670387
 GameObject:
   m_ObjectHideFlags: 0
