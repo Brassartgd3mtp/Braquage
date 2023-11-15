@@ -25,7 +25,8 @@ public class TutorielTwoDisplaySkip : MonoBehaviour
     void Update()
     {
         ///
-        /// Permet de pouvoir passer d'un display à un autre avec une latence avant de pouvoir skipper la deuxième. 
+        /// Permet de pouvoir passer d'un display à un autre avec une latence avant de pouvoir 
+        /// skipper la deuxième. 
         ///
 
         if (CanNext == false)

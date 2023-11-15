@@ -48,7 +48,7 @@ public class TutorielHUD_Explications : MonoBehaviour
     void Update()
     {
 
-        if (NextToCharactersRoles == true)
+        if (NextToCharactersRoles)
         {
             if (Cooldown > 0)
             {
@@ -76,7 +76,7 @@ public class TutorielHUD_Explications : MonoBehaviour
                 }
             }
         }
-        if (NextToCharactersActions == true)
+        if (NextToCharactersActions)
         {
             if (Cooldown > 0)
             {
@@ -105,7 +105,7 @@ public class TutorielHUD_Explications : MonoBehaviour
                 }
             }
         }
-        if (NextToBounty == true)
+        if (NextToBounty)
         {
             if (Cooldown > 0)
             {
@@ -119,7 +119,6 @@ public class TutorielHUD_Explications : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    Debug.Log("Coucou");
                     Cooldown = 2;
                     NextToMap = true;
                     NextToBounty = false;
@@ -132,7 +131,7 @@ public class TutorielHUD_Explications : MonoBehaviour
                 }
             }
         }
-        if (NextToMap == true)
+        if (NextToMap)
         {
             if (Cooldown > 0)
             {

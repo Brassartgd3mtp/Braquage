@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 8971424203953576152}
   - component: {fileID: 2721277864245242295}
   - component: {fileID: 5383445882326527575}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SitWitness
   m_TagString: Untagged
   m_Icon: {fileID: 0}
