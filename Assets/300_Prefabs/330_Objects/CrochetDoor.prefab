@@ -394,6 +394,7 @@ GameObject:
   - component: {fileID: 3672732460799088810}
   - component: {fileID: 6738137042980856676}
   - component: {fileID: 5555264429659713041}
+  - component: {fileID: 8539552100759873992}
   m_Layer: 5
   m_Name: DoorLockUI (1)
   m_TagString: Untagged
@@ -409,8 +410,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5730918326914606144}
   m_LocalRotation: {x: 0.59921825, y: 0.59350365, z: 0.37810344, w: 0.3817442}
-  m_LocalPosition: {x: 0, y: 0, z: 0.027836824}
-  m_LocalScale: {x: 0.0067721624, y: 0.007760924, z: 0.01636976}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0362}
+  m_LocalScale: {x: 0.007550284, y: 0.008652654, z: 0.018250646}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1870201603546047802}
@@ -418,7 +419,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 25, y: 90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.011263609, y: -0.01121071}
+  m_AnchoredPosition: {x: -0.0113, y: -0.0112}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6738137042980856676
@@ -461,6 +462,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8539552100759873992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5730918326914606144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e90d77e3a4234a941b208803e9ff62e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8623431653539558747
 GameObject:
   m_ObjectHideFlags: 0
