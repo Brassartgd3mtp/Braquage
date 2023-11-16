@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorVault : InteractibleObject
+public class DoorVaultV1 : InteractibleObject
 {
     private bool isLocked = true; //Bool si la porte est verrouillée
     private bool isBeingPicked = false; //Bool si le crochetage est effectué

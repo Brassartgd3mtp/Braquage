@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class AlertComputer : InteractibleObjectV2
 {
-    [HideInInspector] public List<GameObject> securityCameras;
-    [HideInInspector] public List<GameObject> sphereCameras;
+    public List<GameObject> securityCameras;
+    public List<GameObject> sphereCameras;
     public bool activate = true;
     private float currentAnimationTime = 0f; // Variable pour sauvegarder la position de lecture de l'animation
 

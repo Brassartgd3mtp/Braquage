@@ -1,14 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class DoorVaultV2 : CrochetDoorV2
+public class DoorVault : CrochetDoorV2
 {
+    /*
     public GameObject Text;
     private bool playerNearby = false;
+    */
+
+    public TextMeshProUGUI textRequiredRole;
+    public float displayTime = 2f;
+    public float fadeTime = 1f;
+
     private void Start()
     {
-        Text.gameObject.SetActive(false);
+        //Text.gameObject.SetActive(false);
+        textRequiredRole.gameObject.SetActive(false);
+
         doorAnimation = GetComponent<Animation>();
         if (doorAnimation == null)
         {
@@ -67,6 +77,10 @@ public class DoorVaultV2 : CrochetDoorV2
                     StartCoroutine(PickDoorVaultCoroutine());
                     barProgressionUI.AugmenterFillAmount();
                 }
+                else if (playerRole != null && !playerRole._technician)
+                {
+                    StartCoroutine(DisplayAndFade());
+                }
             }
         }
     }
@@ -84,6 +98,38 @@ public class DoorVaultV2 : CrochetDoorV2
         sparkParticle.SetActive(false);
         isBeingPicked = false;
     }
+
+    IEnumerator DisplayAndFade()
+    {
+        textRequiredRole.gameObject.SetActive(true);
+
+        // Afficher le texte
+        textRequiredRole.alpha = 1f;
+
+        // Attendre pendant le temps d'affichage
+        yield return new WaitForSeconds(displayTime);
+
+        // Commencer à faire disparaître le texte progressivement
+        float timer = 0f;
+        while (timer < fadeTime)
+        {
+            // Calculer l'alpha en fonction du temps
+            float alpha = Mathf.Lerp(1f, 0f, timer / fadeTime);
+
+            // Appliquer l'alpha au composant TextMeshPro
+            textRequiredRole.alpha = alpha;
+
+            // Mettre à jour le timer
+            timer += Time.deltaTime;
+
+            yield return null;
+        }
+
+        textRequiredRole.gameObject.SetActive(false);
+    }
+
+
+    /*
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -101,4 +147,5 @@ public class DoorVaultV2 : CrochetDoorV2
             Text.gameObject.SetActive(false);
         }
     }
+    */
 }

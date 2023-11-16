@@ -30,6 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3513222746703572035}
+  - {fileID: 574615709353555894}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1432076615126595538
@@ -96,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   progression: {fileID: 748278008810161886}
-  crochetDoorV2: {fileID: 0}
+  crochetDoorV2: {fileID: 8838300702411673939}
   destroyHimSelf: {fileID: 1432076615126595538}
   startColor: {r: 1, g: 0, b: 0, a: 1}
   endColor: {r: 0, g: 1, b: 0, a: 1}
@@ -9894,18 +9895,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3445544583730203199}
-  m_LocalRotation: {x: -0, y: 0.8433914, z: 0.53729963, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0.02806}
-  m_LocalScale: {x: 0.01, y: 0.007350905, z: 0.0073509086}
+  m_LocalRotation: {x: 0.1530459, y: 0.6903455, z: -0.1530459, w: 0.6903455}
+  m_LocalPosition: {x: 0, y: 0, z: -0.34679863}
+  m_LocalScale: {x: 1.3603764, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 858788666747598944}
   - {fileID: 4187283313514751610}
-  m_Father: {fileID: 3513222746703572035}
+  m_Father: {fileID: 5503709066656282770}
   m_LocalEulerAnglesHint: {x: 25, y: 90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.0159, y: 0}
+  m_AnchoredPosition: {x: 0.03525189, y: 3.2072165}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5859883100091074502
@@ -9998,7 +9999,6 @@ Transform:
   m_Children:
   - {fileID: 2428197897464170667}
   - {fileID: 410524950538436891}
-  - {fileID: 574615709353555894}
   m_Father: {fileID: 5503709066656282770}
   m_LocalEulerAnglesHint: {x: -90, y: -90, z: 0}
 --- !u!33 &535544540939527142
@@ -10154,7 +10154,9 @@ MonoBehaviour:
   sparkParticle: {fileID: 3383352106420269506}
   raycastDistance: 10
   doorAnimation: {fileID: 0}
-  Text: {fileID: 6775419558555303286}
+  textRequiredRole: {fileID: 99045775734821820}
+  displayTime: 2
+  fadeTime: 1
 --- !u!1 &4694526700929391965
 GameObject:
   m_ObjectHideFlags: 0
@@ -15166,7 +15168,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4187283313514751610
 RectTransform:
   m_ObjectHideFlags: 0

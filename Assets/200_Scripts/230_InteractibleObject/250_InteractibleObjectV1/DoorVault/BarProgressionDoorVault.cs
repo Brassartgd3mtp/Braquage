@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class BarProgressionDoorVault : MonoBehaviour
 {
     public Image progression;
-    public DoorVault doorVault;
+    public DoorVaultV1 doorVault;
     public GameObject destroyHimSelf;
 
     public Color startColor = new Color(1.0f, 0.0f, 0.0f, 1.0f); // Rouge avec alpha à 1.0

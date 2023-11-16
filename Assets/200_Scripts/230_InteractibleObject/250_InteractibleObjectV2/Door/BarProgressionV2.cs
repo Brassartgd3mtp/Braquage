@@ -14,7 +14,6 @@ public class BarProgressionV2 : MonoBehaviour
 
     private void Start()
     {
-        crochetDoorV2 = GetComponentInParent<CrochetDoorV2>();
     }
 
 
