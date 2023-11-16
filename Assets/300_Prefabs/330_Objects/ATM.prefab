@@ -37,7 +37,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7848830394191491758}
-  - {fileID: 8752814958810502375}
   m_Father: {fileID: 7333205930722158883}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5661533406680505840
@@ -377,6 +376,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8800844938660986305}
+  - {fileID: 8752814958810502375}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4461460558631827182
@@ -405,17 +405,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4461460558631827182}
-  m_LocalRotation: {x: 0.0000013947973, y: 0.8433915, z: 0.53729963, w: 0.0000010075729}
-  m_LocalPosition: {x: 0, y: 0, z: 0.0857}
-  m_LocalScale: {x: 0.024567535, y: 0.022302166, z: 0.019271662}
+  m_LocalRotation: {x: 0.00000027567143, y: 0.97629595, z: -0.21643971, w: 0.0000016987319}
+  m_LocalPosition: {x: 0, y: 0, z: 0.49251944}
+  m_LocalScale: {x: 1.3229339, y: 0.9476402, z: 0.7919238}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5142864323230723207}
-  m_Father: {fileID: 8800844938660986305}
+  m_Father: {fileID: 7333205930722158883}
   m_LocalEulerAnglesHint: {x: -65, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -0.0121}
+  m_AnchoredPosition: {x: 0, y: 3.6747725}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5471905899503030266
@@ -534,7 +534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   progression: {fileID: 1398440387352007986}
-  lootableItem: {fileID: 0}
+  lootableItem: {fileID: 7814548451686096169}
   destroyHimSelf: {fileID: 5727265879726670387}
   startColor: {r: 1, g: 0, b: 0, a: 1}
   endColor: {r: 0, g: 1, b: 0, a: 1}

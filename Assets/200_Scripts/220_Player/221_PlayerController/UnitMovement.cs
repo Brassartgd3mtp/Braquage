@@ -9,6 +9,8 @@ public class UnitMovement : MonoBehaviour
     Camera myCam;
     NavMeshAgent myAgent;
     public LayerMask _ground;
+    public LayerMask interactible;
+
     public float speed = 3.5f; // Ajoutez une variable pour la vitesse
 
     private AnimationController animationController;
@@ -39,6 +41,12 @@ public class UnitMovement : MonoBehaviour
 
                 animationController.isWalking = true;
 
+            }
+            else if (Physics.Raycast(ray, out hit, interactible))
+            {
+                Vector3 destination = hit.point;
+                float stoppingDistance = 1.0f; // Adjust this value based on your preference
+                destination = hit.point - ray.direction * stoppingDistance;
             }
         }
     }

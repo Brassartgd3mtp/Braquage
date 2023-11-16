@@ -26,10 +26,11 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.69948, y: 0.69948, z: 0.69948}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6479979998861133686}
+  - {fileID: 7778008517553472823}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1576506722580311653
@@ -262,7 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   progression: {fileID: 6802002779013887867}
-  lootableItem: {fileID: 0}
+  lootableItem: {fileID: 4842560275467948077}
   destroyHimSelf: {fileID: 3976647232608859523}
   startColor: {r: 1, g: 0, b: 0, a: 1}
   endColor: {r: 0, g: 1, b: 0, a: 1}
@@ -376,13 +377,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5252144796475646189}
-  m_LocalRotation: {x: 0.0000013947972, y: 0.8433915, z: 0.5372995, w: 0.000001007573}
+  m_LocalRotation: {x: 0.0000002738088, y: 0.97629595, z: -0.21643972, w: 0.0000016987321}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.008036756, y: 0.0040718755, z: 0.0052421615}
+  m_LocalScale: {x: 1.3229303, y: 0.9476402, z: 0.79192007}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 67898586081125069}
-  m_Father: {fileID: 6479979998861133686}
+  m_Father: {fileID: 8685184132111908151}
   m_LocalEulerAnglesHint: {x: -65, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -478,7 +479,6 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7870586796749490046}
-  - {fileID: 7778008517553472823}
   m_Father: {fileID: 8685184132111908151}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &772818452633712689
