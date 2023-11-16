@@ -126,8 +126,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.021414192, y: 0.02176726, z: 0.056719795}
-  m_Center: {x: -0.00009567802, y: -0.00088363216, z: 0.027689032}
+  m_Size: {x: 0.021414192, y: 0.031445473, z: 0.056719795}
+  m_Center: {x: -0.00009567879, y: -0.0057227397, z: 0.027689036}
 --- !u!114 &4478623322962514590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectColor: {r: 0.084590435, g: 1, b: 0, a: 0.5}
   m_EffectDistance: {x: 0.1, y: 0.1}
   m_UseGraphicAlpha: 1
 --- !u!1 &3565354207639734688

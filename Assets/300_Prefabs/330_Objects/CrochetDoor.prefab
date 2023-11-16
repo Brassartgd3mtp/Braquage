@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   progression: {fileID: 8936789361326311917}
-  crochetDoorV2: {fileID: 0}
+  crochetDoorV2: {fileID: 923593725138495334}
   destroyHimSelf: {fileID: 1994816102386864127}
   startColor: {r: 1, g: 0, b: 0, a: 1}
   endColor: {r: 0, g: 1, b: 0, a: 1}
