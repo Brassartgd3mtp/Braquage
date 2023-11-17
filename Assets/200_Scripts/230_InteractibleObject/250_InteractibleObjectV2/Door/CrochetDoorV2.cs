@@ -67,6 +67,24 @@ public class CrochetDoorV2 : ObjectDoorV2
             }
         }
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            if (isBeingPicked)
+            {
+                // Récupérer l'Animator du joueur
+                Animator playerAnimator = other.GetComponent<Animator>();
+                playerAnimator.SetBool("DoingAction", true);
+                playerAnimator.SetBool("Walk", false);
+            }
+            else
+            {
+                Animator playerAnimator = other.GetComponent<Animator>();
+                playerAnimator.SetBool("DoingAction", false);
+            }
+        }
+    }
     IEnumerator PickDoorCoroutine()
     {
         isBeingPicked = true;

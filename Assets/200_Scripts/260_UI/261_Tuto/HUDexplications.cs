@@ -28,9 +28,11 @@ public class TutorielHUD_Explications : MonoBehaviour
     public GameObject bountyDisplay;
     public GameObject mapButton;
     public GameObject CharactersDisplay;
+    public GameObject SkipTuto;
 
     void Start()
     {
+        //Pour le démarage de cette séquence, on s'assure que tout soit bien activé/désactivé comme il faut.
         blurDisplay.gameObject.SetActive(true);
         bountyDisplay.gameObject.SetActive(false);
         mapButton.gameObject.SetActive(false);
@@ -47,6 +49,9 @@ public class TutorielHUD_Explications : MonoBehaviour
 
     void Update()
     {
+        //Pour chaque boucle, une fois le timer à 0, il va afficher les display suivants et enlevé
+        // les anciens quand le joueur aura appuyé sur espace, ce qui va changer les booléens pour
+        // que tout se déroule dans l'ordre et réinitialiser le timer.
 
         if (NextToCharactersRoles)
         {
@@ -149,6 +154,8 @@ public class TutorielHUD_Explications : MonoBehaviour
                     mapOutline.gameObject.SetActive(false);
                     mapTuto.gameObject.SetActive(false);
                     blurDisplay.gameObject.SetActive(false);
+                    // On désactive également le "Skip Tuto" puisqu'il se termine
+                    SkipTuto.gameObject.SetActive(false);
                 }
             }
         }

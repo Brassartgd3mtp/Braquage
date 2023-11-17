@@ -15,11 +15,8 @@ public class TutorielOneDisplaySkip : MonoBehaviour
         continueButton.SetActive(false);
     }
 
-    /// <summary>
-    /// Pour chaque fenêtre qui s'active pour le tuto, tant que le timer n'est 
-    /// pas à 0, le joueur ne peut pas appuyer sur espace pour skipper.
-    /// </summary>
-
+    // Pour chaque fenêtre qui s'active pour le tuto, tant que le timer n'est 
+    // pas à 0, le joueur ne peut pas appuyer sur espace pour skipper.
     void Update()
     {
 

@@ -11,12 +11,8 @@ public class EnableTuto : MonoBehaviour
         Display.gameObject.SetActive(false);        
     }
 
-
-    void Update()
-    {
-
-    }
-
+    // Quand le joueur entre en collision avec le garde pour la première fois, cela affiche
+    // le tuto lié au garde.
     private void OnTriggerEnter(Collider other)
     {
         if (!AlreadyActived)

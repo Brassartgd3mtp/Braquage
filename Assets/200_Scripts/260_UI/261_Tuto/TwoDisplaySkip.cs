@@ -16,6 +16,7 @@ public class TutorielTwoDisplaySkip : MonoBehaviour
 
     private void Start()
     {
+        
         mainWindow.SetActive(true);
         firstWindow.gameObject.SetActive(true);
         secondWindow.gameObject.SetActive(false);
@@ -24,12 +25,10 @@ public class TutorielTwoDisplaySkip : MonoBehaviour
 
     void Update()
     {
-        ///
-        /// Permet de pouvoir passer d'un display à un autre avec une latence avant de pouvoir 
-        /// skipper la deuxième. 
-        ///
+        // Permet de pouvoir passer d'un display à un autre avec une latence avant de pouvoir 
+        // skipper la deuxième et donc le bouton espace arrive après la fin du cooldown. 
 
-        if (CanNext == false)
+        if (!CanNext)
         {
             if (Cooldown > 0)
             {
@@ -52,8 +51,9 @@ public class TutorielTwoDisplaySkip : MonoBehaviour
                 }
             }
         }
-        //Le timer permet de mettre un temps entre les skip, sinon ils se font en même temps et donc la deuxième display n'apparait pas.
-        if (timerCanPlay == true)
+        //Le timer permet de mettre un temps entre les skip, sinon ils se font en même temps
+        //et donc la deuxième display n'apparait pas.
+        if (timerCanPlay)
         {
             if (Cooldown > 0)
             {
@@ -65,7 +65,7 @@ public class TutorielTwoDisplaySkip : MonoBehaviour
                 ContinueText.gameObject.SetActive(true);
             }
         }
-        if (CanNext == true)
+        if (CanNext)
         {
             if(Input.GetKeyDown(KeyCode.Space))
             {
