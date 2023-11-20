@@ -5,10 +5,10 @@ using UnityEngine.AI;
 
 public class LootableItem : InteractibleObjectV2
 {
-    private LootableManager gameManager;
-    private LootableBar lootableBar;
-    private Animation lootableAnimation;
-    private bool wasSearched = false;
+    public LootableManager gameManager;
+    public LootableBar lootableBar;
+    public Animation lootableAnimation;
+    public bool wasSearched = false;
 
     public GameObject childObject;
 
@@ -20,7 +20,6 @@ public class LootableItem : InteractibleObjectV2
     void Start()
     {
         gameManager = GetComponentInParent<LootableManager>();
-        lootableBar = GetComponentInChildren<LootableBar>();
         lootableAnimation = GetComponent<Animation>();
 
         if (gameManager != null)

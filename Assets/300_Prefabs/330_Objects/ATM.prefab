@@ -160,6 +160,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f6c00de73dafa54b8a8850246431301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  lootableBar: {fileID: 116908765130806535}
+  lootableAnimation: {fileID: 0}
+  wasSearched: 0
   childObject: {fileID: 8770003299336595651}
   lootTableID: 0
   totalSearchTime: 2

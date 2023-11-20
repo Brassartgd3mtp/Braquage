@@ -13,11 +13,6 @@ public class LootableBar : MonoBehaviour
     public Color endColor = new Color(0.0f, 1.0f, 0.0f, 1.0f); // Vert avec alpha à 1.0
 
 
-    private void Start()
-    {
-        lootableItem = GetComponentInParent<LootableItem>();
-    }
-
     public void AugmenterFillAmount()
     {
         if (progression != null && lootableItem != null)
