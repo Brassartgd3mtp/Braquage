@@ -9,11 +9,9 @@ public class TutorielSkip : MonoBehaviour
     public GameObject MapButton;
     public GameObject Booty;
     public GameObject TutorielZone;
-
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        //simple fonction qui peremt de désactiver directement tout ce qui est lié au tutoriel
         if (Input.GetKeyDown(KeyCode.F1))
         {
             TutorielDisplay.gameObject.SetActive(false);
