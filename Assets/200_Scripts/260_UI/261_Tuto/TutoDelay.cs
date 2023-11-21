@@ -8,7 +8,7 @@ public class TutoDelay : MonoBehaviour
     public GameObject OldDisplay;
 
     private bool AlreadyDone = false;
-    private float Timer = 4;
+    public float Timer = 4;
     public bool Condition = false;
     // Ce script permet d'activer un gameObject de tuto après que le gameObject de tuto d'avant
     // se soit fait passé par le joueur avec un latence entre eux.

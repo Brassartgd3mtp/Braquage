@@ -1185,6 +1185,9 @@ MonoBehaviour:
   _ground:
     serializedVersion: 2
     m_Bits: 64
+  interactible:
+    serializedVersion: 2
+    m_Bits: 0
   speed: 3.5
 --- !u!114 &8174072069402868652
 MonoBehaviour:
@@ -1394,7 +1397,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7098749640517612985
 RectTransform:
   m_ObjectHideFlags: 0
