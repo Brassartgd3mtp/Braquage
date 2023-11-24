@@ -618,8 +618,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6045373567219928166}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071069, y: -0.000000029802322, z: -0.000000029802322, w: 0.7071067}
-  m_LocalPosition: {x: 0.00000064179767, y: 0, z: -0.082813956}
+  m_LocalRotation: {x: -0.7071069, y: -0, z: -0, w: 0.70710677}
+  m_LocalPosition: {x: -0.0000017560087, y: 0, z: -0.082813926}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -712,8 +712,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6593847131964438317}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.69761187, y: -0.007981478, z: 0.0048675532, w: 0.716415}
-  m_LocalPosition: {x: 0.000019556393, y: -0.0008553812, z: -0.002766916}
+  m_LocalRotation: {x: 0.69761187, y: -0.007981508, z: 0.0048675234, w: 0.716415}
+  m_LocalPosition: {x: 0.000019588184, y: -0.00085538445, z: -0.0027669151}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -966,6 +966,7 @@ GameObject:
   - component: {fileID: 1674798417307288973}
   - component: {fileID: 8285235160331238828}
   - component: {fileID: 946428416800924143}
+  - component: {fileID: 8835506770358711422}
   m_Layer: 7
   m_Name: LockPicker
   m_TagString: Player
@@ -1010,6 +1011,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
+  - {fileID: 2100000, guid: 12f4504a7050060409d33e67ee890976, type: 2}
   - {fileID: -3846018093981099296, guid: 0c50040b0124c90439c4f0bbc53ccdd7, type: 3}
   - {fileID: 2100000, guid: 7ef7a81696eb0ba44bdec2651d59b237, type: 2}
   m_StaticBatchInfo:
@@ -1195,6 +1197,9 @@ MonoBehaviour:
   _ground:
     serializedVersion: 2
     m_Bits: 64
+  interactible:
+    serializedVersion: 2
+    m_Bits: 0
   speed: 3.5
 --- !u!114 &833310081388599577
 MonoBehaviour:
@@ -1255,6 +1260,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isWalking: 0
   isDoingAction: 0
+--- !u!114 &8835506770358711422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8685581985770203336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcdb339ba3377ec4ea972d5138deefec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hideKey: 32
+  hideDistance: 1.5
+  hideLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  isHidden: 0
+  transparencyMaterial: {fileID: 0}
+  alphaColor: 0.5
 --- !u!1 &8693600811637739846
 GameObject:
   m_ObjectHideFlags: 0

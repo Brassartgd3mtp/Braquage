@@ -28,10 +28,10 @@ public class AlertCamera : MonoBehaviour
 
             // Raycast
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, rayDirection, out hit, detectionDistance))
+            if (Physics.Raycast(transform.position, rayDirection, out hit, detectionDistance) && hit.collider.CompareTag("Player"))
             {
-                // Vérifiez si l'objet détecté a le tag "Player" (ou ajustez selon vos besoins)
-                if (hit.collider.CompareTag("Player"))
+                PlayerCache playerCache = hit.collider.GetComponent<PlayerCache>();
+                if (playerCache != null && !playerCache.isHidden)
                 {
                     // L'objet est détecté, faites quelque chose ici (par exemple, activez une alerte)
                     ActivateAlert();

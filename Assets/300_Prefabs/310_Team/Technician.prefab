@@ -258,8 +258,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1203486229978028804}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.69761187, y: -0.007981478, z: 0.0048675532, w: 0.716415}
-  m_LocalPosition: {x: 0.000019556468, y: -0.0008553836, z: -0.002766916}
+  m_LocalRotation: {x: 0.69761187, y: -0.007981508, z: 0.0048675234, w: 0.716415}
+  m_LocalPosition: {x: 0.000019587886, y: -0.0008553797, z: -0.0027669151}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -470,8 +470,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4397844406897338674}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071069, y: -0.000000029802322, z: -0.000000029802322, w: 0.7071067}
-  m_LocalPosition: {x: 0.00000064924825, y: 0, z: -0.0828136}
+  m_LocalRotation: {x: -0.7071069, y: -0, z: -0, w: 0.70710677}
+  m_LocalPosition: {x: -0.0000017560087, y: 0, z: -0.082813926}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -955,6 +955,7 @@ GameObject:
   - component: {fileID: 3213513851981556816}
   - component: {fileID: 8985208076570682690}
   - component: {fileID: 582559601556986654}
+  - component: {fileID: 3801628354697143782}
   m_Layer: 7
   m_Name: Technician
   m_TagString: Player
@@ -1000,6 +1001,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
+  - {fileID: 2100000, guid: 12f4504a7050060409d33e67ee890976, type: 2}
   - {fileID: -3846018093981099296, guid: 0c50040b0124c90439c4f0bbc53ccdd7, type: 3}
   - {fileID: 2100000, guid: 7ef7a81696eb0ba44bdec2651d59b237, type: 2}
   m_StaticBatchInfo:
@@ -1248,6 +1250,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isWalking: 0
   isDoingAction: 0
+--- !u!114 &3801628354697143782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7955696960225995908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcdb339ba3377ec4ea972d5138deefec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hideKey: 32
+  hideDistance: 1.5
+  hideLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  isHidden: 0
+  transparencyMaterial: {fileID: 0}
+  alphaColor: 0.5
 --- !u!1 &7976484468021162957
 GameObject:
   m_ObjectHideFlags: 0

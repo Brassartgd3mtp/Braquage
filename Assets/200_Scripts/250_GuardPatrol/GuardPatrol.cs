@@ -130,8 +130,12 @@ public class GuardPatrol : GuardBehaviour
             // Lancer un rayon dans la direction actuelle
             if (Physics.Raycast(transform.position, direction, out hit, detectionRadius) && hit.collider.CompareTag(playerTag))
             {
-                // Si le rayon touche un objet portant le tag du joueur, retourner vrai
-                return true;
+                PlayerCache playerCache = hit.collider.GetComponent<PlayerCache>();
+                if (playerCache != null && !playerCache.isHidden)
+                {
+                    // Retourner vrai car le joueur n'est pas caché
+                    return true;
+                }
             }
         }
         // Si aucun joueur n'est détecté, retourner faux
