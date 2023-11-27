@@ -55,7 +55,7 @@ public class LootableItem : InteractibleObjectV2
                     NavMeshAgent navMeshAgent = interactingPlayer.GetComponent<NavMeshAgent>();
                     if (navMeshAgent != null)
                     {
-                        navMeshAgent.enabled = false;
+                        navMeshAgent.speed = 0f;
                     }
 
                     lootableBar.AugmenterFillAmount();
@@ -64,7 +64,6 @@ public class LootableItem : InteractibleObjectV2
                     Animator playerAnimator = interactingPlayer.GetComponent<Animator>();
                     playerAnimator.SetBool("DoingAction", true);
                     playerAnimator.SetBool("Walk", false);
-
                 }
             }
             else
@@ -88,7 +87,7 @@ public class LootableItem : InteractibleObjectV2
         NavMeshAgent navMeshAgent = accesCard.GetComponent<NavMeshAgent>();
         if (navMeshAgent != null)
         {
-            navMeshAgent.enabled = true;
+            navMeshAgent.speed = 3.5f;
         }
 
         // Définir les booléens du joueur en fonction des paramètres de la carte

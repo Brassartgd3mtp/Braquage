@@ -31,7 +31,6 @@ public class GuardAttack : GuardBehaviour
             Debug.Log("Player out of attack range. Transitioning back to Chase.");
             return BehaviourName.Chase;
         }
-
         return BehaviourName.None;
     }
 
@@ -93,21 +92,24 @@ public class GuardAttack : GuardBehaviour
         // Récupérer le joueur le plus proche
         GameObject closestPlayer = GetClosestPlayer();
 
-        // Vérifier si le joueur le plus proche a un NavMeshAgent attaché
-        NavMeshAgent playerNavMeshAgent = closestPlayer.GetComponent<NavMeshAgent>();
-        if (playerNavMeshAgent != null)
-        {
-            // Mettre la vitesse du NavMeshAgent à 0 pour immobiliser le joueur
-            playerNavMeshAgent.speed = 0f;
-        }
+        UnitMovement unitMovement = closestPlayer.GetComponent<UnitMovement>();
 
-        AnimationController playerAnimationController = closestPlayer.GetComponent<AnimationController>();
-        if (playerAnimationController != null)
+        if (unitMovement != null) 
         {
-            // Modifier le booléen isDoingAction dans le script AnimationController
-            playerAnimationController.isDowned = true;
-        }
-
+            unitMovement.immobilize = true;
+        }        
     }
 
+    private void EndAttack()
+    {
+        // Récupérer le joueur le plus proche
+        GameObject closestPlayer = GetClosestPlayer();
+
+        UnitMovement unitMovement = closestPlayer.GetComponent<UnitMovement>();
+
+        if (unitMovement != null)
+        {
+            unitMovement.immobilize = false;
+        }
+    }
 }

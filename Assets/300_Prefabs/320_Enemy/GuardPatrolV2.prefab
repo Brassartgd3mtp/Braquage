@@ -508,8 +508,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5065184841366283723}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071069, y: -0, z: -0, w: 0.70710677}
-  m_LocalPosition: {x: 0.00004100055, y: 0.0019415617, z: -0.08291436}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: 0.000041484833, y: 0.0019415617, z: -0.08291245}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -971,8 +971,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7160358232510576829}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.63029444, y: 0.018229662, z: 0.03095698, w: 0.7755245}
-  m_LocalPosition: {x: 0.0000019836425, y: -0.00091010984, z: -0.002818295}
+  m_LocalRotation: {x: 0.63029444, y: 0.018229684, z: 0.030956982, w: 0.7755245}
+  m_LocalPosition: {x: 0.0000019741058, y: -0.0009100717, z: -0.0028182943}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1062,7 +1062,7 @@ GameObject:
   - component: {fileID: 7353716472620686938}
   - component: {fileID: 2062834507767356753}
   - component: {fileID: 4238971060180622582}
-  m_Layer: 12
+  m_Layer: 15
   m_Name: GuardPatrolV2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1122,9 +1122,9 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
-  m_Acceleration: 8
+  m_Acceleration: 10000
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 10000
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1

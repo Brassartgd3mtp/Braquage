@@ -12,6 +12,7 @@ public class UnitMovement : MonoBehaviour
     public LayerMask interactible;
 
     public float speed = 3.5f;
+    public bool immobilize = false;
 
     private AnimationController animationController;
 
@@ -24,6 +25,7 @@ public class UnitMovement : MonoBehaviour
 
         enabled = false;
     }
+
 
 
     void Update()
@@ -49,5 +51,26 @@ public class UnitMovement : MonoBehaviour
             //    destination = hit.point - ray.direction * stoppingDistance;
             //}
         }
+
+        if (immobilize)
+        {
+            Immobilize();
+        }
+        else if (!immobilize)
+        {
+            NoImmobilize();
+        }
+    }
+
+    void Immobilize()
+    {
+        myAgent.speed = 0f;
+        animationController.isDowned = true;
+    }
+
+    void NoImmobilize()
+    {
+        myAgent.speed = speed;
+        animationController.isDowned = false;
     }
 }
