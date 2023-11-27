@@ -312,8 +312,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3459427902444363546}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.6976119, y: -0.007981449, z: 0.004867494, w: 0.7164149}
-  m_LocalPosition: {x: 0.000019587895, y: -0.00085537997, z: -0.0027669142}
+  m_LocalRotation: {x: 0.6976119, y: -0.007981479, z: 0.004867494, w: 0.7164149}
+  m_LocalPosition: {x: 0.000019561461, y: -0.0008553907, z: -0.002766913}
   m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -727,8 +727,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8505041174668541589}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.70710677}
-  m_LocalPosition: {x: -0.0000017560087, y: 0, z: -0.082813926}
+  m_LocalRotation: {x: -0.7071069, y: 0.000000029802322, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: 0.0000004917383, y: 0, z: -0.08281321}
   m_LocalScale: {x: 100, y: 99.999985, z: 99.999985}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1068,6 +1068,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   speed: 3.5
+  immobilize: 0
 --- !u!114 &3364700044316290553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1113,6 +1114,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3871fc3561d5e2944905d9d7a2855d0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  guardLayer:
+    serializedVersion: 2
+    m_Bits: 32768
+  rangeAttack: 1.6
+  rangeRescue: 2
 --- !u!114 &5003934033531740889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1127,6 +1133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isWalking: 0
   isDoingAction: 0
+  isDowned: 0
 --- !u!114 &3371193652259136776
 MonoBehaviour:
   m_ObjectHideFlags: 0

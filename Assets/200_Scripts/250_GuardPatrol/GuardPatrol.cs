@@ -17,6 +17,9 @@ public class GuardPatrol : GuardBehaviour
     private int patrolDirection = 1;
 
     public float normalSpeed = 3.5f;
+
+    public LayerMask excludedLayers; // Définissez le layer mask dans l'inspecteur
+
     private NavMeshAgent agent;
 
     private Animator myAnimator;
@@ -128,7 +131,7 @@ public class GuardPatrol : GuardBehaviour
             RaycastHit hit;
         
             // Lancer un rayon dans la direction actuelle
-            if (Physics.Raycast(transform.position, direction, out hit, detectionRadius) && hit.collider.CompareTag(playerTag))
+            if (Physics.Raycast(transform.position, direction, out hit, detectionRadius, ~excludedLayers) && hit.collider.CompareTag(playerTag))
             {
                 PlayerCache playerCache = hit.collider.GetComponent<PlayerCache>();
                 if (playerCache != null && !playerCache.isHidden)

@@ -74,8 +74,12 @@ public class GuardChase : GuardBehaviour
 
             if (closestPlayer != null)
             {
-                // Définir la destination du NavMeshAgent sur la position du joueur le plus proche
-                agent.SetDestination(closestPlayer.transform.position);
+                // Vérifier si le joueur actuellement poursuivi est différent du joueur le plus proche
+                if (agent.destination != closestPlayer.transform.position)
+                {
+                    // Définir la destination du NavMeshAgent sur la position du joueur le plus proche
+                    agent.SetDestination(closestPlayer.transform.position);
+                }
             }
         }
     }

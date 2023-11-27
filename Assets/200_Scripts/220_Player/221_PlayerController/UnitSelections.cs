@@ -42,6 +42,8 @@ public class UnitSelections : MonoBehaviour
         unitToAdd.GetComponent<UnitMovement>().enabled = true;
         unitToAdd.GetComponent<PlayerInteractions>().enabled = true;
         unitToAdd.GetComponent<UnitCombat>().enabled = true;
+        unitToAdd.GetComponent<PlayerCache>().enabled = true;
+
 
         // Sélectionne l'unité pour des mises en évidence visuelles ou d'autres indicateurs
         Unit unitOutline = unitToAdd.GetComponentInParent<Unit>();
@@ -62,6 +64,8 @@ public class UnitSelections : MonoBehaviour
             unitToAdd.GetComponent<UnitMovement>().enabled = true;
             unitToAdd.GetComponent<PlayerInteractions>().enabled = true;
             unitToAdd.GetComponent<UnitCombat>().enabled = true;
+            unitToAdd.GetComponent<PlayerCache>().enabled = true;
+
 
             Unit unitOutline = unitToAdd.GetComponentInParent<Unit>();
 
@@ -77,6 +81,8 @@ public class UnitSelections : MonoBehaviour
             unitToAdd.GetComponent<UnitMovement>().enabled = false;
             unitToAdd.GetComponent<PlayerInteractions>().enabled = false;
             unitToAdd.GetComponent<UnitCombat>().enabled = false;
+            unitToAdd.GetComponent<PlayerCache>().enabled = false;
+
             unitsSelected.Remove(unitToAdd);
 
             Unit unitOutline = unitToAdd.GetComponentInParent<Unit>();
@@ -97,6 +103,8 @@ public class UnitSelections : MonoBehaviour
             unitToAdd.GetComponent<UnitMovement>().enabled = true;
             unitToAdd.GetComponent<PlayerInteractions>().enabled = true;
             unitToAdd.GetComponent<UnitCombat>().enabled = true;
+            unitToAdd.GetComponent<PlayerCache>().enabled = true;
+
 
             Unit unitOutline = unitToAdd.GetComponentInParent<Unit>();
 
@@ -115,6 +123,7 @@ public class UnitSelections : MonoBehaviour
             unit.GetComponent<PlayerInteractions>().enabled = false;
             unit.GetComponent<UnitMovement>().enabled = false;
             unit.GetComponent<UnitCombat>().enabled = false;
+            unit.GetComponent<PlayerCache>().enabled = false;
 
             Unit unitOutline = unit.GetComponentInParent<Unit>();
 

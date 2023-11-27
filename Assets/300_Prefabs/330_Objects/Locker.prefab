@@ -187,7 +187,7 @@ NavMeshObstacle:
   m_Shape: 1
   m_Extents: {x: 0.011000001, y: 0.010000001, z: 0.022000002}
   m_MoveThreshold: 0.1
-  m_Carve: 0
+  m_Carve: 1
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0.021000002}
   m_TimeToStationary: 0.5
@@ -202,6 +202,7 @@ GameObject:
   - component: {fileID: 3725875804351363093}
   - component: {fileID: 715622349161369174}
   - component: {fileID: 4610258752001802066}
+  - component: {fileID: 3988647168577430843}
   m_Layer: 0
   m_Name: LockerDoor
   m_TagString: Untagged
@@ -274,3 +275,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &3988647168577430843
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8109110540011044346}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.0050000004, y: 0.001, z: 0.011000001}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.004, y: 0, z: 0}
+  m_TimeToStationary: 0.5

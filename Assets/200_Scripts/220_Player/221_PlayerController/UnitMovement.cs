@@ -26,8 +26,6 @@ public class UnitMovement : MonoBehaviour
         enabled = false;
     }
 
-
-
     void Update()
     {
         if (Input.GetMouseButtonDown(1))
@@ -42,14 +40,7 @@ public class UnitMovement : MonoBehaviour
                 myAgent.SetDestination(hit.point);
 
                 animationController.isWalking = true;
-
             }
-            //else if (Physics.Raycast(ray, out hit, interactible))
-            //{
-            //    Vector3 destination = hit.point;
-            //    float stoppingDistance = 1.0f; // Adjust this value based on your preference
-            //    destination = hit.point - ray.direction * stoppingDistance;
-            //}
         }
 
         if (immobilize)

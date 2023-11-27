@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2028630774308599857}
   - component: {fileID: 3137037952624490388}
   - component: {fileID: 895099412203242334}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Card
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +425,7 @@ NavMeshObstacle:
   m_Shape: 1
   m_Extents: {x: 0.007, y: 0.010000001, z: 0.015000001}
   m_MoveThreshold: 0.1
-  m_Carve: 0
+  m_Carve: 1
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: -0.010000001, z: 0.015000001}
   m_TimeToStationary: 0.5
@@ -442,7 +442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiresAccessCard: 1
-  requiresRedCard: 0
+  requiresRedCard: 1
   requiresBlueCard: 0
   requiresGreenCard: 0
   nameOpenAnimation: OpenDoorL
@@ -521,7 +521,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5287452217637453934}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 4.351, y: 1.94, z: -30.45}
   m_LocalScale: {x: 0.6999999, y: 0.7, z: 0.71999997}
   m_ConstrainProportionsScale: 0
@@ -677,7 +677,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1544573874218040830
 RectTransform:
   m_ObjectHideFlags: 0
