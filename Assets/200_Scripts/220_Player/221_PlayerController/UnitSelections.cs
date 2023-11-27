@@ -41,6 +41,7 @@ public class UnitSelections : MonoBehaviour
         unitsSelected.Add(unitToAdd);
         unitToAdd.GetComponent<UnitMovement>().enabled = true;
         unitToAdd.GetComponent<PlayerInteractions>().enabled = true;
+        unitToAdd.GetComponent<UnitCombat>().enabled = true;
 
         // Sélectionne l'unité pour des mises en évidence visuelles ou d'autres indicateurs
         Unit unitOutline = unitToAdd.GetComponentInParent<Unit>();
@@ -60,6 +61,7 @@ public class UnitSelections : MonoBehaviour
             unitsSelected.Add(unitToAdd);
             unitToAdd.GetComponent<UnitMovement>().enabled = true;
             unitToAdd.GetComponent<PlayerInteractions>().enabled = true;
+            unitToAdd.GetComponent<UnitCombat>().enabled = true;
 
             Unit unitOutline = unitToAdd.GetComponentInParent<Unit>();
 
@@ -74,6 +76,7 @@ public class UnitSelections : MonoBehaviour
             // Si l'unité est déjà sélectionnée, la désélectionner et désactiver ses composants
             unitToAdd.GetComponent<UnitMovement>().enabled = false;
             unitToAdd.GetComponent<PlayerInteractions>().enabled = false;
+            unitToAdd.GetComponent<UnitCombat>().enabled = false;
             unitsSelected.Remove(unitToAdd);
 
             Unit unitOutline = unitToAdd.GetComponentInParent<Unit>();
@@ -93,13 +96,13 @@ public class UnitSelections : MonoBehaviour
             unitsSelected.Add(unitToAdd);
             unitToAdd.GetComponent<UnitMovement>().enabled = true;
             unitToAdd.GetComponent<PlayerInteractions>().enabled = true;
+            unitToAdd.GetComponent<UnitCombat>().enabled = true;
 
             Unit unitOutline = unitToAdd.GetComponentInParent<Unit>();
 
             if (unitOutline != null)
             {
                 unitOutline.selectUnit = true;
-
             }
         }
     }
@@ -111,6 +114,7 @@ public class UnitSelections : MonoBehaviour
         {
             unit.GetComponent<PlayerInteractions>().enabled = false;
             unit.GetComponent<UnitMovement>().enabled = false;
+            unit.GetComponent<UnitCombat>().enabled = false;
 
             Unit unitOutline = unit.GetComponentInParent<Unit>();
 
