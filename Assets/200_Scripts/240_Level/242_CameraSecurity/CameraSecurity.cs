@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AlertCamera : MonoBehaviour
+public class CameraSecurity : MonoBehaviour
 {
     public AlertTimer _alertTimer; // Référence vers le script du timer
     public GameObject _alertActivate; // Référence vers le GameObject à activer/désactiver
@@ -33,22 +33,18 @@ public class AlertCamera : MonoBehaviour
                 PlayerCache playerCache = hit.collider.GetComponent<PlayerCache>();
                 if (playerCache != null && !playerCache.isHidden)
                 {
-                    // L'objet est détecté, faites quelque chose ici (par exemple, activez une alerte)
+                    // L'objet est détecté
                     ActivateAlert();
                 }
             }
 
-            // Dessiner des gizmos pour visualiser les raycasts (à des fins de débogage)
+            // Dessiner des gizmos pour visualiser les raycasts
             Debug.DrawRay(transform.position, rayDirection * detectionDistance, Color.yellow);
         }
     }
 
     void ActivateAlert()
     {
-        // Code pour activer l'alerte (à implémenter selon vos besoins)
-        Debug.Log("Alert activated!");
-
-
         if (_alertActivate != null)
         {
             _alertActivate.SetActive(true);
@@ -56,10 +52,8 @@ public class AlertCamera : MonoBehaviour
 
         // Démarre le timer lorsque le joueur entre dans la zone
         _alertTimer._isTimerRunning = true;
-
     }
 
-    // Dessiner des gizmos pour visualiser le cône de détection dans l'éditeur Unity
     void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;

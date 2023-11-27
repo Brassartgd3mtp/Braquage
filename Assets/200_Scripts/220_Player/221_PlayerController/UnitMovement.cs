@@ -8,10 +8,10 @@ public class UnitMovement : MonoBehaviour
 {
     Camera myCam;
     NavMeshAgent myAgent;
-    public LayerMask _ground;
+    public LayerMask ground;
     public LayerMask interactible;
 
-    public float speed = 3.5f; // Ajoutez une variable pour la vitesse
+    public float speed = 3.5f;
 
     private AnimationController animationController;
 
@@ -34,9 +34,9 @@ public class UnitMovement : MonoBehaviour
             Ray ray = myCam.ScreenPointToRay(Input.mousePosition);
 
             // Effectue un raycast depuis la position de la souris vers le sol
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, _ground))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
             {
-                // Définit la destination de l'agent NavMesh vers le point touché par le raycast
+                // Définit la destination de l'agent NavMesh vers le point touché par le raycast si le layer mask est ground
                 myAgent.SetDestination(hit.point);
 
                 animationController.isWalking = true;

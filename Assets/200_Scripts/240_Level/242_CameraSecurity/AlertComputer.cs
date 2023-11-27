@@ -9,8 +9,6 @@ public class AlertComputer : InteractibleObjectV2
     public bool activate = true;
     private float currentAnimationTime = 0f; // Variable pour sauvegarder la position de lecture de l'animation
 
-    public KeyCode disableKey = KeyCode.Space; // Touche pour désactiver le script
-
     void Start()
     {
         // Ajoute les objets avec le layer "Camera" à la liste securityCameras
@@ -19,52 +17,48 @@ public class AlertComputer : InteractibleObjectV2
     }
 
 
-    //public override void OnInteraction(GameObject interactingPlayer)
-    void Update()
+    public override void OnInteraction(GameObject interactingPlayer)
     {
-        if (Input.GetKeyDown(disableKey))
+        if (securityCameras != null && securityCameras.Count > 0)
         {
-            if (securityCameras != null && securityCameras.Count > 0)
+            // Pour chaque objet dans la liste
+            foreach (GameObject cameraObject in securityCameras)
             {
-                // Pour chaque objet dans la liste
-                foreach (GameObject cameraObject in securityCameras)
+                // Essaie de récupérer le script et l'animation sur le GameObject cible
+                MonoBehaviour scriptToDisable = cameraObject.GetComponentInChildren<MonoBehaviour>();
+                Animation animation = cameraObject.GetComponentInChildren<Animation>();
+
+                // Si le script est trouvé, désactivez-le
+                if (scriptToDisable != null && activate == true)
                 {
-                    // Essaie de récupérer le script et l'animation sur le GameObject cible
-                    MonoBehaviour scriptToDisable = cameraObject.GetComponentInChildren<MonoBehaviour>();
-                    Animation animation = cameraObject.GetComponentInChildren<Animation>();
+                    scriptToDisable.enabled = !scriptToDisable.enabled;
 
-                    // Si le script est trouvé, désactivez-le
-                    if (scriptToDisable != null && activate == true)
+                    if (!scriptToDisable.enabled)
                     {
-                        scriptToDisable.enabled = !scriptToDisable.enabled;
-
-                        if (!scriptToDisable.enabled)
-                        {
-                            // Sauvegardez la position actuelle de l'animation avant de l'arrêter
-                            currentAnimationTime = animation[animation.clip.name].time;
-                            animation.Stop();
-                            ChangeColorOfObjects(sphereCameras, Color.black);
-                            //SetListActive(sphereCameras, false);
-                        }
-                        else
-                        {
-                            // Relancez l'animation et restaurez la position de lecture
-                            animation.Play();
-                            animation[animation.clip.name].time = currentAnimationTime;
-                            ChangeColorOfObjects(sphereCameras, Color.red);
-                            //SetListActive(sphereCameras, true);
-                        }
+                        // Sauvegardez la position actuelle de l'animation avant de l'arrêter
+                        currentAnimationTime = animation[animation.clip.name].time;
+                        animation.Stop();
+                        ChangeColorOfObjects(sphereCameras, Color.black);
+                        //SetListActive(sphereCameras, false);
                     }
                     else
                     {
-                        Debug.LogWarning("Script not found on targetObject.");
+                        // Relancez l'animation et restaurez la position de lecture
+                        animation.Play();
+                        animation[animation.clip.name].time = currentAnimationTime;
+                        ChangeColorOfObjects(sphereCameras, Color.red);
+                        //SetListActive(sphereCameras, true);
                     }
                 }
+                else
+                {
+                    Debug.LogWarning("Script not found on targetObject.");
+                }
             }
-            else
-            {
-                Debug.LogWarning("Target object not assigned.");
-            }
+        }
+        else
+        {
+            Debug.LogWarning("Target object not assigned.");
         }
     }
 

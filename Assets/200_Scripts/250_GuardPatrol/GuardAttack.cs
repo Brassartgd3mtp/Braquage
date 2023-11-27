@@ -1,5 +1,6 @@
 using System.Linq;
 using UnityEngine;
+using UnityEngine.AI;
 using static GuardController;
 
 public class GuardAttack : GuardBehaviour
@@ -88,6 +89,25 @@ public class GuardAttack : GuardBehaviour
     {
         // Logique d'attaque ici, peut-être activer une animation, infliger des dégâts, etc.
         Debug.Log("Attacking!");
+
+        // Récupérer le joueur le plus proche
+        GameObject closestPlayer = GetClosestPlayer();
+
+        // Vérifier si le joueur le plus proche a un NavMeshAgent attaché
+        NavMeshAgent playerNavMeshAgent = closestPlayer.GetComponent<NavMeshAgent>();
+        if (playerNavMeshAgent != null)
+        {
+            // Mettre la vitesse du NavMeshAgent à 0 pour immobiliser le joueur
+            playerNavMeshAgent.speed = 0f;
+        }
+
+        AnimationController playerAnimationController = closestPlayer.GetComponent<AnimationController>();
+        if (playerAnimationController != null)
+        {
+            // Modifier le booléen isDoingAction dans le script AnimationController
+            playerAnimationController.isDowned = true;
+        }
+
     }
 
 }

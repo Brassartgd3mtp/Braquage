@@ -22,7 +22,6 @@ namespace RTS_Camera
 
         private void HandleInput()
         {
-
             // Détection de l'appui sur la touche A pour la rotation vers la gauche
             if (Input.GetKeyDown(KeyCode.A))
             {

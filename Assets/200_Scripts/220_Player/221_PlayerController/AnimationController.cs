@@ -10,6 +10,7 @@ public class AnimationController : MonoBehaviour
 
     public bool isWalking = false;
     public bool isDoingAction = false;
+    public bool isDowned = false;
 
     private void Start()
     {
@@ -25,7 +26,6 @@ public class AnimationController : MonoBehaviour
             isWalking = false;
         }
         myAnimator.SetBool("Walk", isWalking);
-
+        myAnimator.SetBool("IsDowned?", isDowned);
     }
-
 }

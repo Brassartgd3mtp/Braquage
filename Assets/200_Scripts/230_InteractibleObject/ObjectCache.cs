@@ -11,7 +11,7 @@ public class ObjectCache : MonoBehaviour
 
         if (playerCache != null)
         {
-            // Le joueur a quitté la cachette, mettez à jour le booléen isHidden dans le script du joueur
+            // Le joueur a quitté la cachette, met à jour le booléen isHidden dans le script du joueur
             playerCache.SetHiddenState(false);
         }
     }

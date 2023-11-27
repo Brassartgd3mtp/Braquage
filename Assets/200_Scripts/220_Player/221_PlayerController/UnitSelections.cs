@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class UnitSelections : MonoBehaviour
 {
-    //Reference : https://www.youtube.com/watch?v=vAVi04mzeKk&ab_channel=SpawnCampGames
     [Header("List Unit")]
     // Liste de toutes les unités disponibles dans le jeu
     public List<GameObject> unitList = new List<GameObject>();
@@ -100,7 +99,7 @@ public class UnitSelections : MonoBehaviour
             if (unitOutline != null)
             {
                 unitOutline.selectUnit = true;
-                
+
             }
         }
     }

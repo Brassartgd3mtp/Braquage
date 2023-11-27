@@ -49,12 +49,6 @@ namespace RTS_Camera
 
         private bool IsInBounds(Vector3 position)
         {
-            // Vérifie si la position est dans la plage autorisée de déplacement.
-            //return position.x > -_range.x &&
-            //       position.x < _range.x &&
-            //       position.z > -_range.y &&
-            //       position.z < _range.y;
-            //
             // Calculer les limites en fonction du centre
             float minX = _boundsCenter.x - _range.x;
             float maxX = _boundsCenter.x + _range.x;
@@ -74,15 +68,8 @@ namespace RTS_Camera
 
         private void OnDrawGizmos()
         {
-            // Affiche des gizmos dans l'éditeur pour représenter la position de la caméra et la plage autorisée de déplacement.
-            //Gizmos.color = Color.red;
-            //Gizmos.DrawSphere(transform.position, 5f);
-            //Gizmos.DrawWireCube(Vector3.zero, new Vector3(_range.x * 2f, 5f, _range.y * 2f));
-
             Gizmos.color = Color.blue;
             Gizmos.DrawWireCube(_boundsCenter, new Vector3(_range.x * 2f, 5f, _range.y * 2f));
-
         }
-
     }
 }

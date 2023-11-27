@@ -7,7 +7,6 @@ public abstract class GuardBehaviour : MonoBehaviour
 
     public abstract BehaviourName CheckTransition();
     [Header("Detection Settings")]
-    [SerializeField]
     public float detectionRadius = 7.5f;
     public abstract float DetectionRadius { get; }
 

@@ -16,13 +16,10 @@ public class PlayerCache : MonoBehaviour
 
     void Start()
     {
-        // Assurez-vous d'avoir un Renderer attaché au GameObject
         Renderer renderer = GetComponent<Renderer>();
 
-        // Assurez-vous que le Renderer a un matériau
         if (renderer != null && renderer.material != null)
         {
-            // Stockez le matériau d'origine
             transparencyMaterial = renderer.material;
         }
         else
@@ -35,7 +32,7 @@ public class PlayerCache : MonoBehaviour
     {
         if (Input.GetKeyDown(hideKey))
         {
-            // Vérifiez si une cachette est à proximité
+            // Vérifie si une cachette est à proximité
             Collider[] nearbyHidingSpots = Physics.OverlapSphere(transform.position, hideDistance, hideLayer);
 
             foreach (Collider hidingSpot in nearbyHidingSpots)
@@ -45,7 +42,7 @@ public class PlayerCache : MonoBehaviour
                 // Appel de la fonction SetHiddenState pour gérer la transparence
                 SetHiddenState(isHidden);
 
-                // Sortez de la boucle dès que vous trouvez une cachette
+                // Sort de la boucle dès qu'une cachette est à proximité
                 return;
             }
         }
@@ -89,7 +86,7 @@ public class PlayerCache : MonoBehaviour
         }
     }
 
-    // Dessine une sphère de gizmo pour visualiser la zone de cachement dans l'éditeur Unity
+    // Dessine une sphère de gizmo pour visualiser la zone dans l'éditeur Unity
     void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
