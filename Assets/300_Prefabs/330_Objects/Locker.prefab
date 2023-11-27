@@ -44,7 +44,11 @@ GameObject:
   - component: {fileID: 2104351959752855816}
   - component: {fileID: 7264148490611389804}
   - component: {fileID: 1646931303454338953}
-  m_Layer: 0
+  - component: {fileID: 1746245145374741359}
+  - component: {fileID: 4134824699812273048}
+  - component: {fileID: 570670137102668366}
+  - component: {fileID: 7093918466959093775}
+  m_Layer: 10
   m_Name: Locker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,6 +99,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -6478536213147159724, guid: 725078de5dc787b4dabd325448a75372, type: 3}
+  - {fileID: 2100000, guid: 7ef7a81696eb0ba44bdec2651d59b237, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -116,6 +121,76 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1746245145374741359
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5345128720769668217}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.027189665, y: 0.03338619, z: 0.043668997}
+  m_Center: {x: -0.0004073322, y: -0.005414547, z: 0.021133108}
+--- !u!114 &4134824699812273048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5345128720769668217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 899c380eb8a2500499f7dbe4cb9885a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &570670137102668366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5345128720769668217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7c07c035eed8042b1ec487b065d50a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameMaterialOutline: M_OutlineV2
+  propertyAlpha: _Alpha
+  propertyColor: _Outline_Color
+  originAlpha: 0
+  newAlpha: 1
+  mouseColor: {r: 1, g: 0, b: 0, a: 0}
+  proximtyColor: {r: 0, g: 1, b: 0.03573966, a: 0}
+  intensityHDR: 10
+  playerNearby: 0
+--- !u!208 &7093918466959093775
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5345128720769668217}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.011000001, y: 0.010000001, z: 0.022000002}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.021000002}
+  m_TimeToStationary: 0.5
 --- !u!1 &8109110540011044346
 GameObject:
   m_ObjectHideFlags: 0
