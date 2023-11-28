@@ -13,6 +13,11 @@ public class GuardAttack : GuardBehaviour
     public float attackRange = 2f; // Distance d'attaque
     private GameObject[] players;
 
+    public Animator animator;
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     public override void ApplyBehaviour()
     {
@@ -94,10 +99,12 @@ public class GuardAttack : GuardBehaviour
 
         UnitMovement unitMovement = closestPlayer.GetComponent<UnitMovement>();
 
-        if (unitMovement != null) 
+        if (unitMovement != null)
         {
             unitMovement.immobilize = true;
-        }        
+        }
+
+        animator.SetBool("Immobilisation", true);
     }
 
     private void EndAttack()

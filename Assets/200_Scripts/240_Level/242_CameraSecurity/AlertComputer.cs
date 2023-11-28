@@ -27,6 +27,7 @@ public class AlertComputer : InteractibleObjectV2
                 // Essaie de récupérer le script et l'animation sur le GameObject cible
                 MonoBehaviour scriptToDisable = cameraObject.GetComponentInChildren<MonoBehaviour>();
                 Animation animation = cameraObject.GetComponentInChildren<Animation>();
+                Light light = cameraObject.GetComponentInChildren<Light>();
 
                 // Si le script est trouvé, désactivez-le
                 if (scriptToDisable != null && activate == true)
@@ -39,7 +40,7 @@ public class AlertComputer : InteractibleObjectV2
                         currentAnimationTime = animation[animation.clip.name].time;
                         animation.Stop();
                         ChangeColorOfObjects(sphereCameras, Color.black);
-                        //SetListActive(sphereCameras, false);
+                        light.enabled = !light.enabled;
                     }
                     else
                     {
@@ -47,7 +48,7 @@ public class AlertComputer : InteractibleObjectV2
                         animation.Play();
                         animation[animation.clip.name].time = currentAnimationTime;
                         ChangeColorOfObjects(sphereCameras, Color.red);
-                        //SetListActive(sphereCameras, true);
+                        light.enabled = !light.enabled;
                     }
                 }
                 else
