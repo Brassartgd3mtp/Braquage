@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class DoorVault : CrochetDoorV2
 {
@@ -84,6 +85,47 @@ public class DoorVault : CrochetDoorV2
             }
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            if (isBeingPicked)
+            {
+                // Récupérer l'Animator du joueur
+                Animator playerAnimator = other.GetComponent<Animator>();
+                playerAnimator.SetBool("DoingAction", true);
+                playerAnimator.SetBool("Walk", false);
+
+                NavMeshAgent navMeshAgent = other.GetComponent<NavMeshAgent>();
+                navMeshAgent.speed = 0;
+
+                Unit unitActionUI = other.GetComponent<Unit>();
+
+                if (unitActionUI != null)
+                {
+                    unitActionUI.actionPercingUI.SetActive(true);
+                }
+
+            }
+            else
+            {
+                Animator playerAnimator = other.GetComponent<Animator>();
+                playerAnimator.SetBool("DoingAction", false);
+
+                NavMeshAgent navMeshAgent = other.GetComponent<NavMeshAgent>();
+                navMeshAgent.speed = 3.5f;
+
+                Unit unitActionUI = other.GetComponent<Unit>();
+
+                if (unitActionUI != null)
+                {
+                    unitActionUI.actionPercingUI.SetActive(false);
+                }
+            }
+        }
+    }
+
     IEnumerator PickDoorVaultCoroutine()
     {
         isBeingPicked = true;

@@ -23,6 +23,12 @@ public class Unit : MonoBehaviour
     [Range(-10.0f, 100.0f)]
     public float intensityHDR = 10f;
 
+    [Header("UI property")]
+    public GameObject outlineUI;
+    public GameObject actionPercingUI;
+    public GameObject actionWithBagUI;
+    public GameObject actionLockPickingUI;
+
     void Start()
     {
         UnitSelections.Instance.unitList.Add(this.gameObject);
@@ -36,10 +42,12 @@ public class Unit : MonoBehaviour
         if (selectUnit)
         {
             ApplyAlpha(newAlpha);
+            outlineUI.SetActive(true);
         }
         else if (!selectUnit)
         {
             ApplyAlpha(originAlpha);
+            outlineUI.SetActive(false);
         }
     }
 
