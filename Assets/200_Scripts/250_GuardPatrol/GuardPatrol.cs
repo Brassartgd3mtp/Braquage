@@ -48,7 +48,6 @@ public class GuardPatrol : GuardBehaviour
     {
         if (!agent.pathPending && agent.remainingDistance < 0.2f && !DetectPlayer())
         {
-            Debug.Log("Changement de waypoint");
             agent.isStopped = false;
             SetNextWaypoint();
         }
@@ -58,8 +57,6 @@ public class GuardPatrol : GuardBehaviour
     {
         if (DetectPlayer())
         {
-            Debug.Log("Player detected dans le Checking");
-
             // Retourner la valeur de l'enum correspondant au prochain comportement
             return BehaviourName.Chase;
         }
@@ -88,8 +85,6 @@ public class GuardPatrol : GuardBehaviour
 
             isRun = false;
             myAnimator.SetBool("Run", isRun);
-
-        Debug.Log("SetNextWaypoint appelée");
 
         // Vérifie si le timer est écoulé
         if (currentTimer <= 0)

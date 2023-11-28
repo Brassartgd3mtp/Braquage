@@ -33539,6 +33539,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3541973961566676613, guid: f15936450ecf26849857faa55e5c5758,
         type: 3}
+      propertyPath: numberOfRays
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3541973961566676613, guid: f15936450ecf26849857faa55e5c5758,
+        type: 3}
+      propertyPath: detectionAngle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3541973961566676613, guid: f15936450ecf26849857faa55e5c5758,
+        type: 3}
+      propertyPath: detectionRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3541973961566676613, guid: f15936450ecf26849857faa55e5c5758,
+        type: 3}
       propertyPath: waypoints.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -33615,7 +33630,7 @@ PrefabInstance:
     - target: {fileID: 8083219313948454519, guid: f15936450ecf26849857faa55e5c5758,
         type: 3}
       propertyPath: m_Layer
-      value: 15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8083219313948454519, guid: f15936450ecf26849857faa55e5c5758,
         type: 3}
