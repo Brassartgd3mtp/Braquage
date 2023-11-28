@@ -47,10 +47,6 @@ public class UnitMovement : MonoBehaviour
         {
             Immobilize();
         }
-        else if (!immobilize)
-        {
-            NoImmobilize();
-        }
     }
 
     void Immobilize()
@@ -59,7 +55,7 @@ public class UnitMovement : MonoBehaviour
         animationController.isDowned = true;
     }
 
-    void NoImmobilize()
+    public void NoImmobilize()
     {
         myAgent.speed = speed;
         animationController.isDowned = false;

@@ -65,7 +65,7 @@ public class UnitCombat : MonoBehaviour
                 // Vérifier si le composant UnitMovement a été trouvé
                 if (otherUnitMovement != null)
                 {
-                    otherUnitMovement.immobilize = false;
+                    otherUnitMovement.NoImmobilize();
                 }
             }
         }
