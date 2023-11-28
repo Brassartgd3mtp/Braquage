@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CameraSecurity : MonoBehaviour
 {
-    public AlertTimer _alertTimer; // Référence vers le script du timer
-    public GameObject _alertActivate; // Référence vers le GameObject à activer/désactiver
+    public AlertTimer alertTimer; // Référence vers le script du timer
+    public GameObject alertActivate; // Référence vers le GameObject à activer/désactiver
 
     public int numberOfRaycasts = 5;       // Nombre de raycasts dans le cône
     public float detectionDistance = 10f;  // Distance maximale pour la détection
@@ -45,13 +45,13 @@ public class CameraSecurity : MonoBehaviour
 
     void ActivateAlert()
     {
-        if (_alertActivate != null)
+        if (alertActivate != null)
         {
-            _alertActivate.SetActive(true);
+            alertActivate.SetActive(true);
         }
 
         // Démarre le timer lorsque le joueur entre dans la zone
-        _alertTimer._isTimerRunning = true;
+        alertTimer._isTimerRunning = true;
     }
 
     void OnDrawGizmos()

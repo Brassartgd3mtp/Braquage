@@ -10266,6 +10266,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3541973961566676613, guid: f15936450ecf26849857faa55e5c5758,
         type: 3}
+      propertyPath: alertTimer
+      value: 
+      objectReference: {fileID: 1654355940}
+    - target: {fileID: 3541973961566676613, guid: f15936450ecf26849857faa55e5c5758,
+        type: 3}
+      propertyPath: alertActivate
+      value: 
+      objectReference: {fileID: 1654355938}
+    - target: {fileID: 3541973961566676613, guid: f15936450ecf26849857faa55e5c5758,
+        type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
       objectReference: {fileID: 1754548854}
@@ -12570,7 +12580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -20474,9 +20484,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 697867268349830941, guid: 8c04f4bf0eccb3a478730e2a1e340a3c,
         type: 3}
+      propertyPath: alertTimer
+      value: 
+      objectReference: {fileID: 1654355940}
+    - target: {fileID: 697867268349830941, guid: 8c04f4bf0eccb3a478730e2a1e340a3c,
+        type: 3}
       propertyPath: _alertTimer
       value: 
       objectReference: {fileID: 1654355940}
+    - target: {fileID: 697867268349830941, guid: 8c04f4bf0eccb3a478730e2a1e340a3c,
+        type: 3}
+      propertyPath: alertActivate
+      value: 
+      objectReference: {fileID: 1654355938}
     - target: {fileID: 697867268349830941, guid: 8c04f4bf0eccb3a478730e2a1e340a3c,
         type: 3}
       propertyPath: _alertActivate
@@ -20896,9 +20916,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 697867268349830941, guid: 8c04f4bf0eccb3a478730e2a1e340a3c,
         type: 3}
+      propertyPath: alertTimer
+      value: 
+      objectReference: {fileID: 1654355940}
+    - target: {fileID: 697867268349830941, guid: 8c04f4bf0eccb3a478730e2a1e340a3c,
+        type: 3}
       propertyPath: _alertTimer
       value: 
       objectReference: {fileID: 1654355940}
+    - target: {fileID: 697867268349830941, guid: 8c04f4bf0eccb3a478730e2a1e340a3c,
+        type: 3}
+      propertyPath: alertActivate
+      value: 
+      objectReference: {fileID: 1654355938}
     - target: {fileID: 697867268349830941, guid: 8c04f4bf0eccb3a478730e2a1e340a3c,
         type: 3}
       propertyPath: _alertActivate
@@ -24170,7 +24200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -30419,6 +30449,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 99036655}
     m_Modifications:
+    - target: {fileID: 3541973961566676613, guid: f15936450ecf26849857faa55e5c5758,
+        type: 3}
+      propertyPath: alertTimer
+      value: 
+      objectReference: {fileID: 1654355940}
+    - target: {fileID: 3541973961566676613, guid: f15936450ecf26849857faa55e5c5758,
+        type: 3}
+      propertyPath: alertActivate
+      value: 
+      objectReference: {fileID: 1654355938}
     - target: {fileID: 3541973961566676613, guid: f15936450ecf26849857faa55e5c5758,
         type: 3}
       propertyPath: waypoints.Array.data[0]
@@ -42516,9 +42556,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 697867268349830941, guid: 8c04f4bf0eccb3a478730e2a1e340a3c,
         type: 3}
+      propertyPath: alertTimer
+      value: 
+      objectReference: {fileID: 1654355940}
+    - target: {fileID: 697867268349830941, guid: 8c04f4bf0eccb3a478730e2a1e340a3c,
+        type: 3}
       propertyPath: _alertTimer
       value: 
       objectReference: {fileID: 1654355940}
+    - target: {fileID: 697867268349830941, guid: 8c04f4bf0eccb3a478730e2a1e340a3c,
+        type: 3}
+      propertyPath: alertActivate
+      value: 
+      objectReference: {fileID: 1654355938}
     - target: {fileID: 697867268349830941, guid: 8c04f4bf0eccb3a478730e2a1e340a3c,
         type: 3}
       propertyPath: _alertActivate
@@ -43000,7 +43050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -50466,9 +50516,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 697867268349830941, guid: 8c04f4bf0eccb3a478730e2a1e340a3c,
         type: 3}
+      propertyPath: alertTimer
+      value: 
+      objectReference: {fileID: 1654355940}
+    - target: {fileID: 697867268349830941, guid: 8c04f4bf0eccb3a478730e2a1e340a3c,
+        type: 3}
       propertyPath: _alertTimer
       value: 
       objectReference: {fileID: 1654355940}
+    - target: {fileID: 697867268349830941, guid: 8c04f4bf0eccb3a478730e2a1e340a3c,
+        type: 3}
+      propertyPath: alertActivate
+      value: 
+      objectReference: {fileID: 1654355938}
     - target: {fileID: 697867268349830941, guid: 8c04f4bf0eccb3a478730e2a1e340a3c,
         type: 3}
       propertyPath: _alertActivate
@@ -55309,6 +55369,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1740726545}
     m_Modifications:
+    - target: {fileID: 3134498387766150982, guid: 7f727690da9b27443a43d4ac13adac46,
+        type: 3}
+      propertyPath: outlineUI
+      value: 
+      objectReference: {fileID: 1619583399}
+    - target: {fileID: 3134498387766150982, guid: 7f727690da9b27443a43d4ac13adac46,
+        type: 3}
+      propertyPath: actionPercingUI
+      value: 
+      objectReference: {fileID: 1428596897}
+    - target: {fileID: 3134498387766150982, guid: 7f727690da9b27443a43d4ac13adac46,
+        type: 3}
+      propertyPath: actionWithBagUI
+      value: 
+      objectReference: {fileID: 1924064969}
+    - target: {fileID: 3134498387766150982, guid: 7f727690da9b27443a43d4ac13adac46,
+        type: 3}
+      propertyPath: actionLockPickingUI
+      value: 
+      objectReference: {fileID: 1071172592}
     - target: {fileID: 5772662552003845579, guid: 7f727690da9b27443a43d4ac13adac46,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -55948,6 +56028,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7507824660720797098, guid: e08a0266fecd18b44b7fb961d6e0374b,
+        type: 3}
+      propertyPath: outlineUI
+      value: 
+      objectReference: {fileID: 895799322}
+    - target: {fileID: 7507824660720797098, guid: e08a0266fecd18b44b7fb961d6e0374b,
+        type: 3}
+      propertyPath: actionPercingUI
+      value: 
+      objectReference: {fileID: 546785787}
+    - target: {fileID: 7507824660720797098, guid: e08a0266fecd18b44b7fb961d6e0374b,
+        type: 3}
+      propertyPath: actionWithBagUI
+      value: 
+      objectReference: {fileID: 102990980}
+    - target: {fileID: 7507824660720797098, guid: e08a0266fecd18b44b7fb961d6e0374b,
+        type: 3}
+      propertyPath: actionLockPickingUI
+      value: 
+      objectReference: {fileID: 200523579}
     - target: {fileID: 7955696960225995908, guid: e08a0266fecd18b44b7fb961d6e0374b,
         type: 3}
       propertyPath: m_Name
@@ -56077,6 +56177,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 99036655}
     m_Modifications:
+    - target: {fileID: 3541973961566676613, guid: f15936450ecf26849857faa55e5c5758,
+        type: 3}
+      propertyPath: alertTimer
+      value: 
+      objectReference: {fileID: 1654355940}
+    - target: {fileID: 3541973961566676613, guid: f15936450ecf26849857faa55e5c5758,
+        type: 3}
+      propertyPath: alertActivate
+      value: 
+      objectReference: {fileID: 1654355938}
     - target: {fileID: 3541973961566676613, guid: f15936450ecf26849857faa55e5c5758,
         type: 3}
       propertyPath: waypoints.Array.data[0]
@@ -56680,6 +56790,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1740726545}
     m_Modifications:
+    - target: {fileID: 1539671132918641846, guid: 8f5bdc4148cefa44ebfbb523ec5a66bd,
+        type: 3}
+      propertyPath: outlineUI
+      value: 
+      objectReference: {fileID: 384273909}
+    - target: {fileID: 1539671132918641846, guid: 8f5bdc4148cefa44ebfbb523ec5a66bd,
+        type: 3}
+      propertyPath: actionPercingUI
+      value: 
+      objectReference: {fileID: 1691141675}
+    - target: {fileID: 1539671132918641846, guid: 8f5bdc4148cefa44ebfbb523ec5a66bd,
+        type: 3}
+      propertyPath: actionWithBagUI
+      value: 
+      objectReference: {fileID: 174828230}
+    - target: {fileID: 1539671132918641846, guid: 8f5bdc4148cefa44ebfbb523ec5a66bd,
+        type: 3}
+      propertyPath: actionLockPickingUI
+      value: 
+      objectReference: {fileID: 897360018}
     - target: {fileID: 6698659627581591650, guid: 8f5bdc4148cefa44ebfbb523ec5a66bd,
         type: 3}
       propertyPath: m_LocalPosition.x

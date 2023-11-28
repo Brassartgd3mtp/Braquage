@@ -20,6 +20,9 @@ public class GuardPatrol : GuardBehaviour
 
     public LayerMask excludedLayers; // Définissez le layer mask dans l'inspecteur
 
+    public AlertTimer alertTimer; // Référence vers le script du timer
+    public GameObject alertActivate; // Référence vers le GameObject à activer/désactiver
+
     private NavMeshAgent agent;
 
     private Animator myAnimator;
@@ -131,13 +134,24 @@ public class GuardPatrol : GuardBehaviour
                 PlayerCache playerCache = hit.collider.GetComponent<PlayerCache>();
                 if (playerCache != null && !playerCache.isHidden)
                 {
-                    // Retourner vrai car le joueur n'est pas caché
+                    ActivateAlert();
                     return true;
                 }
             }
         }
         // Si aucun joueur n'est détecté, retourner faux
         return false;
+    }
+
+    void ActivateAlert()
+    {
+        if (alertActivate != null)
+        {
+            alertActivate.SetActive(true);
+        }
+
+        // Démarre le timer lorsque le joueur entre dans la zone
+        alertTimer._isTimerRunning = true;
     }
 
     private void OnDrawGizmosSelected()

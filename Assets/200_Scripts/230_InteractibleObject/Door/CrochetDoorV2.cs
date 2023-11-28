@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class CrochetDoorV2 : ObjectDoorV2
 {
@@ -77,11 +79,32 @@ public class CrochetDoorV2 : ObjectDoorV2
                 Animator playerAnimator = other.GetComponent<Animator>();
                 playerAnimator.SetBool("DoingAction", true);
                 playerAnimator.SetBool("Walk", false);
+
+                NavMeshAgent navMeshAgent = other.GetComponent<NavMeshAgent>();
+                navMeshAgent.speed = 0;
+
+                Unit unitActionUI = other.GetComponent<Unit>();
+
+                if (unitActionUI != null)
+                {
+                    unitActionUI.actionLockPickingUI.SetActive(true);
+                }
+
             }
             else
             {
                 Animator playerAnimator = other.GetComponent<Animator>();
                 playerAnimator.SetBool("DoingAction", false);
+
+                NavMeshAgent navMeshAgent = other.GetComponent<NavMeshAgent>();
+                navMeshAgent.speed = 3.5f;
+
+                Unit unitActionUI = other.GetComponent<Unit>();
+
+                if (unitActionUI != null)
+                {
+                    unitActionUI.actionLockPickingUI.SetActive(false);
+                }
             }
         }
     }
