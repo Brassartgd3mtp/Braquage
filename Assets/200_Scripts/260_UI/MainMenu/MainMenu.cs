@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public GameObject InputGO;
+    private void Start()
+    {
+        InputGO.gameObject.SetActive(false);
+    }
     public void PlayGame()
     {
         SceneManager.LoadScene("CoreScene");
@@ -12,7 +17,11 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
-        Debug.Log("Game Closed");
         Application.Quit();
+    }
+
+    public void InputDisplay()
+    {
+        InputGO.gameObject.SetActive(true);
     }
 }
