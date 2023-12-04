@@ -29,8 +29,15 @@ public class GuardPatrol : GuardBehaviour
     private bool isWalking = false;
     private bool isRun = false;
 
-    private float waypointTimer = 5.0f; // Temps en secondes
-    private float currentTimer = 0.0f;
+    [SerializeField] private float waypointTimer = 1.0f;
+    [SerializeField] private float currentTimer = 0.0f;
+
+    [SerializeField] private float minWaypointTimer = 1.0f;
+    [SerializeField] private float maxWaypointTimer = 5.0f;
+
+    public ObjectDoorV2 doorToInteract;
+    public float doorInteractionDistance = 2.0f; // Ajoute cette ligne
+
 
     private void Start()
     {
@@ -52,6 +59,7 @@ public class GuardPatrol : GuardBehaviour
         if (!agent.pathPending && agent.remainingDistance < 0.2f && !DetectPlayer())
         {
             agent.isStopped = false;
+
             SetNextWaypoint();
         }
     }
@@ -101,6 +109,10 @@ public class GuardPatrol : GuardBehaviour
                 currentWaypoint += patrolDirection * 2;
             }
 
+            waypointTimer = Random.Range(minWaypointTimer, maxWaypointTimer);
+
+            CheckForDoorInteraction();
+
             SetDestination();
 
             // Réinitialise le timer après avoir appelé SetNextWaypoint
@@ -112,7 +124,22 @@ public class GuardPatrol : GuardBehaviour
             currentTimer -= Time.deltaTime;
         }
     }
-
+    private void CheckForDoorInteraction()
+    {
+        // Vérifie s'il y a une porte à proximité
+        if (doorToInteract != null && Vector3.Distance(transform.position, doorToInteract.transform.position) < doorInteractionDistance)
+        {
+            // Vérifie si la porte est ouverte ou fermée
+            if (doorToInteract.isOpening)
+            {
+                doorToInteract.CloseDoor();
+            }
+            else
+            {
+                doorToInteract.OpenDoor();
+            }
+        }
+    }
     public bool DetectPlayer()
     {
         for (int i = 0; i < numberOfRays; i++)

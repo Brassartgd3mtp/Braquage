@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ObjectDoorV2 : InteractibleObjectV2
 {
-    private bool isOpening = false;
+    public bool isOpening = false;
     private bool isTransitioning = false;
     private PlayerRole interactingPlayer;
 
@@ -89,12 +89,12 @@ public class ObjectDoorV2 : InteractibleObjectV2
         return false;
     }
 
-    void OpenDoor()
+    public void OpenDoor()
     {
         isTransitioning = true;
         doorAnimation.Play(nameOpenAnimation);
     }
-    void CloseDoor()
+    public void CloseDoor()
     {
         isTransitioning = true;
         doorAnimation.Play(nameCloseAnimation);

@@ -1,4 +1,7 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 public class GuardController : MonoBehaviour
 {
     public enum BehaviourName
@@ -15,12 +18,14 @@ public class GuardController : MonoBehaviour
     private GuardChase guardChase;
     private GuardAttack guardAttack;
 
+    public bool guardDead = false;
+
+
     private void Start()
     {
         guardPatrol = GetComponent<GuardPatrol>();
         guardChase = GetComponent<GuardChase>();
         guardAttack = GetComponent<GuardAttack>();
-
         currentBehaviour = guardPatrol;
 
     }
@@ -66,5 +71,5 @@ public class GuardController : MonoBehaviour
 
         Debug.Log($"Switching to {behaviour} state.");
 
-    }
+    }    
 }

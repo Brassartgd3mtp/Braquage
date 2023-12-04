@@ -203,6 +203,7 @@ GameObject:
   - component: {fileID: 5580482047320330415}
   - component: {fileID: 8146512434490496266}
   - component: {fileID: 2056672557302883877}
+  - component: {fileID: 8069340066501735503}
   m_Layer: 9
   m_Name: Guard
   m_TagString: Untagged
@@ -245,7 +246,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 5a139f721fbb02d4fae5cdef5e0334ed, type: 3}
+  - {fileID: 2100000, guid: a4147df90e2e8f14195db3ebe815f441, type: 2}
   - {fileID: 2100000, guid: 7ef7a81696eb0ba44bdec2651d59b237, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -341,6 +342,24 @@ CapsuleCollider:
   m_Height: 0.012014631
   m_Direction: 1
   m_Center: {x: -0.00003837364, y: 0.00020822237, z: -0.0009886918}
+--- !u!114 &8069340066501735503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3140702384054198052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c4b1baa2f4149d4a9d042776b78f91e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guard: {fileID: 8083219313948454519}
+  nameMaterialDissolve: M_Dissolve
+  propertyCutoff: _Cutoff_Height
+  originCutoff: -1
+  newCutoff: 2
+  deathDuration: 3
 --- !u!1 &3277387641530389941
 GameObject:
   m_ObjectHideFlags: 0
@@ -1131,10 +1150,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8353817222954403751}
-  - {fileID: 7681794271690622023}
   - {fileID: 8244777988464122704}
+  - {fileID: 8353817222954403751}
   - {fileID: 3190801180439937418}
+  - {fileID: 7681794271690622023}
   - {fileID: 6932340140846901116}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1195,6 +1214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb19844391d3bf040b2b86194d11517f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  guardDead: 0
 --- !u!114 &3635056144407638016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1227,10 +1247,21 @@ MonoBehaviour:
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   normalSpeed: 3.5
   excludedLayers:
     serializedVersion: 2
     m_Bits: 50688
+  alertTimer: {fileID: 0}
+  alertActivate: {fileID: 0}
+  waypointTimer: 1
+  currentTimer: 0
+  minWaypointTimer: 1
+  maxWaypointTimer: 3
+  doorToInteract: {fileID: 0}
+  doorInteractionDistance: 10
 --- !u!114 &7353716472620686938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1266,6 +1297,7 @@ MonoBehaviour:
   numberOfRays: 0
   playerTag: Player
   attackRange: 3
+  animator: {fileID: 0}
 --- !u!95 &4238971060180622582
 Animator:
   serializedVersion: 5

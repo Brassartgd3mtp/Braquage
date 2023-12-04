@@ -39,9 +39,15 @@ public class UnitCombat : MonoBehaviour
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, rangeAttack, guardLayer);
 
         // Parcourir tous les colliders touchés
-        foreach (Collider collider in hitColliders)
+        foreach (Collider guardCollider in hitColliders)
         {
-            Destroy(collider.gameObject);
+            GuardController targetGuardScript = guardCollider.GetComponent<GuardController>();
+
+            if (targetGuardScript != null)
+            {
+                // Changer le booléen dans le script de la cible
+                targetGuardScript.guardDead = true;
+            }
         }
     }
 

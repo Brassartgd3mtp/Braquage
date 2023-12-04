@@ -154,7 +154,7 @@ NavMeshObstacle:
   m_Shape: 1
   m_Extents: {x: 0.007, y: 0.010000001, z: 0.015000001}
   m_MoveThreshold: 0.1
-  m_Carve: 0
+  m_Carve: 1
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: -0.010000001, z: 0.015000001}
   m_TimeToStationary: 0.5
@@ -171,8 +171,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOpening: 0
-  isTransitioning: 0
-  interactingPlayer: {fileID: 0}
   requiresAccessCard: 0
   requiresRedCard: 0
   requiresBlueCard: 0
