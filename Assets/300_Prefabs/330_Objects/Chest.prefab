@@ -603,7 +603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  lootableBar: {fileID: 0}
+  lootableBar: {fileID: 472403970060112254}
   lootableAnimation: {fileID: 0}
   wasSearched: 0
   childObject: {fileID: 5042403872982177765}

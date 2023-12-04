@@ -13,4 +13,6 @@ public class LootTable : ScriptableObject
         None
     }
     public CardType cardType;
+
+    public int bounty;
 }

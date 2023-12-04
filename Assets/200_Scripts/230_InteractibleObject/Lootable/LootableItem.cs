@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class LootableItem : InteractibleObjectV2
 {
@@ -107,6 +108,8 @@ public class LootableItem : InteractibleObjectV2
             default:
                 break;
         }
+
+        BountyManager.Instance.AddBounty(selectedLootTable.bounty);
 
         wasSearched = true;
         lootableAnimation.Play(nameAnimation);

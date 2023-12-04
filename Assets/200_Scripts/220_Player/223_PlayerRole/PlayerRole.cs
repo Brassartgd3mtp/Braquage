@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerRole : MonoBehaviour
@@ -23,5 +24,20 @@ public class PlayerRole : MonoBehaviour
     public bool redCard = false;
     public bool blueCard = false;
     public bool greenCard = false;
+
+    public TextMeshProUGUI bountyText; // Référence à l'objet TextMeshPro
+
+    private void Start()
+    {
+        if (bountyText == null)
+        {
+            Debug.LogError("La référence à l'objet TextMeshPro n'est pas définie. Assure-toi de l'assigner dans l'inspecteur Unity.");
+        }
+        else
+        {
+            BountyManager.Instance.bountyTexts.Add(bountyText);
+        }
+    }
+
 
 }

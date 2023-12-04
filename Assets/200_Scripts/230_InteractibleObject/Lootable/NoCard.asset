@@ -13,6 +13,4 @@ MonoBehaviour:
   m_Name: NoCard
   m_EditorClassIdentifier: 
   cardType: 3
-  cardName: 
-  cardValue: 0
-  lootTableID: 0
+  bounty: 1000
