@@ -17,6 +17,8 @@ public class ObjectDoorV2 : InteractibleObjectV2
     [Header("Nom animation")]
     public string nameOpenAnimation;
     public string nameCloseAnimation;
+    public string nameCardAnimation;
+
 
     [HideInInspector] public bool isLocked = true; //Bool si la porte est verrouillée
     [HideInInspector] public bool isBeingPicked = false; //Bool si le crochetage est effectué
@@ -33,16 +35,29 @@ public class ObjectDoorV2 : InteractibleObjectV2
     [HideInInspector] public float raycastDistance = 10f; // Distance du raycast pour détecter les joueurs
 
     public Animation doorAnimation;
+    public GameObject AccessCardText;
+    public GameObject SecurityPass;
 
 
 
     void Start()
     {
         doorAnimation = GetComponent<Animation>();
+
         if (doorAnimation == null)
         {
             Debug.LogError("Animation component is not assigned to ObjectDoorV2.");
             return;
+        }
+
+        if (AccessCardText != null)
+        {
+            AccessCardText.SetActive(false);
+        }
+
+        if (SecurityPass != null && !requiresAccessCard)
+        {
+            SecurityPass.SetActive(false);
         }
     }
 
@@ -74,16 +89,18 @@ public class ObjectDoorV2 : InteractibleObjectV2
         if (interactingPlayer != null)
         {
             // Vérifie si le joueur a la carte
-            if ((!requiresRedCard || (interactingPlayer.redCard))
+            if ((!requiresRedCard || (interactingPlayer.RedCard))
                 && (!requiresBlueCard || (interactingPlayer.blueCard))
                 && (!requiresGreenCard || (interactingPlayer.greenCard)))
             {
                 // Marque la carte comme utilisée une fois qu'elle a été utilisée
+                doorAnimation.Play(nameCardAnimation);
                 requiresAccessCard = false;
                 requiresBlueCard = false;
                 requiresGreenCard = false;
                 requiresRedCard = false;
                 return true;
+
             }
         }
         return false;
@@ -113,6 +130,10 @@ public class ObjectDoorV2 : InteractibleObjectV2
         {
             interactingPlayer = playerScript;
         }
+        if (requiresAccessCard && AccessCardText != null)
+        {
+            AccessCardText.SetActive(true);
+        }
     }
 
     void OnTriggerExit(Collider other)
@@ -122,6 +143,10 @@ public class ObjectDoorV2 : InteractibleObjectV2
         if (playerScript != null && playerScript == interactingPlayer)
         {
             interactingPlayer = null;
+            if (AccessCardText != null)
+            {
+                AccessCardText.SetActive(false);
+            }
         }
     }
 }

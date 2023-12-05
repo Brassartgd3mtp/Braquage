@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerRole : MonoBehaviour
@@ -15,29 +16,25 @@ public class PlayerRole : MonoBehaviour
     //Vitesse de mouvement(Script Unit Movement)
     //A la perçeuse(Bool)
 
-    public bool _technician = true; //Transporte la perceuse pour ouvrir les coffres lourds
-    public bool _lockPicker; // Permet de crocheter les portes classique plus vite
-    public bool _transporter; //N'a pas de malus de déplacement pendant le transport d'objets lourds
+    public bool technician = true; //Transporte la perceuse pour ouvrir les coffres lourds
+    public bool lockPicker; // Permet de crocheter les portes classique plus vite
+    public bool transporter; //N'a pas de malus de déplacement pendant le transport d'objets lourds
 
     public float _pickingMultiplier = 1.0f;
 
-    public bool redCard = false;
+    private bool redCard = false;
     public bool blueCard = false;
     public bool greenCard = false;
 
-    public TextMeshProUGUI bountyText; // Référence à l'objet TextMeshPro
+    public GameObject redCardUI;
 
-    private void Start()
+    public bool RedCard
     {
-        if (bountyText == null)
+        get { return redCard; }
+        set
         {
-            Debug.LogError("La référence à l'objet TextMeshPro n'est pas définie. Assure-toi de l'assigner dans l'inspecteur Unity.");
-        }
-        else
-        {
-            BountyManager.Instance.bountyTexts.Add(bountyText);
+            redCard = value;
+            redCardUI.SetActive(redCard);
         }
     }
-
-
 }

@@ -7,7 +7,7 @@ public class Technician : PlayerRole
     // Start is called before the first frame update
     void Start()
     {
-        _technician = true;
+        technician = true;
     }
 
     // Update is called once per frame

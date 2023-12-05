@@ -6,9 +6,14 @@ public class BountyManager : MonoBehaviour
 {
     public static BountyManager Instance; // Instance unique pour accéder à partir d'autres scripts
 
-    public List<TextMeshProUGUI> bountyTexts; // Liste des TextMeshPro associés au bounty
+    public TextMeshProUGUI bountyText; // Référence au TextMeshPro associé au bounty
 
-    public int totalBounty = 0; // Valeur totale du bounty
+    private int totalBounty = 0; // Valeur totale du bounty
+
+    private void Start()
+    {
+        bountyText = GetComponentInChildren<TextMeshProUGUI>();
+    }
 
     private void Awake()
     {
@@ -25,14 +30,18 @@ public class BountyManager : MonoBehaviour
     public void AddBounty(int amount)
     {
         totalBounty += amount;
-        UpdateBountyTexts();
+        UpdateBountyText();
     }
 
-    private void UpdateBountyTexts()
+    private void UpdateBountyText()
     {
-        foreach (TextMeshProUGUI text in bountyTexts)
+        if (bountyText != null)
         {
-            text.text = "Total Bounty: " + totalBounty.ToString();
+            bountyText.text = "Total Bounty: " + totalBounty.ToString();
+        }
+        else
+        {
+            Debug.LogError("Bounty Text not assigned in the inspector.");
         }
     }
 }

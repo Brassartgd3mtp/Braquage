@@ -58,8 +58,6 @@ public class PlayerCache : MonoBehaviour
         {
             if (isHidden)
             {
-                Debug.Log("Hiding from guard!");
-
                 // Créez une copie du matériau d'origine pour pouvoir le modifier
                 Material transparentMaterial = new Material(transparencyMaterial);
                 Color baseColor = transparentMaterial.color;
@@ -74,8 +72,6 @@ public class PlayerCache : MonoBehaviour
             }
             else
             {
-                Debug.Log("Revealed to guard!");
-
                 // Si le joueur n'est plus caché, rétablissez le matériau d'origine
                 renderer.material = transparencyMaterial;
             }

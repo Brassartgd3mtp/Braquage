@@ -10,7 +10,7 @@ namespace RTS_Camera
         [SerializeField] private float _smoothing = 5f;
         [SerializeField] private Vector2 _range = new Vector2(100, 100);
         [SerializeField] private Vector3 _boundsCenter = Vector3.zero; // Centre des limites
-
+        public float targetValue;
 
         private Vector3 _targetPosition;
         private Vector3 _input;
@@ -19,6 +19,11 @@ namespace RTS_Camera
         {
             // Initialise la position cible au démarrage du script.
             _targetPosition = transform.position;
+        }
+        public void SetTarget(Vector3 targetPosition)
+        {
+            // Définir la position cible sur la position spécifiée.
+            _targetPosition = targetPosition;
         }
 
         private void HandleInput()

@@ -95,7 +95,7 @@ public class LootableItem : InteractibleObjectV2
         switch (selectedLootTable.cardType)
         {
             case LootTable.CardType.RedCard:
-                accesCard.redCard = true;
+                accesCard.RedCard = true;
                 break;
             case LootTable.CardType.BlueCard:
                 accesCard.blueCard = true;

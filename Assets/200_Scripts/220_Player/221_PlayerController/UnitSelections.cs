@@ -134,7 +134,14 @@ public class UnitSelections : MonoBehaviour
         }
         unitsSelected.Clear();
     }
-
+    public void NumKeySelect(int index)
+    {
+        if (index >= 0 && index < unitList.Count)
+        {
+            GameObject unitToSelect = unitList[index];
+            ShifClickSelect(unitToSelect);
+        }
+    }
     public void Deselect(GameObject unitToDeselect)
     {
 

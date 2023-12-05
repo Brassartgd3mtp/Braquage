@@ -73,12 +73,12 @@ public class DoorVault : CrochetDoorV2
                 PlayerRole playerRole = closestPlayer.GetComponent<PlayerRole>();
 
                 // Vérifie le rôle du joueur (technicien) et déverrouille la porte si le joueur est autorisé
-                if (playerRole != null && playerRole._technician)
+                if (playerRole != null && playerRole.technician)
                 {
                     StartCoroutine(PickDoorVaultCoroutine());
                     barProgressionUI.AugmenterFillAmount();
                 }
-                else if (playerRole != null && !playerRole._technician)
+                else if (playerRole != null && !playerRole.technician)
                 {
                     StartCoroutine(DisplayAndFade());
                 }
