@@ -101,22 +101,9 @@ public class GuardAttack : GuardBehaviour
 
         if (unitMovement != null)
         {
-            unitMovement.immobilize = true;
+            unitMovement.Immobilize();
         }
 
         animator.SetBool("Immobilisation", true);
-    }
-
-    private void EndAttack()
-    {
-        // Récupérer le joueur le plus proche
-        GameObject closestPlayer = GetClosestPlayer();
-
-        UnitMovement unitMovement = closestPlayer.GetComponent<UnitMovement>();
-
-        if (unitMovement != null)
-        {
-            unitMovement.immobilize = false;
-        }
     }
 }

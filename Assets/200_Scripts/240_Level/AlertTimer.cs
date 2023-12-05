@@ -13,6 +13,8 @@ public class AlertTimer : MonoBehaviour
 
     public TextMeshProUGUI timerText; // Text pour afficher le timer
 
+    public Defeat defeat;
+
     void Start()
     {
         currentTime = _initialTime;
@@ -61,6 +63,7 @@ public class AlertTimer : MonoBehaviour
 
     void TimeReachedZero()
     {
+        defeat.DefeatGame();
         Debug.Log("Le temps est écoulé!");
     }
 }
