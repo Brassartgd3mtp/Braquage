@@ -5,12 +5,7 @@ using UnityEngine;
 public class InputDisplayScript : MonoBehaviour
 {
     public GameObject InputGO;
-    void Start()
-    {
-        
-    }
-
-    void Update()
+    private void Update()
     {
         if (InputGO)
         {
