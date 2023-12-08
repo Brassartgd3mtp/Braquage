@@ -130,15 +130,18 @@ public class DoorVault : CrochetDoorV2
     {
         isBeingPicked = true;
         sparkParticle.SetActive(true);
+        PlayVaultStart();
         foreach (PlayerRole roleScript in _playerRole)
         {
             totalPickingTime += roleScript._pickingMultiplier * pickingDuration;
         }
+
         yield return new WaitForSeconds(totalPickingTime);
 
         UnlockDoor();
         sparkParticle.SetActive(false);
         isBeingPicked = false;
+        PlayVaultEnd();
     }
 
     IEnumerator DisplayAndFade()
@@ -170,7 +173,29 @@ public class DoorVault : CrochetDoorV2
         textRequiredRole.gameObject.SetActive(false);
     }
 
+    private void PlayVaultStart()
+    {
+        AudioSource audioSource = GetComponent<AudioSource>();
+        AudioManager.Instance.PlaySound(7, audioSource);
+    }
 
+    private void PlayVaultEnd() 
+    {
+        AudioSource audioSource = GetComponent<AudioSource>();
+        AudioManager.Instance.PlaySound(9, audioSource);
+    }
+
+    private void PlayVaultOpen()
+    {
+        AudioSource audioSource = GetComponent<AudioSource>();
+        AudioManager.Instance.PlaySound(10, audioSource);
+    }
+
+    private void PlayVaultClose()
+    {
+        AudioSource audioSource = GetComponent<AudioSource>();
+        AudioManager.Instance.PlaySound(11, audioSource);
+    }
     /*
     private void OnTriggerEnter(Collider other)
     {

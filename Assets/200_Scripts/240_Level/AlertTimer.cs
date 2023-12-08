@@ -19,6 +19,7 @@ public class AlertTimer : MonoBehaviour
     {
         currentTime = _initialTime;
         UpdateTimerText();
+        PlayAlarm();
     }
 
     void Update()
@@ -65,5 +66,11 @@ public class AlertTimer : MonoBehaviour
     {
         defeat.DefeatGame();
         Debug.Log("Le temps est écoulé!");
+    }
+
+    private void PlayAlarm()
+    {
+        AudioSource audioSource = GetComponent<AudioSource>();
+        AudioManager.Instance.PlaySound(0, audioSource);
     }
 }

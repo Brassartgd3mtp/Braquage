@@ -146,6 +146,7 @@ public class LootableItem : InteractibleObjectV2
             {
                 // Jouez l'animation souhaitée
                 childAnimation.Play();
+                PlayPickUp();
             }
             else
             {
@@ -156,5 +157,11 @@ public class LootableItem : InteractibleObjectV2
         {
             Debug.LogError("La référence au GameObject enfant n'est pas définie.");
         }
+    }
+
+    private void PlayPickUp()
+    {
+        AudioSource audioSource = GetComponent<AudioSource>();
+        AudioManager.Instance.PlaySound(6, audioSource);
     }
 }

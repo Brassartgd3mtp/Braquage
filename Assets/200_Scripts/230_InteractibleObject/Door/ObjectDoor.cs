@@ -110,11 +110,13 @@ public class ObjectDoorV2 : InteractibleObjectV2
     {
         isTransitioning = true;
         doorAnimation.Play(nameOpenAnimation);
+        PlayDoorOpen();
     }
     public void CloseDoor()
     {
         isTransitioning = true;
         doorAnimation.Play(nameCloseAnimation);
+        PlayDoorClose();
     }
     void AnimationComplete()
     {
@@ -148,6 +150,18 @@ public class ObjectDoorV2 : InteractibleObjectV2
                 AccessCardText.SetActive(false);
             }
         }
+    }
+
+    private void PlayDoorOpen()
+    {
+        AudioSource audioSource = GetComponent<AudioSource>();
+        AudioManager.Instance.PlaySound(4, audioSource);
+    }
+
+    private void PlayDoorClose()
+    {
+        AudioSource audioSource = GetComponent<AudioSource>();
+        AudioManager.Instance.PlaySound(5, audioSource);
     }
 }
 

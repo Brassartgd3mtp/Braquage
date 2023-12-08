@@ -111,6 +111,7 @@ public class CrochetDoorV2 : ObjectDoorV2
     IEnumerator PickDoorCoroutine()
     {
         isBeingPicked = true;
+        PlayUnlockStart();
 
         // Attends la durée nécessaire pour crocheter la porte en fonction de la dureté du crochetage et du rôle du joueur qui effectue l'action
         foreach (PlayerRole roleScript in _playerRole)
@@ -122,5 +123,18 @@ public class CrochetDoorV2 : ObjectDoorV2
 
         UnlockDoor();
         isBeingPicked = false;
+        PlayUnlockEnd();
+    }
+
+    private void PlayUnlockStart()
+    {
+        AudioSource audioSource = GetComponent<AudioSource>();
+        AudioManager.Instance.PlaySound(1, audioSource);
+    }
+
+    private void PlayUnlockEnd()
+    {
+        AudioSource audioSource = GetComponent<AudioSource>();
+        AudioManager.Instance.PlaySound(3, audioSource);
     }
 }
