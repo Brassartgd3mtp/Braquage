@@ -110,13 +110,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1253191738033858932}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.49457467, y: 0.6000504, z: 0.40218487, w: -0.48330414}
+  m_LocalRotation: {x: -0.48077968, y: 0.59054524, z: 0.40918466, w: -0.502668}
   m_LocalPosition: {x: -0.030888354, y: -0.0008015822, z: -0.0035263468}
   m_LocalScale: {x: 0.06666667, y: 0.06666666, z: 0.06666666}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3184118841414159384}
-  m_LocalEulerAnglesHint: {x: -0.264, y: -102.083, z: -79.205}
+  m_LocalEulerAnglesHint: {x: 0.003, y: -99.194, z: -78.297}
 --- !u!108 &1926433520089189972
 Light:
   m_ObjectHideFlags: 0
@@ -191,8 +191,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9571df70651d2a242a6d97841494a11f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _alertTimer: {fileID: 0}
-  _alertActivate: {fileID: 0}
+  alertTimer: {fileID: 0}
+  alertActivate: {fileID: 0}
   numberOfRaycasts: 20
   detectionDistance: 10
   coneAngle: 80
