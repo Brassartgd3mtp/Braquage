@@ -20,6 +20,9 @@ public class Victory : MonoBehaviour
     public int collectedGoal = 0;       // Nombre d'objectifs accomplis
     public bool objectiveCompleted = false; // Variable indiquant si l'objectif est accompli
 
+    public GameObject zoneInactive;
+    public GameObject zoneActive;
+
     private void Start()
     {
         // Attend une seconde avant de vérifier le nombre total de personnages
@@ -36,6 +39,9 @@ public class Victory : MonoBehaviour
         {
             charactersInZoneText.gameObject.SetActive(true);
             charactersInZoneText.text = "Characters In Zone: " + charactersInZone + "/" + totalCharactersNeed;
+
+            zoneActive.SetActive(true);
+            zoneInactive.SetActive(false);
         }
     }
 
@@ -59,7 +65,6 @@ public class Victory : MonoBehaviour
             if (charactersInZone == totalCharactersNeed && objectiveCompleted)
             {
                 ShowVictoryWindow();
-                PauseGame();
             }
         }
     }
@@ -77,23 +82,11 @@ public class Victory : MonoBehaviour
         if (victoryWindow != null)
         {
             victoryWindow.SetActive(true);
-            // Ajouter ici d'autres actions liées à l'affichage de la fenêtre de victoire
+            Time.timeScale = 0f;
         }
         else
         {
             Debug.LogError("Victory window is not assigned!");
-        }
-    }
-
-    private void PauseGame()
-    {
-        if (activePause != null)
-        {
-            activePause.PauseGame();
-        }
-        else
-        {
-            Debug.LogError("PauseManager script is not assigned!");
         }
     }
     #endregion
