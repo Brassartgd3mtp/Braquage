@@ -49,7 +49,11 @@ public class LootableBar : MonoBehaviour
 
         progression.fillAmount = targetFillAmount; // Assure la valeur finale
         progression.color = endColor; // Assure la couleur finale
-        textGain.SetActive(true);
+        if (textGain != null)
+        {
+            textGain.SetActive(true);
+        }
+
         Destroy(destroyHimSelf);
     }
 }
