@@ -8,6 +8,7 @@ public class LootableBar : MonoBehaviour
     public Image progression;
     public LootableItem lootableItem;
     public GameObject destroyHimSelf;
+    public GameObject textGain;
 
     public Color startColor = new Color(1.0f, 0.0f, 0.0f, 1.0f); // Rouge avec alpha à 1.0
     public Color endColor = new Color(0.0f, 1.0f, 0.0f, 1.0f); // Vert avec alpha à 1.0
@@ -48,6 +49,7 @@ public class LootableBar : MonoBehaviour
 
         progression.fillAmount = targetFillAmount; // Assure la valeur finale
         progression.color = endColor; // Assure la couleur finale
+        textGain.SetActive(true);
         Destroy(destroyHimSelf);
     }
 }

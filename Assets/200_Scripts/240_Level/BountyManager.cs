@@ -8,6 +8,8 @@ public class BountyManager : MonoBehaviour
 
     public TextMeshProUGUI bountyText; // Référence au TextMeshPro associé au bounty
 
+    public int bountyGain;
+
     private int totalBounty = 0; // Valeur totale du bounty
 
     private void Start()
@@ -30,6 +32,7 @@ public class BountyManager : MonoBehaviour
     public void AddBounty(int amount)
     {
         totalBounty += amount;
+        bountyGain = amount;
         UpdateBountyText();
     }
 

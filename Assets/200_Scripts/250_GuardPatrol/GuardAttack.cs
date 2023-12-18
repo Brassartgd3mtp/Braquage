@@ -14,6 +14,8 @@ public class GuardAttack : GuardBehaviour
     private GameObject[] players;
 
     public Animator animator;
+
+    public bool attackPlayer = false;
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -22,7 +24,7 @@ public class GuardAttack : GuardBehaviour
     public override void ApplyBehaviour()
     {
         // Vérifier si le joueur est à portée d'attaque
-        if (DetectPlayer() && Vector3.Distance(transform.position, GetClosestPlayer().transform.position) <= attackRange)
+        if (DetectPlayer() && Vector3.Distance(transform.position, GetClosestPlayer().transform.position) <= attackRange && !attackPlayer)
         {
             // Attaquer si le joueur est à portée
             Attack();
@@ -102,6 +104,7 @@ public class GuardAttack : GuardBehaviour
         if (unitMovement != null)
         {
             unitMovement.Immobilize();
+            attackPlayer = true;
         }
 
         animator.SetBool("Immobilisation", true);
