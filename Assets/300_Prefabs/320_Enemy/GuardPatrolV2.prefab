@@ -1177,9 +1177,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 6.0726995
   m_Direction: 1
-  m_Center: {x: 0, y: 1.13, z: -0.46}
+  m_Center: {x: 0, y: 3.1663494, z: -0.46000004}
 --- !u!195 &337680322928965859
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1249,7 +1249,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
   normalSpeed: 3.5
   excludedLayers:
     serializedVersion: 2
@@ -1261,7 +1260,7 @@ MonoBehaviour:
   minWaypointTimer: 1
   maxWaypointTimer: 3
   doorToInteract: {fileID: 0}
-  doorInteractionDistance: 10
+  doorInteractionDistance: 5
 --- !u!114 &7353716472620686938
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10087,8 +10087,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.043436497, y: 0.026832886, z: 0.030416407}
-  m_Center: {x: -0.016512543, y: -0.0045228405, z: 0.005208205}
+  m_Size: {x: 0.043436497, y: 0.026832886, z: 0.04177765}
+  m_Center: {x: -0.016512543, y: -0.004522841, z: 0.010888861}
 --- !u!111 &5863639957289536893
 Animation:
   m_ObjectHideFlags: 0
@@ -10139,12 +10139,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80e10a85cdbb665409befebe19d49330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOpening: 0
   requiresAccessCard: 0
   requiresRedCard: 0
   requiresBlueCard: 0
   requiresGreenCard: 0
   nameOpenAnimation: OpenVaultDoorAnimation
   nameCloseAnimation: CloseVaultDoorAnimation
+  nameCardAnimation: 
   isLocked: 1
   isBeingPicked: 0
   _playerRole: []
@@ -10154,6 +10156,8 @@ MonoBehaviour:
   sparkParticle: {fileID: 3383352106420269506}
   raycastDistance: 10
   doorAnimation: {fileID: 0}
+  AccessCardText: {fileID: 0}
+  SecurityPass: {fileID: 0}
   textRequiredRole: {fileID: 99045775734821820}
   displayTime: 2
   fadeTime: 1

@@ -13,6 +13,7 @@ public class ActivePause : MonoBehaviour
     private void Start()
     {
         PauseDisplay.SetActive(false);
+        ResumeGame();
     }
     void Update()
     {
