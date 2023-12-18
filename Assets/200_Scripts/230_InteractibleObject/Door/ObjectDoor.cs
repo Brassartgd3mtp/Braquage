@@ -132,7 +132,7 @@ public class ObjectDoorV2 : InteractibleObjectV2
         {
             interactingPlayer = playerScript;
         }
-        if (requiresAccessCard && AccessCardText != null)
+        if (requiresAccessCard && AccessCardText != null && playerScript.RedCard == false)
         {
             AccessCardText.SetActive(true);
         }

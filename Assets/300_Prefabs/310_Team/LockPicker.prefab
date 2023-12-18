@@ -1181,6 +1181,7 @@ GameObject:
   - component: {fileID: 946428416800924143}
   - component: {fileID: 8835506770358711422}
   - component: {fileID: 3010825557697063713}
+  - component: {fileID: 643905581161808271}
   m_Layer: 7
   m_Name: LockPicker
   m_TagString: Player
@@ -1450,9 +1451,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1311a93a4f6905f41beab2766187c694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  technician: 1
+  technician: 0
   lockPicker: 0
-  transporter: 0
+  transporter: 1
   _pickingMultiplier: 0.2
   blueCard: 0
   greenCard: 0
@@ -1613,6 +1614,60 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &643905581161808271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8685581985770203336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c8c92e8943a9914ba89720ba5fcf806, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ViewRadius: 10
+  SoftenDistance: 3
+  ViewAngle: 160
+  UnobscuredRadius: 3
+  Opacity: 1
+  AddCorners: 1
+  RevealHiderInFadeOutZonePercentage: 0.5
+  EyeOffset: 0
+  VisionHeight: 3
+  VisionHeightSoftenDistance: 1.5
+  ObstacleMask:
+    serializedVersion: 2
+    m_Bits: 526337
+  RaycastResolution: 0.5
+  ResolveEdge: 1
+  MaxEdgeResolveIterations: 10
+  NumExtraIterations: 4
+  NumExtraRaysOnIteration: 3
+  MaxAcceptableEdgeAngleDifference: 0.005
+  EdgeDstThreshold: 0.1
+  DoubleHitMaxAngleDelta: 15
+  StartRevealerAsStatic: 0
+  StaticRevealer: 0
+  FogOfWarID: 0
+  IndexID: 0
+  NumberOfPoints: 0
+  Angles: []
+  Radii: []
+  AreHits: 
+  DebugMode: 0
+  DrawInitialRays: 0
+  SegmentTest: 0
+  DrawSegments: 0
+  DrawOutline: 0
+  DrawExpectedNextPoints: 0
+  DrawIteritiveRays: 0
+  DrawEdgeResolveRays: 0
+  LogNumRaycasts: 0
+  NumRayCasts: 0
+  DrawRayNoise: 0
+  DrawExtraCastLines: 0
+  hidersSeen: []
 --- !u!1 &8693600811637739846
 GameObject:
   m_ObjectHideFlags: 0

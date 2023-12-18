@@ -31,6 +31,12 @@ public class GuardController : MonoBehaviour
     }
     private void Update()
     {
+        if (guardDead)
+        {
+            guardAttack.enabled = false;
+            guardChase.enabled = false;
+            guardPatrol.enabled = false;
+        }
         currentBehaviour.ApplyBehaviour();
 
         // Vérifier la transition
@@ -71,5 +77,5 @@ public class GuardController : MonoBehaviour
 
         Debug.Log($"Switching to {behaviour} state.");
 
-    }    
+    }
 }

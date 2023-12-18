@@ -80,7 +80,7 @@ public class LootableItem : InteractibleObjectV2
     IEnumerator DelayedAction(PlayerRole accesCard, LootTable selectedLootTable)
     {
         // Attendre 2 secondes
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(totalSearchTime);
         Animator playerAnimator = accesCard.GetComponent<Animator>();
         playerAnimator.SetBool("DoingAction", false);
 
