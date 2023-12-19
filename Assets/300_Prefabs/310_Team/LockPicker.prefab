@@ -1452,8 +1452,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   technician: 0
-  lockPicker: 0
-  transporter: 1
+  lockPicker: 1
+  transporter: 0
   _pickingMultiplier: 0.2
   blueCard: 0
   greenCard: 0

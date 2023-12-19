@@ -91,6 +91,37 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 0.1, y: 0.1}
   m_UseGraphicAlpha: 1
+--- !u!1 &511935824535344970
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7992434449311266586}
+  m_Layer: 19
+  m_Name: SamplePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7992434449311266586
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511935824535344970}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.77, y: 0, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 581944048734948013}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1994816102386864127
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,6 +199,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 581944048734948013}
+  - component: {fileID: 3356937580501293743}
+  - component: {fileID: 9098792343744178426}
   m_Layer: 19
   m_Name: CrochetDoor
   m_TagString: Untagged
@@ -185,13 +218,47 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.93, y: 1.96, z: 17.356873}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.72}
+  m_LocalScale: {x: 0.6999999, y: 0.7, z: 0.71999997}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5994743771151264398}
   - {fileID: 3672732460799088810}
+  - {fileID: 7992434449311266586}
+  - {fileID: 2244686190235282667}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3356937580501293743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2645117172784472356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06c78af948052824d93c22c84c08dd65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  samplePoints:
+  - {fileID: 7992434449311266586}
+  - {fileID: 2244686190235282667}
+  maxDistBetweenPoints: 0
+  seenCount: 0
+  seenBy: []
+--- !u!114 &9098792343744178426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2645117172784472356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dfbeda9b3b3aa04bbb897826b875157, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectsToHide:
+  - {fileID: 5730918326914606144}
 --- !u!1 &4064479259094716119
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,7 +328,7 @@ GameObject:
   - component: {fileID: 923593725138495334}
   - component: {fileID: 7313255206552417875}
   - component: {fileID: 8403274951669658665}
-  - component: {fileID: 480946525554467322}
+  - component: {fileID: 8147095580051006459}
   m_Layer: 8
   m_Name: LittleDoor
   m_TagString: Interactible
@@ -442,7 +509,7 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!82 &480946525554467322
+--- !u!82 &8147095580051006459
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -630,6 +697,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e90d77e3a4234a941b208803e9ff62e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &6923833982317657757
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2244686190235282667}
+  m_Layer: 19
+  m_Name: SamplePoint (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2244686190235282667
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6923833982317657757}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.4, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 581944048734948013}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8623431653539558747
 GameObject:
   m_ObjectHideFlags: 0

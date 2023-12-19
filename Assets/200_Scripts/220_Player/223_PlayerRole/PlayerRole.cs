@@ -22,9 +22,11 @@ public class PlayerRole : MonoBehaviour
 
     public float _pickingMultiplier = 1.0f;
 
+    private bool takeGoal = false;
     private bool redCard = false;
     public bool blueCard = false;
     public bool greenCard = false;
+
 
     public GameObject redCardUI;
 
@@ -37,4 +39,15 @@ public class PlayerRole : MonoBehaviour
             redCardUI.SetActive(redCard);
         }
     }
+
+    public bool TakeGoal
+    {
+        get { return takeGoal; }
+        set
+        {
+            takeGoal = value;
+            //takeGoalUI.SetActive(takeGoal);
+        }
+    }
+
 }
