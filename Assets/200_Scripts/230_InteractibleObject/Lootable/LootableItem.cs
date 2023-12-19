@@ -48,7 +48,7 @@ public class LootableItem : InteractibleObjectV2
                 // Modifier cette ligne pour trouver dynamiquement le PlayerRole en fonction du joueur qui interagit
                 PlayerRole accesCard = FindPlayerRole(interactingPlayer);
 
-                if (accesCard != null && wasSearched == false)
+                if (accesCard != null && !wasSearched)
                 {
                     StartCoroutine(DelayedAction(accesCard, selectedLootTable));
 
@@ -82,6 +82,7 @@ public class LootableItem : InteractibleObjectV2
         // Attendre 2 secondes
         yield return new WaitForSeconds(totalSearchTime);
         Animator playerAnimator = accesCard.GetComponent<Animator>();
+        wasSearched = true;
         playerAnimator.SetBool("DoingAction", false);
 
         // Réactiver le NavMeshAgent du joueur après la fouille
@@ -109,9 +110,8 @@ public class LootableItem : InteractibleObjectV2
                 break;
         }
 
-        BountyManager.Instance.AddBounty(selectedLootTable.bounty);
 
-        wasSearched = true;
+        BountyManager.Instance.AddBounty(selectedLootTable.bounty);
         lootableAnimation.Play(nameAnimation);
     }
     PlayerRole FindPlayerRole(GameObject interactingPlayer)

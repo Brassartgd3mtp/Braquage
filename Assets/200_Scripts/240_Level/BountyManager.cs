@@ -12,6 +12,15 @@ public class BountyManager : MonoBehaviour
 
     private int totalBounty = 0; // Valeur totale du bounty
 
+    public int TotalBounty
+    {
+        get { return totalBounty; }
+        set
+        {
+            totalBounty = value;
+        }
+    }
+
     private void Start()
     {
         bountyText = GetComponentInChildren<TextMeshProUGUI>();
@@ -31,8 +40,14 @@ public class BountyManager : MonoBehaviour
 
     public void AddBounty(int amount)
     {
-        totalBounty += amount;
+        TotalBounty += amount;
         bountyGain = amount;
+        
+        if (amount > 1)
+        {
+            PlaySFXBounty();
+        }
+
         UpdateBountyText();
     }
 
@@ -40,11 +55,17 @@ public class BountyManager : MonoBehaviour
     {
         if (bountyText != null)
         {
-            bountyText.text = "Total Bounty: " + totalBounty.ToString();
+            bountyText.text = "Total Bounty: " + TotalBounty.ToString();
         }
         else
         {
             Debug.LogError("Bounty Text not assigned in the inspector.");
         }
+    }
+
+    private void PlaySFXBounty()
+    {
+        AudioSource audioSource = GetComponent<AudioSource>();
+        AudioManager.Instance.PlaySound(12, audioSource);
     }
 }

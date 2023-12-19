@@ -58,29 +58,12 @@ public class UnitClick : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))  // Touche é
         {
-            UnitSelections.Instance.NumKeySelect(1);
+            UnitSelections.Instance.NumKeySelect(2);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))  // Touche "
         {
-            UnitSelections.Instance.NumKeySelect(2);
+            UnitSelections.Instance.NumKeySelect(1);
         }
-
-        ////Si je clique droit fait apparaitre un symbole au sol
-        //if (Input.GetMouseButtonDown(1))
-        //{
-        //    RaycastHit hit;
-        //    Ray ray = myCam.ScreenPointToRay(Input.mousePosition);
-        //
-        //    if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
-        //    {
-        //        groundMarker.transform.position = hit.point;
-        //        groundMarker.SetActive(true);
-        //
-        //        // Active le timer en passant isActive à true
-        //        isActive = true;
-        //        Invoke("DisableGroundMarker", 2.0f); // Appelle la méthode DisableGroundMarker après 2 secondes
-        //    }
-        //}
     }
     void DisableGroundMarker()
     {

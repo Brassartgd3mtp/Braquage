@@ -29,6 +29,7 @@ public class PlayerRole : MonoBehaviour
 
 
     public GameObject redCardUI;
+    public GameObject takeGoalUI;
 
     public bool RedCard
     {
@@ -37,6 +38,8 @@ public class PlayerRole : MonoBehaviour
         {
             redCard = value;
             redCardUI.SetActive(redCard);
+            AudioSource audioSource = GetComponent<AudioSource>();
+            AudioManager.Instance.PlaySound(13, audioSource);
         }
     }
 
@@ -46,7 +49,7 @@ public class PlayerRole : MonoBehaviour
         set
         {
             takeGoal = value;
-            //takeGoalUI.SetActive(takeGoal);
+            takeGoalUI.SetActive(takeGoal);
         }
     }
 
