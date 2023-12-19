@@ -54,11 +54,11 @@ public class UnitClick : MonoBehaviour
         // Ajout des touches pour sélectionner/désélectionner
         if (Input.GetKeyDown(KeyCode.Alpha1))  // Touche &
         {
-            UnitSelections.Instance.NumKeySelect(1);
+            UnitSelections.Instance.NumKeySelect(0);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))  // Touche é
         {
-            UnitSelections.Instance.NumKeySelect(0);
+            UnitSelections.Instance.NumKeySelect(1);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))  // Touche "
         {
