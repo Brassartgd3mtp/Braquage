@@ -43,7 +43,7 @@ public class BountyManager : MonoBehaviour
         TotalBounty += amount;
         bountyGain = amount;
         
-        if (amount > 1)
+        if (amount > 0)
         {
             PlaySFXBounty();
         }

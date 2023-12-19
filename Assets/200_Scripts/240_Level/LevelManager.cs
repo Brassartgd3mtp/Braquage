@@ -7,7 +7,12 @@ public class LevelManager : MonoBehaviour
     //Script qui gère l'alerte et donc l'échec, l'activation de la sortie quand l'objectif est remplie et la réussite
 
     public static List<GameObject> goalObjects = new List<GameObject>();
-    
+
+    private void Awake()
+    {
+        Application.targetFrameRate = 60;
+        
+    }
 
     void Start()
     {

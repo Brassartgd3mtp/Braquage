@@ -31,6 +31,8 @@ public class PlayerRole : MonoBehaviour
     public GameObject redCardUI;
     public GameObject takeGoalUI;
 
+    
+
     public bool RedCard
     {
         get { return redCard; }
@@ -38,8 +40,7 @@ public class PlayerRole : MonoBehaviour
         {
             redCard = value;
             redCardUI.SetActive(redCard);
-            AudioSource audioSource = GetComponent<AudioSource>();
-            AudioManager.Instance.PlaySound(13, audioSource);
+            PlaySFX(13);
         }
     }
 
@@ -53,4 +54,9 @@ public class PlayerRole : MonoBehaviour
         }
     }
 
+    private void PlaySFX(int soundID)
+    {
+        AudioSource audioSource = GetComponent<AudioSource>();
+        AudioManager.Instance.PlaySound(soundID, audioSource);
+    }
 }
