@@ -27561,7 +27561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraMotion: {fileID: 1473192799011568880}
   targetObject: {fileID: 1777018616}
-  IDKeySelect: 1
+  IDKeySelect: 0
 --- !u!114 &885412619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45303,7 +45303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraMotion: {fileID: 1473192799011568880}
   targetObject: {fileID: 1189931527}
-  IDKeySelect: 0
+  IDKeySelect: 1
 --- !u!1 &1516592417
 GameObject:
   m_ObjectHideFlags: 0
