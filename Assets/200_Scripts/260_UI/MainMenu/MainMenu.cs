@@ -32,8 +32,12 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    public void InputDisplay()
+    public void OpenInputDisplay()
     {
         InputGO.gameObject.SetActive(true);
+    }
+    public void CloseInputDisplay()
+    {
+        InputGO.gameObject.SetActive(false);
     }
 }
